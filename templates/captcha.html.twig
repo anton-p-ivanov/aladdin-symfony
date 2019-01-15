@@ -1,0 +1,11 @@
+<script src="https://www.google.com/recaptcha/api.js?render=6Le0-HcUAAAAANMwSAgmA3eAaP7tVgyRvw2tPVXw"></script>
+<!--suppress JSUnresolvedVariable, JSUnresolvedFunction -->
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6Le0-HcUAAAAANMwSAgmA3eAaP7tVgyRvw2tPVXw', {action: '{{ action }}'})
+            .then(function(token) {
+                let captcha = document.getElementById('{{ id }}');
+                captcha.value = token;
+            });
+    });
+</script>

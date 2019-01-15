@@ -1,0 +1,7 @@
+<h2>Дополнительно</h2>
+{% set tabs = [
+    { 'id': 'specification', 'title': 'Специалисту', 'active': true, 'url': path('catalog:product:page', {'product': 'jas', 'page': 'specification'}), 'view': 'catalog/jas/specification.html.twig' },
+    { 'id': 'license', 'title': 'Лицензирование', 'active': false, 'url': path('catalog:product:page', {'product': 'jas', 'page': 'license'}) },
+    { 'id': 'support', 'title': 'Поддержка', 'active': false, 'url': path('catalog:product:page', {'product': 'jas', 'page': 'support'}) },
+] %}
+{{ include('tabs.html.twig') }}

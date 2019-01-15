@@ -1,0 +1,40 @@
+<div id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <a href="{{ url('home') }}" title="Нажмите, чтобы вернуться на главную">
+                    <img src="{{ asset('logo.svg') }}" class="logo" height="100" alt="Компания Аладдин Р.Д. - средства аутентификации, информационная безопасность и защита конфиденциальных данных" />
+                </a>
+            </div>
+            <div class="col-7 d-flex align-items-center justify-content-center">
+                {% set items = [
+                    { 'route': 'catalog', 'title': 'Продукты' },
+                    { 'route': 'buy', 'title': 'Цены и заказ' },
+                    { 'route': 'support', 'title': 'Поддержка' },
+                    { 'route': 'company', 'title': 'Компания' },
+                    { 'route': 'partners', 'title': 'Партнёры' },
+                    { 'route': 'contacts', 'title': 'Контакты' },
+                ] %}
+                <nav class="main" role="menu">
+                    {% for item in items %}
+                        {% set isActive = (item.route | split(':'))[0] == (app.request.attributes.get('_route') | split(':')[0]) %}
+                        {% if item.visible is not defined or item.visible %}
+                            <a href="{{ path(item.route) }}"{% if isActive %} class="active"{% endif %} role="menuitem">{{ item.title }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </nav>
+            </div>
+            <div class="col-3 d-flex align-items-center">
+                <form class="search-form">
+                    <label for="search" class="sr-only">Поиск по сайту</label>
+                    <div class="search-container">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Поиск по сайту...">
+                        <button class="btn btn-link text-secondary" type="button">
+                            <ion-icon name="search" size="medium"></ion-icon>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

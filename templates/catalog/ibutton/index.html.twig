@@ -1,0 +1,49 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Электронные идентификаторы iButton{% endblock %}
+
+{% block meta_description %}
+    Идентификация для персональных компьютеров и СКУД
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>iButton — это семейство многофункциональных микроэлектронных устройств, разработанных фирмой Dallas Semiconductor (USA) в настоящее время выпускаемых фирмой <a target="_blank" href="http://www.maxim-ic.com/" >Maxim</a>)</p>
+            {% set features = [
+                "Средства идентификации;",
+                "Системы контроля доступа;",
+                "Системы компьютерной безопасности;",
+                "Температурный мониторинг и др.",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/350x350/iButton.png') }}" class="img-fluid" alt="{{ block('title') }} - {{ block('meta_description') }}" />
+            <div class="mt-4">
+                <a href="{{ path('support:downloads:section', {'code': 'ibutton'}) }}" class="btn btn-primary">Скачать драйвер</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'description', 'title': 'Описание', 'active': true, 'view': 'catalog/ibutton/_description.html.twig' },
+                { 'id': 'models', 'title': 'Модели', 'active': false, 'view': 'catalog/ibutton/_models.html.twig' },
+                { 'id': 'specification', 'title': 'Спецификация', 'active': false, 'view': 'catalog/ibutton/_specification.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

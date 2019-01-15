@@ -1,0 +1,68 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Secret Disk Server NG (коммерческая версия){% endblock %}
+
+{% block meta_description %}
+    Защита конфиденциальной информации и персональных данных на серверах
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>Комплекс защиты информации на сервере от несанкционированного доступа, копирования, повреждения, кражи или неправомерного изъятия</p>
+            {% set features = [
+                "Защита от несанкционированного доступа баз данных, корпоративной почты и другой информации на дисках сервера",
+                "Двухфакторная аутентификация администраторов с помощью электронных ключей",
+                "Многопользовательская работа с защищёнными данными",
+                "Экстренная блокировка доступа к данным",
+                "Возможность использования сертифицированных криптопровайдеров",
+                "Надёжная защита баз данных \"1С\"",
+                "Поддержка Microsoft Windows Server версий от 2003 до 2012 R2",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/secret_disk/Box_Media_Kit_SDS.png') }}" class="img-fluid" style="max-height: 300px" alt="Secret Disk Server NG - {{ block('meta_description') }}" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/73533/" target="_blank">№ 519</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("support:downloads:section", {"code": "secret_disk_server_ng"}) }}">Скачать Secret Disk Server NG</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('download', {'uuid': 'eb02996e-83e6-496c-9318-02952ea8f16e'}) }}">Краткая справочная информация</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'description', 'title': 'Описание', 'active': true, 'view': 'catalog/secret_disk_server_ng/_description.html.twig' },
+                { 'id': 'specialist', 'title': 'Специалисту', 'active': false, 'view': 'catalog/secret_disk_server_ng/_specialist.html.twig' },
+                { 'id': 'specification', 'title': 'Спецификация', 'active': false, 'view': 'catalog/secret_disk_server_ng/_specification.html.twig' },
+                { 'id': 'kit', 'title': 'Комплект поставки', 'active': false, 'view': 'catalog/secret_disk_server_ng/_kit.html.twig' },
+                { 'id': 'warranty', 'title': 'Гарантийное обслуживание', 'active': false, 'view': 'catalog/secret_disk_server_ng/_warranty.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

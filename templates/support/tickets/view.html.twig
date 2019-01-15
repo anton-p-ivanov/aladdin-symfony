@@ -1,0 +1,26 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Мои обращения{% endblock %}
+
+{% block content %}
+    <h4>Обращение № {{ ticket.TicketNumber }} от {{ ticket.Created | date('d.m.Y') }}</h4>
+    <div>
+        <div>Тема: {{ ticket.Title }}</div>
+        <div>Статус: {{ ticket.State }}</div>
+        <div>Обновлено: {{ ticket.Changed | date }}</div>
+    </div>
+
+    {% for article in articles %}
+        {% set isCustomer = article.SenderType == 'customer' %}
+        <div class="card w-75 my-4 float-{{ isCustomer ? 'right' : 'left' }}">
+            <div class="card-header">
+                {% if isCustomer %} Вы {% else %} Техподдержка {% endif %} @ {{ article.Created | date }}
+            </div>
+            <div class="card-body">{{ article.Body | otrsArticle | raw }}</div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}

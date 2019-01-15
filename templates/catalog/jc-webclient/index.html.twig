@@ -1,0 +1,163 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JC-WebClient{% endblock %}
+{% block meta_description %}Строгая аутентификация и электронная подпись для Web-приложений и облачных сервисов{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">Строгая аутентификация и электронная подпись для Web-приложений и облачных сервисов</p>
+            <p>Позволяет легко встроить в Web-приложения функции:</p>
+            {% set features = [
+                "строгой двухфакторной взаимной аутентификации пользователя и Web-сервера;",
+                "работы с усиленной и усиленной квалифицированной электронной подписью;",
+                "безопасного подтверждения транзакций/операций при работе в недоверенной среде;",
+                "шифрования данных с использованием российских или зарубежных криптоалгоритмов.",
+            ] %}
+            <ul class="list-unstyled list-icons">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    {{ feature }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jc-webclient/JC-WebClient.png') }}" alt="JC-WebClient - строгая аутентификация и электронная подпись для Web-приложений и облачных сервисов" />
+
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125861/" target="_blank">№ 4298</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex">
+                <a href="{{ path('download', {'uuid': '03265837-c247-4f38-9b17-de055bba0168'}) }}" class="btn btn-dark">Скачать брошюру</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path('support:page', {'page': 'sdk', '_fragment': 'jc-webclient_sdk'}) }}">Заказать JC-WebClient SDK</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#features">Особенности</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#cross-platform">Преимущества</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#details">Специалисту</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="features">
+            {{ include('catalog/jc-webclient/_features.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="cross-platform">
+            {{ include('catalog/jc-webclient/_cross-platform.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="cross-browser">
+            {{ include('catalog/jc-webclient/_cross-browser.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="easy-integration">
+            {{ include('catalog/jc-webclient/_easy-integration.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="easy-install">
+            {{ include('catalog/jc-webclient/_easy-install.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="easy-use">
+            {{ include('catalog/jc-webclient/_easy-use.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="fault-tolerance">
+            {{ include('catalog/jc-webclient/_fault-tolerance.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-dark text-light section" style="background: url('/images/catalog/jc-webclient/support-cryptography.jpg') no-repeat 50% 50%;background-size:cover;">
+        <div class="container" id="support-cryptography">
+            {{ include('catalog/jc-webclient/_support-cryptography.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="support-tokens">
+            {{ include('catalog/jc-webclient/_support-tokens.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="high-security">
+            {{ include('catalog/jc-webclient/_high-security.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="antifraud-terminal">
+            {{ include('catalog/jc-webclient/_antifraud-terminal.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section" style="background: url('/images/catalog/jc-webclient/free-for-enduser.jpg') no-repeat 50% 35%;background-size:cover;">
+        <div class="container" id="free-for-enduser">
+            {{ include('catalog/jc-webclient/_free-for-enduser.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="how-it-works">
+            {{ include('catalog/jc-webclient/_how-it-works.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="top-clients">
+            {{ include('catalog/jc-webclient/_top-clients.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jc-webclient/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jc-webclient/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jc-webclient/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JC-Mobile{% endblock %}
+{% block meta_description %}Строгая аутентификация и электронная подпись для мобильных приложений{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">Строгая аутентификация и электронная подпись для мобильных приложений</p>
+            <p>JC-Mobile позволяет организовать безопасный доступ к системам и сервисам компании с мобильных устройств и обеспечивает юридическую значимость подписываемых электронных документов и производимых операций.
+                Вам будут доступны следующие функции на мобильных устройствах:</p>
+            {% set features = [
+                "cтрогая взаимная двухфакторная аутентификация;",
+                "формирование усиленной квалифицированной электронной подписи;",
+                "безопасное хранение ключей и цифровых сертификатов на отчуждаемом модуле безопасности (смарт-карта, MicroUSB- или Secure MicroSD-токен).",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    {{ feature }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jc-mobile/JC-Mobile.png') }}" class="img-fluid" alt="JC-Mobile - строгая аутентификация и электронная подпись для мобильных приложений" />
+
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125860/" target="_blank">№ 4297</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex">
+                <a href="{{ path('download', {'uuid': 'cda6e5ab-d90e-4830-b6f9-8c9ea0365ab1'}) }}" class="btn btn-dark">Скачать брошюру</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path('support:page', {'page': 'sdk', '_fragment': 'jc-mobile_sdk'}) }}">Заказать JC-Mobile SDK</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#description">Описание</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#scenarios">Сценарии</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#advantages">Преимущества</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#composition">Состав решения</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#details">Специалисту</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/jc-mobile/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="scenarios">
+            {{ include('catalog/jc-mobile/_scenarios.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="advantages">
+            {{ include('catalog/jc-mobile/_advantages.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="details">
+            {{ include('catalog/jc-mobile/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jc-mobile/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jc-mobile/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

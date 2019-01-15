@@ -1,0 +1,22 @@
+<h2>Исполнения</h2>
+
+{{ include('catalog/jacarta/_shared/_models.html.twig', {'col': 4, 'models': [
+    { 'image': 'Card_JC300_Black_Crop.png', 'title': 'Смарт-карты в базовом чёрном дизайне' },
+    { 'image': 'Computer_PC_left_JC-XL_Crop.jpg', 'title': 'USB-токены в классическом корпусе XL' },
+]}) }}
+
+<h2 class="mt-4">Дополнительное оборудование</h2>
+
+{{ include('catalog/jacarta/_shared/_recommended.html.twig', {'models': [
+    { 'image': 'ASEDrive_IIIe_Bio_Combo_Crop.png', 'title': 'ASEDrive IIIe Bio Combo', 'description': 'Смарт-карт ридер со встроенным сканером отпечатка пальца для использования на стационарных ПК, где предъявляются повышенные требования к уровню безопасности.', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_Bio'}) },
+    { 'image': 'ASEDrive_Combo_Bio_Swipe_Crop.png', 'title': 'ASEDrive IIIe Bio Combo Swipe', 'description': 'Компактный смарт-карт ридер для стационарных ПК сочетает в одном корпусе swipe-сенсор для отпечатков пальцев и считыватель смарт-карт.', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_Bio_Swipe'}) },
+    { 'image': 'ASEDrive_Keyboard_Bio_Crop.jpg', 'title': 'ASEDrive IIIe Bio Keyboard', 'description': 'Применение клавиатуры со встроенным смарт-карт ридером и биометрическим сканером отпечатков пальцев позволяет строить решения с многофакторной аутентификацией.', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_Keyboard_Bio'}) },
+]}) }}
+
+<div class="row justify-content-center">
+    <div class="col-8 mt-4">
+        <div class="alert alert-info alert-lg">
+            Вы можете использовать другие современные <em>полупроводниковые</em> сканеры отпечатков пальцев, например, встроенные в смарт-карт ридеры, клавиатуры или ноутбуки. Однако для этих сканеров необходимо предварительное тестирование на совместимость с JaCarta PKI/BIO.
+        </div>
+    </div>
+</div>

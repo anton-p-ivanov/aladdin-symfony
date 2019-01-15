@@ -1,0 +1,243 @@
+<h3>Архитектура JaCarta Authentication Server</h3>
+
+<p>
+    <img src="{{ asset('images/catalog/jas/JaCarta_Authentication_Server_Architecture.png') }}" class="img-fluid" alt="Архитектура JaCarta Authentication Server" />
+</p>
+
+<h3>Сервер JAS</h3>
+
+<ul>
+    <li><b>Сервер аутентификации</b> реализован в виде сервиса Microsoft Windows – Aladdin JAS Engine Service:
+        <ul>
+            <li><b>OTP-кэш</b>: информация о токенах считывается в оперативную память из базы данных при старте сервиса;</li>
+            <li><b>текущие значения счётчиков</b>: обновляются при выполнении служебных операций через Консоль управления.</li>
+        </ul>
+    </li>
+    <li><b>Консоль управления JAS (Агент JAS)</b>:
+        <ul>
+            <li>управление токенами и пользователями;</li>
+            <li>может быть установлена на отдельный компьютер;</li>
+            <li>режимы аутентификации и авторизации пользователя:
+                <ul>
+                    <li>учётная запись Microsoft Windows + членство в группе;</li>
+                    <li>аутентификация отключена.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><b>Хранилище учётных записей</b>: Microsoft SQL Server или Microsoft Active Directory/Microsoft Security Account Manager.</li>
+    <li><b>База данных Microsoft SQL Server </b>
+        <ul>
+            <li>хранение информации о токенах и пользователях</li>
+            <li>достаточно установить только один компонент — Microsoft SQL Server Database Engine</li>
+            <li>база данных создаётся автоматически в процессе настройки сервера JAS</li>
+            <li>доступные режимы аутентификации пользователя базы данных:
+                <ul>
+                    <li>средствами Microsoft Windows;</li>
+                    <li>средствами Microsoft SQL Server.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Системные требования</h3>
+
+<table class="table">
+    <colgroup>
+        <col width="300">
+        <col span="3">
+    </colgroup>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Сервер JAS</th>
+        <th>Консоль управления JAS</th>
+        <th>Модуль OTP для Microsoft NPS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Процессор (минимум)</td>
+        <td>Intel Core i3-3xxx</td>
+        <td>Intel Core i3-3xxx</td>
+        <td>Intel Core i3-3xxx</td>
+    </tr>
+    <tr>
+        <td>Память (минимум)</td>
+        <td>3 ГБ</td>
+        <td>1 ГБ</td>
+        <td>2 ГБ</td>
+    </tr>
+    <tr>
+        <td>ОС</td>
+        <td>Microsoft Windows Server 2008 R2 SP1 или выше</td>
+        <td>Microsoft Windows Vista SP2 или выше (32/64)</td>
+        <td>Microsoft Windows Server 2008 SP2 или выше (32/64)</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Дополнительное ПО</td>
+        <td>Microsoft SQL Server 2008 или выше</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+    </tr>
+    <tr>
+        <td>Microsoft .NET Framework 4.0</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Технические характеристики</h3>
+
+<table class="table">
+    <colgroup>
+        <col width="300" />
+        <col />
+    </colgroup>
+    <tbody>
+    <tr>
+        <td>Системные требования</td>
+        <td>
+            <div class="row">
+                <div class="col-4">
+                    <p><b>Сервер JAS</b></p>
+                    <ul><li>Процессор: Intel Core i3-3xxx
+                        </li><li>Оперативная память: от 3 ГБ
+                        </li><li>ОС: Microsoft Windows Server 2008 R2 SP1 или выше
+                        </li><li>Дополнительное ПО
+                            <ul><li>Microsoft SQL Server 2008 (или выше)
+                                </li><li>Microsoft .NET Framework 4.0</li></ul></li></ul>
+                </div>
+                <div class="col-4">
+                    <p><b>Консоль управления JAS</b></p>
+                    <ul><li>Процессор: Intel Core i3-3xxx
+                        </li><li>Оперативная память: от 1 ГБ
+                        </li><li>ОС: Microsoft Windows Vista SP2 или выше
+                        </li><li>Дополнительное ПО: нет</li></ul>
+                </div>
+                <div class="col-4">
+                    <p><b>Модуль OTP для Microsoft NPS</b></p>
+                    <ul><li>Процессор: Intel Core i3-3xxx
+                        </li><li>Оперативная память: от 2 ГБ
+                        </li><li>ОС: Microsoft Windows Server 2008 SP2 или выше
+                        </li><li>Дополнительное ПО: нет</li></ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Поддерживаемые модели аппаратных USB-токенов</td>
+        <td>
+            <ul>
+                <li>Любые USB-токены, генерирующие OTP по событию, в том числе JaCarta WebPass, eToken NG-OTP, eToken NG-OTP (Java) и др.</li>
+                <li>Любые U2F-токены, в том числе JaCarta U2F</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Поддерживаемые программные токены для мобильных устройств</td>
+        <td>
+            <ul><li>Любые программные токены, в том числе Google Authenticator для ОС Google Android, Apple iOS, Microsoft Windows, BlackBerry OS и др.</li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Поддерживаемые протоколы интеграции с прикладным ПО</td>
+        <td>
+            <ul><li>Remote Authentication in Dial-In User Service (RADIUS)
+                </li><li>Representational State Transfer (REST)
+                </li><li>Windows Communication Foundation (WCF)
+                </li><li>Web Services Federation (WS-Federation)
+                </li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Поддерживаемые протоколы интеграции с SMS-шлюзами</td>
+        <td>
+            <ul><li>HTTP (запросы POST и GET)
+                </li><li>Short Message Peer-to-Peer (SMPP)
+                </li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Поддерживаемые режимы аутентификации</td>
+        <td>
+            <ul>
+                <li>Только OTP</li>
+                <li>OTP + OTP PIN-код</li>
+                <li>Доменный пароль + OTP</li>
+                <li>Доменный пароль + OTP + OTP PIN-код</li>
+                <li>U2F</li>
+                <li>SMS</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Поддерживаемые алгоритмы генерации OTP</td>
+        <td>
+            <ul><li>RFC 4226 + HMAC-SHA-1 (6 символов)
+                </li><li>RFC 4226 + HMAC-SHA-256 (6 символов)
+                </li><li>RFC 4226 + HMAC-SHA-256 (7 символов)
+                </li><li>RFC 4226 + HMAC-SHA-256 (8 символов)
+                </li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>Отказоустойчивость</td>
+        <td>
+            <p><b>Microsoft Failover Cluster, модель Active/Standby:</b></p>
+            <ul><li>несколько серверов JAS: синхронизация текущих значений счётчиков;
+                </li><li>несколько серверов Microsoft SQL Server: репликация базы данных средствами Microsoft SQL Server.
+                </li></ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Производительность и масштабирование</h3>
+
+<table class="table">
+    <colgroup>
+        <col width="300" />
+        <col span="3" />
+    </colgroup>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Сервер JAS</th>
+        <th>Консоль управления JAS</th>
+        <th>Модуль OTP для Microsoft NPS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Процессор</td>
+        <td>Intel Core i3-3xxx 2 физических ядра частота от 3 ГГц</td>
+        <td>Intel Core i5-3xxx 4 физических ядра частота от 3 ГГц</td>
+        <td>Intel Core i7-3xxx 4 физических ядра частота от 3 ГГц</td>
+    </tr>
+    <tr>
+        <td>Память</td>
+        <td colspan="3">+1 ГБ к рекомендованным требованиям к Microsoft Windows Server</td>
+    </tr>
+    <tr>
+        <td>Сетевая карта</td>
+        <td>100 МБ/с</td>
+        <td>100 МБ/с</td>
+        <td>1 ГБ/с</td>
+    </tr>
+    <tr>
+        <td>RADIUS</td>
+        <td>40<br> аутентификаций в секунду</td>
+        <td>100<br> аутентификаций в секунду</td>
+        <td>200+<br> аутентификаций в секунду</td>
+    </tr>
+    <tr>
+        <td>REST/WCF</td>
+        <td>200<br> аутентификаций в секунду</td>
+        <td>500<br> аутентификаций в секунду</td>
+        <td>1000+<br> аутентификаций в секунду</td>
+    </tr>
+    </tbody>
+</table>

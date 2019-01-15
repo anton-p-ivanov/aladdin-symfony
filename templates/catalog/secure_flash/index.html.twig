@@ -1,0 +1,38 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Защищённый служебный флеш-накопитель{% endblock %}
+
+{% block meta_description %}
+    Для контролируемого переноса и хранения служебной информации и гостайны
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>Программное средство JaCarta OS (далее — JaCarta OS) USB-токена JaCarta SF/ГОСТ является собственной разработкой ЗАО "Аладдин Р.Д.", предназначенной для</p>
+            {% set features = [
+                "Доступ к данным на USB-диске возможен только аутентифицированным пользователям и только на авторизованных компьютерах",
+                "Реализована защита от внутреннего, внешнего нарушителей, от администраторов",
+                "Сертификат МО России",
+                "Соответствует<sup>*</sup> требованиям Профиля ФСТЭК России к средствам отчуждения информации на съёмных носителях",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p><sup>*</sup> в процессе сертификации на 2-й уровень (до СС).</p>
+        </div>
+        <div class="col-6 text-center">
+            <!-- no image -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- no content -->
+{% endblock %}

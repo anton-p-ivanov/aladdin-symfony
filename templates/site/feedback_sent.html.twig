@@ -1,0 +1,22 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+    <div class="alert alert-success">
+        <h3 class="alert-heading">ВАШЕ СООБЩЕНИЕ ОТПРАВЛЕНО!</h3>
+        <div class="alert-body">
+            <p>Ваше сообщение было успешно отправлено.</p>
+            <p>В случае необходимости уточнения данных или ответа менеджеры компании "Аладдин Р.Д." свяжутся с Вами
+                по указанным контактным данным.</p>
+            <p>
+                <a href="{{ path('home') }}" class="btn btn-success">Вернуться на главную</a>
+                <a href="{{ path('feedback') }}" class="btn btn-link alert-link">Отправить другое обращение</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('site/sidebar.html.twig') }}
+{% endblock %}

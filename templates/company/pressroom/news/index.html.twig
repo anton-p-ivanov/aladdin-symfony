@@ -1,0 +1,45 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Новости компании{% endblock %}
+
+{% block content %}
+    {% if sections is defined %}
+        <div class="d-flex large align-items-center mb-4">
+            <span class="mr-2">Поиск по тегам:</span>
+            {% for section in sections %}
+                <span class="tag bg-light">
+            {{ section.title }}
+                    <a href="{{ path('pressroom:news') }}" class="ml-2">&times;</a>
+        </span>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% for element in paginator.elements %}
+        <div class="mb-4">
+            <div class="text-muted small">{{ element.activeFrom | date_custom }}</div>
+            <div class="large">
+                <a href="{{ path("pressroom:news:view", {"code": element.code}) }}">{{ element.title | raw }}</a>
+            </div>
+            <div class="d-block">{{ element.description | raw }}</div>
+            <div class="small mt-2">
+                {% for code, section in element.sections | slice(0, 2) %}
+                    <a href="{{ path('pressroom:news:tags', {'tag': code}) }}" class="text-muted d-inline-block mr-3">{{ section }}</a>
+                {% endfor %}
+                {% if (element.sections | length) > 2 %}
+                    <span class="text-muted d-inline-block">Ещё {{ (element.sections | length) - 2 }}</span>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% if app.request.get('tag') %}
+        {{ include('paginator.html.twig', {'route': 'pressroom:news:tags', 'params': {'tag': app.request.get('tag')}}) }}
+    {% else %}
+        {{ include('paginator.html.twig', {'route': 'pressroom:news'}) }}
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}

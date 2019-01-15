@@ -1,0 +1,26 @@
+company:
+    path: /
+    defaults: { template: 'company/index.html.twig' }
+company:licenses:
+    path: /licenses
+    defaults: { template: 'company/licenses.html.twig' }
+company:employment:
+    path: /employment
+    defaults: { template: 'company/employment/index.html.twig' }
+company:employment:vacancy:
+    path: /employment/{vacancy<[\w\-]+>}
+    defaults: { template: 'company/employment/vacancies/{vacancy}.html.twig' }
+company:employment:respond_sent:
+    path: /employment/{vacancy<[\w\-]+>}/respond/sent
+    defaults: { template: 'company/employment/respond_sent.html.twig' }
+company:history:
+    path: /history/{year<\d{4}>?2017}
+    defaults: { template: 'company/history.html.twig' }
+
+# Pressroom routes
+pressroom:mediakit:
+    path: /pressroom/mediakit
+    defaults: { template: 'company/pressroom/mediakit/index.html.twig' }
+pressroom:mediakit:section:
+    path: /pressroom/mediakit/{section<\w+>}
+    defaults: { template: 'company/pressroom/mediakit/{section}.html.twig' }

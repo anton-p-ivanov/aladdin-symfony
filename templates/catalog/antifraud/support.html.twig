@@ -1,0 +1,147 @@
+<div class="row">
+    <div class="col-4">
+        <div class="alert alert-warning border-0 p-4 h-100">
+            <h4>Драйверы и необходимое ПО</h4>
+            {% set conditions = {
+                "catalog": "files",
+                "type": "E",
+                "uuid": [
+                    "87d06960-71a6-4fc0-853f-31c518fc1e2d"
+                ]
+            } %}
+            <div data-widget="api"
+                 data-url="{{ path('widget') }}"
+                 data-endpoint="/catalogs/elements"
+                 data-conditions="{{ conditions | json_encode }}"
+                 data-template="/catalog/_widgets/downloads.html.twig">
+                {{ include('catalog/_widgets/downloads.placeholder.html.twig') }}
+            </div>
+        </div>
+    </div>
+    <div class="col-8 h-100">
+        <div class="row mb-4">
+            <div class="col-6">
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('icons/File-Download.svg') }}" width="64" height="64" class="icon icon-64 mr-3" alt="Брошюра Антифрод-терминал" />
+                    <a href="{{ path('download', {'uuid': 'c7970906-763e-4581-80b6-836eed9ea921'}) }}">Брошюра "Антифрод-терминал"</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('icons/File-Download.svg') }}" width="64" height="64" class="icon icon-64 mr-3" alt="Антифрод-терминал. Руководство по встраиванию" />
+                    <a href="http://developer.aladdin-rd.ru/antifraud_terminal/index.html" target="_blank">Руководство по встраиванию</a>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row mt-4">
+            <div class="col-6">
+                <h4>Мои обращения</h4>
+                <p class="small">Перед обращением в техническую поддержку рекомендуем Вам воспользоваться
+                    <a href="http://kbp.aladdin-rd.ru" target="_blank">Базой знаний</a>. В ней собраны ответы на самые
+                    актуальные вопросы наших клиентов, среди которых может оказаться ответ и на Ваш вопрос.</p>
+                <p class="text-center">
+                    <a href="{{ path('support:tickets:create') }}" class="btn btn-outline-primary">Создать обращение</a>
+                    <a href="{{ path('support:tickets') }}" class="btn btn-link">Мои обращения</a>
+                </p>
+            </div>
+            <div class="col-6">
+                <h4>Полезные материалы</h4>
+                {% set links = [
+                    { 'url': path('support:page', {'page': 'faq'}), 'title': 'Часто задаваемые вопросы (FAQ)' },
+                    { 'url': 'https://kbp.aladdin-rd.ru', 'title': 'База знаний' },
+                    { 'url': path('support:page', {'page': 'sdk'}), 'title': 'Комплекты разработчика' },
+                    { 'url': path('support:page', {'page': 'guides'}), 'title': 'Интеграционные инструкции' },
+                    { 'url': path('support:page', {'page': 'discontinue'}), 'title': 'Продукты, снятые с продаж' },
+                    { 'url': path('support:page', {'page': 'rules'}), 'title': 'Правила оказания услуг' },
+                ] %}
+                <ul class="list-unstyled list-icons">
+                    {% for link in links %}
+                        <li>
+                            <ion-icon name="arrow-forward"></ion-icon>
+                            <a href="{{ link.url }}">{{ link.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="my-4" />
+
+<div class="row">
+    <div class="col-4">
+        <h4>Документация</h4>
+        {% set conditions = {
+            "catalog": "files",
+            "type": "E",
+            "uuid": [
+                "b98fa8e8-9bf6-4267-b399-881312a31686",
+                "acd3027e-3de4-4914-a4d0-45a7da9dcbfc",
+                "ab95b04e-d4a2-4c84-8ebc-3b2033c8649f"
+            ]
+        } %}
+        <div data-widget="api"
+             data-url="{{ path('widget') }}"
+             data-endpoint="/catalogs/elements"
+             data-conditions="{{ conditions | json_encode }}"
+             data-template="/catalog/_widgets/downloads.html.twig">
+            {% for i in 1..3 %}
+                {{ include('catalog/_widgets/downloads.placeholder.html.twig') }}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-4">
+        <h4>Новости по продукту</h4>
+        {% set conditions = {
+            "catalog": "news",
+            "section": "antifraud_f6945270",
+            "type": "E",
+            "limit": 3,
+            "order": "sort,-activeFrom"
+        } %}
+        <div data-widget="api"
+             data-url="{{ path('widget') }}"
+             data-endpoint="/catalogs/elements"
+             data-conditions="{{ conditions | json_encode }}"
+             data-template="/catalog/_widgets/news.html.twig">
+            {% for i in 1..3 %}
+                {{ include('catalog/_widgets/news.placeholder.html.twig') }}
+            {% endfor %}
+        </div>
+        <ul class="list-unstyled list-icons">
+            <li>
+                <ion-icon name="arrow-forward"></ion-icon>
+                <a href="{{ path('pressroom:news') }}">Все новости</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <h4>Публикации по продукту</h4>
+        {% set conditions = {
+            "catalog": "articles",
+            "section": "antifraud_c62beaa7",
+            "type": "E",
+            "limit": 3,
+            "order": "sort,-activeFrom"
+        } %}
+        <div data-widget="api"
+             data-url="{{ path('widget') }}"
+             data-endpoint="/catalogs/elements"
+             data-conditions="{{ conditions | json_encode }}"
+             data-template="/catalog/_widgets/articles.html.twig">
+            {% for i in 1..3 %}
+                {{ include('catalog/_widgets/news.placeholder.html.twig') }}
+            {% endfor %}
+        </div>
+        <ul class="list-unstyled list-icons">
+            <li>
+                <ion-icon name="arrow-forward"></ion-icon>
+                <a href="{{ path('pressroom:articles') }}">Все публикации</a>
+            </li>
+        </ul>
+    </div>
+</div>

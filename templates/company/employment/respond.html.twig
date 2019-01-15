@@ -1,0 +1,113 @@
+{% extends 'main.html.twig' %}
+{% form_theme form _self %}
+
+{% block title %}Работа в компании{% endblock %}
+
+{% block lead %}
+    <p>Компания "Аладдин Р.Д." является лидером в области разработки и поставок решений для информационной безопасности.
+        Наш коллектив объединяет энергичных, творческих и преданных своему делу людей, стремящихся реализовывать
+        масштабные проекты, а также расширять опыт в области современных технологий информационной безопасности.</p>
+{% endblock %}
+
+{% block content %}
+
+    <h2>Отклик на вакансию "{{ title }}"</h2>
+
+    <p>Пожалуйста, заполните поля формы ниже для отправки Вашего резюме в отдел персонала компании
+        <span class="text_nowrap">"Аладдин Р.Д."</span>. Сотрудник отдела персонала обязательно свяжется с Вами по
+        указанным телефону или электронной почте.</p>
+
+    <br class="my-4" />
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.form_field_contact_name, 'Как к вам обращаться?') }}
+        {{ form_widget(form.form_field_contact_name, {'attr': {'autofocus': true, 'placeholder': 'Сергей Иванов'}}) }}
+        {{ form_errors(form.form_field_contact_name) }}
+        <small class="text-secondary form-text">
+            Укажите имя, фамилию и, по желанию, ваше отчество.
+        </small>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.form_field_contact_email, 'E-Mail') }}
+                {{ form_widget(form.form_field_contact_email, {'attr': {'placeholder': 'sergey.ivanov@email.com'}}) }}
+                {{ form_errors(form.form_field_contact_email) }}
+                <small class="text-secondary form-text">
+                    Обязательно проверьте правильность ввода вашего E-Mail, чтобы мы могли ответить именно вам.
+                </small>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.form_field_contact_phone, 'Контактный телефон') }}
+                {{ form_widget(form.form_field_contact_phone, {'attr': {'placeholder': '+7 (495) 2230001'}}) }}
+                {{ form_errors(form.form_field_contact_phone) }}
+                <small class="text-secondary form-text">
+                    Это поле не обязательно для заполнения, но нам будет проще с вами связаться как по телефону, так и
+                    с помощью популярных мессенджеров.
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.form_field_link, 'Ссылка на ваше резюме') }}
+        {{ form_widget(form.form_field_link, {'attr': {'placeholder': 'https://'}}) }}
+        {{ form_errors(form.form_field_link) }}
+        <small class="text-secondary form-text">
+            Это может быть ссылка на ваше резюме на одном из популярных сервисов по поиску работы (например, hh.ru) или
+            в облачных хранилищах (например, Яндекс.Диск).
+        </small>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.form_field_message, 'Сопроводительное письмо') }}
+        {{ form_widget(form.form_field_message, {'attr': {'rows': 10}}) }}
+        {{ form_errors(form.form_field_message) }}
+        <small class="text-secondary form-text">
+            Сопроводительное письмо не обязательно, но может пояснить и дополнить ваше резюме. Цель сопроводительного
+            письма — показать себя с наилучшей стороны и заинтересовать работодателя, увеличив таким образом шансы
+            на успешное трудоустройство.
+        </small>
+    </div>
+
+    <div class="form-group my-4">
+        {{ form_widget(form.agreement) }}
+        {{ form_errors(form.agreement) }}
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary">Отправить отклик</button>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block _vacancy_agreement_label %}
+    <input type="checkbox" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="form-check-input"
+           value="{{ form.vars.value }}" {% if form.vars.checked %} checked="checked"{% endif %}>
+    <label class="form-check-label required" for="{{ form.vars.id }}">
+        Отправляя отклик на вакансию на этом сайте, я принимаю <a href="{{ path('terms') }}">Условия использования</a>,
+        подтверждаю достоверность предоставленных мной данных и даю согласие на их обработку.
+    </label>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ include('captcha.html.twig', {
+        'action': 'vacancy/respond',
+        'id': 'vacancy_captcha'
+    }) }}
+{% endblock %}

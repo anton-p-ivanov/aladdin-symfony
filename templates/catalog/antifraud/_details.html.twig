@@ -1,0 +1,6 @@
+<h2>Дополнительно</h2>
+{% set tabs = [
+    { 'id': 'specification', 'title': 'Спецификация', 'active': true, 'url': path('catalog:product:page', {'product': 'antifraud', 'page': 'specification'}), 'view': 'catalog/antifraud/specification.html.twig' },
+    { 'id': 'support', 'title': 'Поддержка', 'active': false, 'url': path('catalog:product:page', {'product': 'antifraud', 'page': 'support'}) },
+] %}
+{{ include('tabs.html.twig') }}

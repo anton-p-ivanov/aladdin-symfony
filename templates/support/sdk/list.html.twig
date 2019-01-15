@@ -1,0 +1,11 @@
+<!--suppress ALL -->
+<div class="row justify-content-center">
+    {% for item in items %}
+    <div class="col-4 grid-row__offset_2-sm">
+        <h2><a class="scrollable" href="#{{ item.name }}">{{ item.title }}</a></h2>
+        <p>{{ item.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+

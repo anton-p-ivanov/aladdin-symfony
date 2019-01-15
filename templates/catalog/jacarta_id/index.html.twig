@@ -1,0 +1,63 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Электронное удостоверение JaCarta{% endblock %}
+
+{% block meta_description %}
+    Строгая аутентификация, работа с электронной подписью, идентификация сотрудника и зарплатная карта
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            {% set features = [
+                "Пропуск на территорию организации или в помещения",
+                "Средство доступа в информационные системы компании",
+                "Средство доступа к Web-порталам и мобильным приложениям",
+                "Персональное средство ЭП",
+                "Платёжная или зарплатная карта",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="small"><em>Необходимый набор функций определяется при заказе</em></p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta_id/JaCarta-ID.png') }}" class="img-fluid" alt="Электронное удостоверение JaCarta - {{ block('meta_description') }}" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-dark mr-2" href="{{ path('download', {'uuid': 'e417f889-0cb8-42f4-b715-db2d4aa87226'}) }}">Скачать листовку</a>
+            <a class="btn btn-dark" href="{{ path('download', {'uuid': '27415c2e-11c4-40eb-b59a-ee20a7e8f26d'}) }}">Скачать презентацию</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'description', 'title': 'Описание', 'active': true, 'view': 'catalog/jacarta_id/_description.html.twig' },
+                { 'id': 'advantages', 'title': 'Преимущества', 'active': false, 'view': 'catalog/jacarta_id/_advantages.html.twig' },
+                { 'id': 'usage', 'title': 'Примеры использования', 'active': false, 'view': 'catalog/jacarta_id/_usage.html.twig' },
+                { 'id': 'specification', 'title': 'Спецификация', 'active': false, 'view': 'catalog/jacarta_id/_specification.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+<h2>Дополнительно</h2>
+{% set tabs = [
+    { 'id': 'specification', 'title': 'Спецификация', 'active': true, 'url': path('catalog:product:page', {'product': 'jacarta_securlogon', 'page': 'specification'}), 'view': 'catalog/jacarta_securlogon/specification.html.twig' },
+    { 'id': 'kit', 'title': 'Комплект поставки', 'active': false, 'url': path('catalog:product:page', {'product': 'jacarta_securlogon', 'page': 'kit'}) },
+    { 'id': 'certificates', 'title': 'Сертификаты', 'active': false, 'url': path('catalog:product:page', {'product': 'jacarta_securlogon', 'page': 'certificates'}) },
+    { 'id': 'support', 'title': 'Поддержка', 'active': false, 'url': path('catalog:product:page', {'product': 'jacarta_securlogon', 'page': 'support'}) },
+] %}
+{{ include('tabs.html.twig') }}

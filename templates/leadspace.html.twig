@@ -1,0 +1,8 @@
+<div id="leadspace" class="d-flex align-items-center">
+    <div class="container">
+        <h1>{{ heading is not null ? heading : title }}</h1>
+        {% if lead is not empty %}
+            <div class="lead">{{ lead | raw }}</div>
+        {% endif %}
+    </div>
+</div>

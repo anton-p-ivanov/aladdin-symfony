@@ -1,0 +1,22 @@
+{{ form_start(form, {'attr': {
+    'novalidate': 'novalidate',
+    'action': path('partners:search', {'type': type}),
+    'name': 'partners'
+}}) }}
+
+{{ form_errors(form) }}
+
+{{ include('partners/form_' ~ type ~ '.html.twig') }}
+
+<div class="form-group mt-4 d-none">
+    <div class="row">
+        <div class="col-6">
+            <button type="submit" class="btn btn-block btn-primary px-0">Найти</button>
+        </div>
+        <div class="col-6">
+            <a href="{{ path('partners:search', {'type': type})}}" class="btn btn-block btn-secondary text-white px-0">Сбросить</a>
+        </div>
+    </div>
+</div>
+
+{{ form_end(form) }}

@@ -1,0 +1,166 @@
+{% extends 'wide.html.twig' %}
+
+{% block title %}Семейство продуктов JaCarta{% endblock %}
+{% block meta_description %}JaCarta - USB-токены и смарт-карты для организации усиленной или строгой аутентификации, обеспечения юридической значимости документов с помощью электронной подписи и безопасного хранения пользовательских данных, сертификатов, паролей и др.{% endblock %}
+
+{% block lead %}
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <ul class="list-unstyled list-icons">
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    <span>Организация усиленной или строгой аутентификации в информационных
+                        системах и сервисах</span>
+                </li>
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    <span>Обеспечение юридической значимости документов и действий пользователей
+                        с помощью электронной подписи</span>
+                </li>
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    <span>Безопасное хранение контейнеров программных СКЗИ, пользовательских данных,
+                        сертификатов, паролей и др.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    {% set items = include('catalog/jacarta/index.json.twig') | json_decode %}
+
+    <div class="container">
+        <div class="row">
+        {% for item in items %}
+            <div class="col-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mt-0">{{ item.title }}</h2>
+                        {% if item.name is defined %}
+                            <a href="{{ path('catalog:product', {'product': item.name}) }}" class="card-img-container">
+                                <img class="card-img" src="{{ asset('images/catalog/jacarta/300x150/' ~ item.image) }}" alt="{{ item.title }}">
+                            </a>
+                        {% else %}
+                            <span class="card-img-container">
+                                <img class="card-img" src="{{ asset('images/catalog/jacarta/300x150/' ~ item.image) }}" alt="{{ item.title }}">
+                            </span>
+                        {% endif %}
+                        <div class="card-text">{{ item.description | raw }}</div>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <ul class="list-unstyled list-icons mb-0">
+                            <li>
+                                <ion-icon name="arrow-forward"></ion-icon>
+                                {% if item.name is defined %}
+                                    <a href="{{ path('catalog:product', {'product': item.name}) }}">Подробнее</a>
+                                {% else %}
+                                    <span>Следите за новостями!</span>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+            <div class="col-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mt-0">Комбинированные<br />модели</h2>
+                        <div class="card-text">
+                            <p>Функциональность устройств JaCarta может быть расширена: на их базе выпускается целая
+                                линейка комбинированных моделей</p>
+                            {% set links = [
+                                [
+                                    { "title": "JaCarta-2 PKI/ГОСТ", "name": "jacarta-2_pki-gost" },
+                                    { "title": "JaCarta-2 PKI/BIO/ГОСТ", "name": "jacarta-2_pki-bio-gost" },
+                                    { "title": "JaCarta-2 PRO/ГОСТ", "name": "jacarta-2_pro-gost" }
+                                ],
+                                [
+                                    { "title": "JaCarta PKI/ГОСТ", "name": "jacarta-pki-gost" },
+                                    { "title": "JaCarta PKI/Flash", "name": "jacarta-pki-flash" },
+                                    { "title": "JaCarta PKI/ГОСТ/Flash", "name": "jacarta-pki-gost-flash" },
+                                    { "title": "JaCarta PRO/ГОСТ", "name": "jacarta-pro-gost" }
+                                ],
+                            ] %}
+                            {% for group in links %}
+                            <ul class="list-unstyled list-icons">
+                                {% for item in group %}
+                                <li>
+                                    <ion-icon name="arrow-forward"></ion-icon>
+                                    <a href="{{ path('catalog:product', {'product': item.name}) }}">{{ item.title }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mt-0">Дополнительные материалы</h2>
+                        <div class="card-text">
+                            {% set links = [
+                                {
+                                    "title": "Сертификаты на JaCarta",
+                                    "route": "catalog:product",
+                                    "params": {"product": "certified"},
+                                },
+                                {
+                                    "title": "Скачать драйверы и ПО для JaCarta",
+                                    "route": "support:downloads:section",
+                                    "params": {"code": "jacarta"}
+                                },
+                                { "title": "База знаний", "url": "http://kbp.aladdin-rd.ru/" },
+                                {
+                                    "title": "Вопросы и ответы (FAQ)",
+                                    "route": "catalog:product:page",
+                                    "params": {"product": "jacarta", "page": "faq"}
+                                },
+                                { "title": "Техническая поддержка", "route": "support", "params": {} },
+                            ] %}
+                            <ul class="list-unstyled list-icons">
+                                {% for item in links %}
+                                    {% set url = item.url is defined ? item.url : path(item.route, item.params) %}
+                                <li>
+                                    <ion-icon name="arrow-forward"></ion-icon>
+                                    <a href="{{ url }}">{{ item.title }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+
+                            <ul class="list-unstyled list-icons">
+                                <li>
+                                    <ion-icon name="arrow-forward"></ion-icon>
+                                    <a href="{{ path('download', {'uuid': 'a3bfee80-cf61-4090-8c65-4f2bb6af6d27'}) }}" class="text-danger">Скачать обновление ПО для ЕГАИС</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="list-unstyled list-condensed list-icons mb-0 d-flex" style="margin-left:20px;">
+            <li>
+                <ion-icon name="arrow-back"></ion-icon>
+                <a href="{{ path('catalog') }}">Все продукты</a>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('site/sidebar.html.twig') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('css/catalog-jacarta-index') }}
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

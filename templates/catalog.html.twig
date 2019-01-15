@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if block('scroll_spy_nav') is defined %}
+        <div id="scroll-spy-nav" class="shadow-sm d-none">
+            <div class="container d-flex justify-content-between align-items-center">
+                <img src="{{ asset('images/logos/logo_sm_white.png') }}" height="50" />
+                <div class="scroll-spy-nav">
+                    {{ block('scroll_spy_nav') }}
+                </div>
+                <!--suppress HtmlUnknownAnchorTarget -->
+                <a class="scrollable text-light" href="#wrapper" title="Наверх">
+                    <ion-icon name="arrow-up" size="medium" class="d-block"></ion-icon>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+    <div id="main">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="push"></div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('css/catalog') }}
+{% endblock %}

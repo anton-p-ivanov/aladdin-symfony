@@ -1,0 +1,38 @@
+<div class="form-group">
+    <label for="name">Поиск партнёра в городе <a href="#extended-search" data-toggle="collapse" data-update="city">Москва</a></label>
+    <div class="input-group">
+        {{ form_widget(form.name, {'attr': {'placeholder': 'Введите название компании или его часть'}}) }}
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </div>
+    </div>
+    {{ form_errors(form.name) }}
+    <div class="small mt-2">
+        <a href="#extended-search" data-toggle="collapse">Расширенный поиск</a>
+    </div>
+</div>
+
+<div class="collapse" id="extended-search">
+    <div class="form-group">
+        {{ form_label(form.categories, 'Категория решений') }}
+        {{ form_widget(form.categories, {'placeholder': '- Любая категория -', 'attr': {'class': 'custom-select'}}) }}
+        {{ form_errors(form.categories) }}
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.country, 'Страна') }}
+                {{ form_widget(form.country, {'placeholder': '- Любая страна -', 'attr': {'class': 'custom-select'}}) }}
+                {{ form_errors(form.country) }}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.city, 'Город') }}
+                {{ form_widget(form.city, {'placeholder': '- Любой город -', 'attr': {'class': 'custom-select'}}) }}
+                {{ form_errors(form.city) }}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+{% set tabs = [
+    { 'id': 'kit-box', 'title': 'Коробочные версии', 'active': true, 'view': 'catalog/secret_disk_server_ng/_kit_box.html.twig' },
+    { 'id': 'kit-custom', 'title': 'Заказная конфигурация', 'active': false, 'view': 'catalog/secret_disk_server_ng/_kit_custom.html.twig' },
+    { 'id': 'kit-corporate', 'title': 'Корпоративная поставка', 'active': false, 'view': 'catalog/secret_disk_server_ng/_kit_corporate.html.twig' },
+] %}
+{{ include('tabs.html.twig', {'class': 'nav-pills'}) }}

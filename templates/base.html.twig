@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="yandex-verification" content="c0eb1dbf64673bc3" />
+        <meta name="google-site-verification" content="dGMe5zpSUTKLFVF4tpwgM2LJgMnBzzyXmTPT9BtwEvg" />
+        {% if block('meta_description') is defined %}
+            <meta name="description" content="{{ block('meta_description') }}" />
+        {% endif %}
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset_version('/favicon-96x96.png') }}" />
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset_version('/favicon-32x32.png') }}" />
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset_version('/favicon-16x16.png') }}" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i&subset=cyrillic" rel="stylesheet" />
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('css/app') }}
+        {% endblock %}
+        <title>{% block title %}Добро пожаловать{% endblock %} | Компания "Аладдин Р.Д."</title>
+    </head>
+    <body data-spy="scroll" data-target="#scroll-spy-nav">
+        <div id="wrapper">
+            {% block header %}
+                {{ include('header.html.twig') }}
+            {% endblock %}
+            {% block leadspace %}
+                {{ include('leadspace.html.twig', {
+                    'title': block('title'),
+                    'heading': block('heading') is defined ? block('heading') : null,
+                    'lead': block('lead') is defined ? block('lead') : null
+                }) }}
+            {% endblock %}
+            {% block body %}{% endblock %}
+        </div>
+        {% block footer %}
+            {{ include('footer.html.twig') }}
+        {% endblock %}
+        <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('js/app') }}
+        {% endblock %}
+        {% if not app.debug and app.environment is not same as("dev") %}
+            <!-- Yandex.Metrika counter --><script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter186554 = new Ya.Metrika({ id:186554, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/186554" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,98 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta ГОСТ{% endblock %}
+
+{% block meta_description %}
+    Строгая аутентификация и электронная подпись с использованием криптоалгоритмов ГОСТ 34.10-2001
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">Строгая аутентификация и электронная подпись с использованием криптоалгоритмов ГОСТ 34.10-2001</p>
+            <p>JaCarta ГОСТ – персональное средство электронной подписи с российской криптографией "на борту" для формирования усиленной квалифицированной ЭП с неизвлекаемым ключом ЭП и строгой аутентификации пользователей</p>
+            {% set features = [
+                "Работа с усиленной и усиленной квалифицированной электронной подписью с применением алгоритмов <span class=\"text-nowrap\">ГОСТ Р 34.10-2001</span> и <span class=\"text-nowrap\">ГОСТ Р 34.11-94</span>",
+                "Строгая двухфакторная аутентификация для безопасного доступа в информационные системы и сервисы",
+                "Безопасное хранение пользовательской информации и объектов (цифровые сертификаты, коды доступа, криптоконтейнеры программных СКЗИ и т.д.)",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta_gost/JaCarta_GOST.png') }}" class="img-fluid" alt="JaCarta ГОСТ - персональное средство электронной подписи с российской криптографией" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125863/" target="_blank">№ 4300</a> и <a href="https://reestr.minsvyaz.ru/reestr/125864/" target="_blank">4301</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a href="{{ path('download', {'uuid': '603a3f03-92d5-429c-900c-85295f9f6eef'}) }}" class="btn btn-dark">Скачать брошюру</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#purpose">Назначение</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#tasks">Решаемые задачи</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#models">Исполнения</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#details">Дополнительно</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="purpose">
+            {{ include('catalog/jacarta_gost/_purpose.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="tasks">
+            {{ include('catalog/jacarta_gost/_tasks.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="models">
+            {{ include('catalog/jacarta_gost/_models.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta_gost/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_gost/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta_gost/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

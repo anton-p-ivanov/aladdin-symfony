@@ -1,0 +1,6 @@
+<h2>Дополнительно</h2>
+{% set tabs = [
+    { 'id': 'composition', 'title': 'Состав решения', 'active': true, 'url': path('catalog:product:page', {'product': 'jc-mobile', 'page': 'composition'}), 'view': 'catalog/jc-mobile/composition.html.twig' },
+    { 'id': 'specification', 'title': 'Специалисту', 'active': false, 'url': path('catalog:product:page', {'product': 'jc-mobile', 'page': 'specification'}) },
+] %}
+{{ include('tabs.html.twig') }}

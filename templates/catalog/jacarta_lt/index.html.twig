@@ -1,0 +1,80 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta LT{% endblock %}
+
+{% block meta_description %}
+    Хранение ключевых контейнеров программных СКЗИ
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>JaCarta LT – USB-токен для двухфакторной аутентификации, безопасного хранения ключей, ключевых контейнеров сертифицированных российских СКЗИ, профилей и паролей пользователей, а также лицензионной информации независимых разработчиков ПО</p>
+            {% set features = [
+                "Хранение ключевых контейнеров практически для всех программных СКЗИ (КриптоПро CSP, VipNet CSP и др.)",
+                "Сертифицировано <a href=\"" ~ path('download', {'uuid': 'ca2e6a34-b1fc-4d67-b5ed-ea384ffca263'}) ~ "\">ФСТЭК России</a>",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta/Group-XL_Nano.png') }}" class="img-fluid" style="max-height: 250px;" alt="JaCarta LT - хранение ключевых контейнеров программных СКЗИ" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125863/" target="_blank">№ 4300</a> и <a href="https://reestr.minsvyaz.ru/reestr/125864/" target="_blank">4301</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/jacarta_lt/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="models">
+            {{ include('catalog/jacarta_lt/_models.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta_lt/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_pki/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta_pki/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

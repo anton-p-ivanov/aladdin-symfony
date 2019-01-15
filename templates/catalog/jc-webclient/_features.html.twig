@@ -1,0 +1,31 @@
+{{ include('catalog/jc-webclient/icons/icons-def.svg') }}
+
+{% set feats = [
+    {'title': 'Поддерживает все основные ОС', 'image': '1-01'},
+    {'title': 'Работает со всеми популярными браузерами', 'image': '1-01'},
+    {'title': 'Легко интегрируется в Web-приложения', 'image': '2-01'},
+    {'title': 'Легко устанавливается', 'image': '3-01'},
+    {'title': 'Удобно в использовании', 'image': '4-01'},
+    {'title': 'Обладает повышенной отказоустойчивостью', 'image': '5-01'},
+    {'title': 'Поддерживает российскую и зарубежную<br>криптографию', 'image': '9-01', 'class': 'features__title_2-lines'},
+    {'title': 'Поддерживает популярные токены', 'image': '10-01'},
+    {'title': 'Обеспечивает высокий уровень ИБ', 'image': '6-01'},
+    {'title': 'Обеспечивает безопасную работу<br>в недоверенной среде', 'image': '7-01', 'class': 'features__title_2-lines'},
+    {'title': 'Бесплатно для конечных пользователей', 'image': '8-01'},
+    {'title': 'Поддерживает новое поколение<br>токенов JaCarta-2 ГОСТ', 'image': '11-01', 'class': 'features__title_2-lines'},
+] %}
+
+<div class="container large">
+    <div class="row">
+        {% for item in feats %}
+        <div class="col-6 d-flex align-items-center mb-4">
+            <div class="mr-4">
+                <svg width="48" height="48">
+                    <use xlink:href="#{{ item.image }}"></use>
+                </svg>
+            </div>
+            <div>{{ item.title | raw }}</div>
+        </div>
+    {% endfor %}
+    </div>
+</div>

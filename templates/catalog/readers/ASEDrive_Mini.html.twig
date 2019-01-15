@@ -1,0 +1,97 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}ASEDrive III USB Mini{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            Смарт-карт-ридер ASEDrive III USB Mini — удобный, лёгкий и компактный смарт-карт ридер. Компактный размер устройства позволяет хранить его в сумке или в кармане одежды, ведь его толщина меньше сантиметра при весе всего в 18 гр! Такой ридер идеально подойдёт для использования мобильными сотрудниками, работающими на ноутбуках и/или в стеснённом пространстве (в офисе, где используются узкие столы в качестве рабочих мест, в самолёте, автомобиле и пр.). При хранении и переноске смарт-карт ридера кабель всегда можно отсоединить для экономии места.
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/readers/ASEDrive_III_USB_Mini_Preview.jpg') }}" class="img-fluid" alt="{{ block('title') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            <div class="bg-white section">
+                <p>Надёжная конструкция смарт-карт ридера обеспечивает длительный срок службы при малых и средних эксплуатационных нагрузках и исключает повреждение используемых смарт-карт. Ресурс контактной группы составляет 100 000 подключений/отключений смарт-карты, что в 10 раз больше, чем у USB-токена! Также для подключения смарт-карт ридера к компьютеру не требуется установки специальных драйверов. </p>
+                <p>Устройство поддерживает работу с любыми смарт-картами, в том числе эмбоссированными и платёжными. Смарт-карт ридер имеет строгий дизайн и зону для нанесения Вашего фирменного логотипа.</p>
+                <p>Если Вы часто бываете в командировках, служебных поездках или работаете удалённо, то оцените этот считыватель по достоинству.</p>
+
+                <p><em>Рекомендуется для использования на мобильных рабочих местах, где необходима двухфакторная аутентификация пользователей</em>.</p>
+
+                <h2>Технические характеристики</h2>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="table-head__cell">Параметр</th>
+                        <th class="table-head__cell">Значение</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="table-row__head"><b>Поддерживаемые карты</b></td>
+                        <td class="table-row__cell">ISO 7816 T=0, T=1,EMV, CAC, 2/3 BUS I2C/Extended I2C memory cards</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Интерфейс подключения</b></td>
+                        <td class="table-row__cell">USB 2.0 Full Speed 12 Мбит/сек</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Скорость обмена данными со смарт-картой</b></td>
+                        <td class="table-row__cell">До 500 Кбит/с, 4 МГц</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Контактная группа</b></td>
+                        <td class="table-row__cell">ISO, 8 контактов. Минимум 100,000 подключений</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Напряжение питания карты</b></td>
+                        <td class="table-row__cell">5V (ISO7816 Class A), 3V (ISO7816 Class B), 1.8V (ISO7816 Class C)</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Питание</b></td>
+                        <td class="table-row__cell">Порт USB</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Стандарты по безопасности</b></td>
+                        <td class="table-row__cell">FCC Class B, VCCI, CE</td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>CCID совместимость</b></td>
+                        <td class="table-row__cell">Да <br/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Поддерживаемые ОС</b></td>
+                        <td class="table-row__cell">Linux, Mac OS X, Microsoft Windows Vista/7/8/8.1, Microsoft Server 2003 R2/2008/2008
+                            R2/2012
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="table-row__head"><b>Сертификаты</b></td>
+                        <td class="table-row__cell">Microsoft WHQL, FIPS 201 GSA APL, PC/SC Compliant, USB Implementers Forum</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <p>
+                    <a href="{{ path('catalog:product', {'product': 'readers'}) }}">Все смарт-карт ридеры</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

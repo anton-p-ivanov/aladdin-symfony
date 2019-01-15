@@ -1,0 +1,5 @@
+{% set tabs = [
+    { 'id': 'certificates', 'title': 'Сертификаты', 'active': true, 'url': path('catalog:product:page', {'product': 'crypto_bd', 'page': 'certificates'}), 'view': 'catalog/crypto_bd/certificates.html.twig' },
+    { 'id': 'faq', 'title': 'Часто задаваемые вопросы', 'active': false, 'url': path('catalog:product:page', {'product': 'crypto_bd', 'page': 'faq'}) },
+] %}
+{{ include('tabs.html.twig') }}

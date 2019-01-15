@@ -1,0 +1,69 @@
+prefix:
+    path: /catalog/{prefix<[\w]+>}-jacarta
+    defaults:
+        path: /catalog/{prefix}_jacarta
+
+postfix:
+    path: /catalog/jacarta-{model<^[a-z][\w]+>}
+    defaults:
+        path: /catalog/jacarta_{model}
+
+jcproduct:
+    path: /catalog/jc{model<[\w]+>}
+    defaults:
+        path: /catalog/jc-{model}
+
+jacarta_ca_manager:
+    path: /catalog/jacarta_ca_manager
+    defaults:
+        path: /catalog/jacarta_arm
+
+jacarta-sf-gost:
+    path: /catalog/jacarta-sf-gost
+    defaults:
+        path: /catalog/jacarta_sf-gost
+
+jacarta_unifiedclient:
+    path: /catalog/jacarta_unifiedclient
+    defaults:
+        path: /catalog/jacarta_client
+
+readers:
+    path: /catalog/sc_readers
+    defaults:
+        path: /catalog/readers
+
+cryptobd:
+    path: /catalog/cryptobd
+    defaults:
+        path: /catalog/crypto_bd
+
+sde:
+    path: /catalog/secret_disk/enterprise
+    defaults:
+        path: /catalog/secret_disk_enterprise
+
+sd5:
+    path: /catalog/secret_disk/sd5
+    defaults:
+        path: /catalog/secret_disk_5
+
+sd5_certified:
+    path: /catalog/secret_disk/sd5-certified
+    defaults:
+        path: /catalog/secret_disk_5/certified
+
+sds:
+    path: /catalog/secret_disk/server
+    defaults:
+        path: /catalog/secret_disk_server_ng
+
+sds_certified:
+    path: /catalog/secret_disk/server-certified
+    defaults:
+        path: /catalog/secret_disk_server_ng/certified
+
+sdlpe:
+    path: /catalog/secret_disk/lpe
+    defaults:
+        path: /catalog/secret_disk_lpe

@@ -1,0 +1,33 @@
+<h2>Исполнения</h2>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-8 large">
+        Устройства JaCarta-2 PKI/BIO/ГОСТ выпускаются в двух форм-факторах: USB-токен в корпусе XL и смарт-карта (чёрный пластик, чип с палладиевыми контактами).
+    </div>
+</div>
+
+{{ include('catalog/jacarta-2/_shared/_models.html.twig', {'models': [
+    { 'image': 'Card_JC300_Black_Crop.png', 'title': 'Смарт-карты в базовом чёрном дизайне (рекомендуются к использованию)' },
+    { 'image': 'Computer_PC_left_JC-XL_Crop.jpg', 'title': 'USB-токены в классическом корпусе XL (необходимо предварительное тестирование используемых сканеров на совместимость)' },
+]}) }}
+
+<div class="mt-4">
+    {{ include('catalog/jacarta-2/_shared/_custom.html.twig', {'title': 'JaCarta-2 PKI/BIO/ГОСТ'}) }}
+</div>
+
+<h2 class="mt-4">Рекомендуемое оборудование</h2>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-8 large">
+        <p>Для работы со смарт-картами рекомендуется использовать смарт-карт ридеры со встроенным сканером отпечатков пальцев.</p>
+    </div>
+</div>
+
+{{ include('catalog/jacarta-2/_shared/_recommended.html.twig', {'models': [
+    { 'image': 'ASEDrive_IIIe_Bio_Combo_Crop.png', 'title': 'ASEDrive IIIe Bio Combo', 'description': 'Смарт-карт ридер со встроенным сканером отпечатка пальца для использования на стационарных ПК, где предъявляются повышенные требования к уровню безопасности.', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_Bio'}) },
+    { 'image': 'ASEDrive_Combo_Bio_Swipe_Crop.png', 'title': 'ASEDrive IIIe Bio Combo Swipe', 'description': 'Компактный смарт-карт ридер для стационарных ПК сочетает в одном корпусе swipe-сенсор для отпечатков пальцев и считыватель смарт-карт.', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_Bio_Swipe'}) },
+]}) }}
+
+<div class="alert alert-warning alert-lg">
+    Для работы с биометрией также могут использовать другие современные полупроводниковые сканеры (не оптические!), встроенные в карт-ридеры и клавиатуры (необходимо предварительное тестирование).
+</div>

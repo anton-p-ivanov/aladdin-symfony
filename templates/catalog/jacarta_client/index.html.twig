@@ -1,0 +1,99 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}ПК "Единый Клиент JaCarta"{% endblock %}
+{% block meta_description %}ПК "Единый Клиент JaCarta" — программный комплекс, предназначенный для настройки и работы со всеми моделями USB-токенов и смарт-карт JaCarta и eToken PRO (Java) в операционных системах семейства Microsoft Windows{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p><b>Простое и удобное администрирование устройств JaCarta и eToken</b></p>
+            <p>ПК "Единый Клиент JaCarta" — программный комплекс, предназначенный для настройки и работы со всеми моделями USB-токенов и смарт-карт JaCarta и eToken PRO (Java) в операционных системах семейства Microsoft Windows</p>
+            {% set features = [
+                "Настройка USB-токенов и смарт-карт",
+                "Поддержка всех устройств JaCarta и eToken PRO (Java)",
+                "Работа с отечественными и зарубежными криптоалгоритмами в одном интерфейсе",
+                "Удобство использования для рядовых пользователей и администраторов",
+                "Работа с контейнерами КриптоПро CSP из единого интерфейса",
+                "Поддержка модулей криптопровайдеров (КриптоПро CSP, <span class=\"text-nowrap\">Signal-COM CSP и др.</span>)",
+            ] %}
+            <ul class="list-unstyled list-nav small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    <span>{{ feature | raw }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <picture>
+                <img src="{{ asset('images/catalog/350x350/JaCarta_Edinyi_Client.png') }}" alt="Единый Клиент JaCarta">
+            </picture>
+
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125847/" target="_blank">№ 4284</a>)
+            </div>
+
+            <div>
+                <a class="btn btn-primary" href="{{ path('support:downloads:view', {'uuid': '87d06960-71a6-4fc0-853f-31c518fc1e2d'}) }}">Скачать ПК "Единый Клиент JaCarta"</a>
+                <a class="btn btn-link" href="{{ path('support') }}">Техническая поддержка</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#purpose">Назначение</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#advantages">Преимущества</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#options">Дополнительные опции</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#gost">Новый ГОСТ</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#details">Спецификация</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white py-5">
+        <div class="container" id="purpose">
+            {{ include('catalog/jacarta_client/_purpose.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light py-5">
+        <div class="container" id="advantages">
+            {{ include('catalog/jacarta_client/_advantages.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white py-5">
+        <div class="container" id="options">
+            {{ include('catalog/jacarta_client/_options.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light py-5">
+        <div class="container" id="gost">
+            {{ include('catalog/jacarta_client/_gost.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white py-5">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta_client/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light py-5">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_client/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white py-5">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_client/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

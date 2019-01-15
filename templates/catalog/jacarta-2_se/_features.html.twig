@@ -1,0 +1,27 @@
+{% set features = include('catalog/jacarta-2_se/features/features.json.twig') | json_decode %}
+
+<h2>Особенности <span class="text-nowrap">JaCarta-2 SE</span></h2>
+
+<div class="features row">
+    {% for feature in features %}
+        <div class="feature col-4">
+            <div class="feature-title">
+                <img src="{{ asset(feature.image) }}" width="64" height="64" alt="{{ feature.title }}" />
+                <h4>{{ feature.title }}</h4>
+            </div>
+            <div class="feature-body">{{ feature.description | raw }}</div>
+            {% if feature.name is defined %}
+            <div class="feature-footer">
+                <ul class="list-unstyled list-icons mb-0">
+                    <li>
+                        <ion-icon name="arrow-forward"></ion-icon>
+                        <a href="{{ path('catalog:product:page', {'product': 'jacarta-2_se', 'page': 'features/modal', '_fragment': 'feature-' ~ feature.name}) }}" data-toggle="modal" data-target="#features-modal" data-remote="true">Подробнее ...</a>
+                    </li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="modal modal-features" id="features-modal" tabindex="-1" role="dialog" aria-labelledby="features-modal" aria-hidden="true"></div>

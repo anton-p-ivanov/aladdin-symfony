@@ -1,0 +1,63 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Центр загрузки{% endblock %}
+
+{% block content %}
+
+    {% set products = {
+        'jacarta': 'JaCarta',
+        'jms': 'JaCarta Management System',
+        'jas': 'JaCarta Authentication Server',
+        'cryptobd': '"Крипто БД"',
+        'sd': 'Secret Disk 5',
+        'sdp': 'Secret Disk 4',
+        'sdsng': 'Secret Disk Server NG',
+        'sde': 'Secret Disk Enterprise',
+        'antifraud': '"Антифрод-терминал"',
+        'jc-webclient': 'JC-WebClient',
+        'ibutton': 'iButton',
+        'cardreaders': 'Смарт-карт ридеры ASEDrive',
+        'etoken': 'eToken',
+        'etokenlog': 'eToken Network Logon',
+        'etokentms': 'SafeNet Authentication Manager',
+    } %}
+
+    {% set categories = {
+        'drivers': 'Драйверы',
+        'software': 'Программное обеспечение',
+        'documentation': 'Документация'
+    } %}
+
+    <div class="row">
+        <div class="col-6">
+            <h2 class="font-weight-normal">По продукту</h2>
+            <ul class="list-unstyled list-nav">
+                {% for name, title in products %}
+                    <li>
+                        <ion-icon name="arrow-forward"></ion-icon>
+                        <a href="{{ path('support:downloads:section', {'code': name}) }}">{{ title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6">
+            <h2 class="font-weight-normal">По типу файлов</h2>
+            <ul class="list-unstyled list-nav">
+                {% for name, title in categories %}
+                    <li>
+                        <ion-icon name="arrow-forward"></ion-icon>
+                        <a href="{{ path('support:downloads:section', {'code': name}) }}">{{ title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}

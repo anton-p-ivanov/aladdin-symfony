@@ -1,0 +1,35 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}
+    {% if type == "business" %}
+        Бизнес-партнёры
+    {% else %}
+        Технологические партнёры
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="mb-4">
+        {{ include('partners/form.html.twig') }}
+    </div>
+    <hr />
+    <div class="position-relative">
+        <div id="search-results">{{ include('partners/results.html.twig') }}</div>
+        <div class="cloak bg-white"></div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('partners/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!--suppress JSUnusedLocalSymbols -->
+    <script>
+    {% spaceless %}
+        let cities = {{ include('partners/cities_' ~ type ~ '.json.twig') }};
+    {% endspaceless %}
+    </script>
+    {{ encore_entry_script_tags('js/partners/search') }}
+{% endblock %}

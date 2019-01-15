@@ -1,0 +1,52 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Брелки-держатели для iButton{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+
+            <p>Брелок служит для надежного удержания <a href="{{ path('catalog:product', {'product': 'ibutton'}) }}" title="Электронные идентификаторы iButton">электронного идентификатора</a> ("таблетки") iButton и удобной работы с ней при использовании практически любых считывателей. </p>
+
+            <p>Брелок выполнен из прочной пружинящей неломающейся пластмассы, позволяет многократно менять "таблетку" iButton, крепящуюся в своем посадочном месте с помощью двух защелкивающихся направляющих-фиксаторов. </p>
+
+            <p>Брелок с "таблеткой" удобно носить на связке с ключами. </p>
+
+            <p>Форма и устройство брелка-держателя защищены патентом РФ на полезную модель. </p>
+
+            <h4>Возможные варианты поставки:</h4>
+
+            <ul>
+                <li>Цвет корпуса: черный, зеленый, белый, красный, синий, на заказ </li>
+                <li>Логотип заказчика на корпусе.</li>
+            </ul>
+
+            <h4>Модели брелков-держателей для iButton</h4>
+
+            <table width="100%" cellspacing="0" cellpadding="10" border="0">
+                <tbody valign="top">
+                <tr>
+                    <td align="center">
+                        <img height="65" alt="Брелок-держатель для iButton RDS-21" src="{{ asset('images/catalog/ibutton/RDS-21.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-21.jpg') }}" title="Брелок-держатель для iButton RDS-21" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-21</h4>
+                        <p>Брелок для крепления "таблетки" iButton</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img height="65" alt="Брелок-держатель для iButton RDS-20" src="{{ asset('images/catalog/ibutton/RDS-20.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-20.jpg') }}" title="Брелок-держатель для iButton RDS-20" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-20</h4>
+                        <p>Брелок для крепления "таблетки" iButton (вариант для использования совместно с контактными устройствами RDS-11 &ndash; RDS-14)</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% set tabs = [
+    { 'id': 'mobile', 'title': 'Мобильные устройства на базе Apple iOS и Android', 'active': true, 'view': 'catalog/readers/bR301_instruction_mobile.html.twig' },
+    { 'id': 'desktop', 'title': 'Компьютеры и ноутбуки', 'active': false, 'view': 'catalog/readers/bR301_instruction_desktop.html.twig' },
+] %}
+{{ include('tabs.html.twig', {'class': 'nav-pills'}) }}

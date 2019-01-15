@@ -1,0 +1,18 @@
+home:
+    path: /
+
+logout:
+    path: /account/logout
+
+redirects:
+    resource: 'routes/redirects.yaml'
+    controller: App\Controller\RedirectController::urlRedirectAction
+    defaults:
+        permanent: true
+
+static:
+    resource: 'routes/base.yaml'
+    controller: App\Controller\TemplateController
+    defaults:
+        maxAge: 86400
+        sharedAge: 86400

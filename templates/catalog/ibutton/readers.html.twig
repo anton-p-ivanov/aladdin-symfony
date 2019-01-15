@@ -1,0 +1,118 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Считыватели для iButton{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            <p>Cчитыватели представляют собой контактные устройства, предназначенные для считывания / записи информации при
+                прикосновении к ним <a href="{{ path('catalog:product', {'product': 'ibutton'}) }}" title="Электронный идентификатор iButton">электронного идентификатора
+                </a> ("таблетки") iButton. </p>
+
+            <p>Считыватель имеет удобный пластмассовый корпус и снабжен клеящейся подложкой, что позволяет прикрепить его к
+                поверхности стола или к корпусу монитора. Форма и устройство считывателя защищены патентом РФ на полезную модель
+                (патент №32353 от 22 апреля 2003 г.).</p>
+
+            <p>Для удержания "таблетки" при длительной работе считыватели могут иметь специальный фиксатор.</p>
+
+            <p>Для подключения к компьютеру или к другому оборудованию считыватели могут иметь различные
+                <b>варианты адаптеров</b>: </p>
+
+            <ul>
+                <li>с адаптером для порта RS-232 </li>
+                <li>для USB-порта </li>
+                <li>без адаптера с разъемом RJ-11 </li>
+                <li>без адаптера.</li>
+            </ul>
+
+            <p><b>Возможные варианты исполнения считывателей</b>: </p>
+
+            <ul>
+                <li>Цвет корпуса и провода: черный, серый, белый, на заказ </li>
+                <li>Без фиксатора "таблетки" (только касание) / с фиксатором </li>
+                <li>Различная длина провода (стандартная длина — 0,7 м.)</li>
+                <li>Логотип заказчика на фронтальной части корпуса считывателя.</li>
+            </ul>
+
+            <p>Для крепления "таблетки" iButton и удобной работы рекомендуется приобрести брелок-держатель, позволяющий
+                прикрепить его на связку ключей. </p>
+
+            <h2>Модели считывателей для iButton</h2>
+
+            <table width="100%" cellspacing="0" cellpadding="10" border="0">
+                <tbody valign="top">
+                <tr>
+                    <td align="center">
+                        <img height="138" width="160" alt="Считыватель для iButton RDS-01" src="{{ asset('images/catalog/ibutton/RDS-01_Preview.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-01.jpg') }}" title="Считыватель для iButton RDS-01" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-01</h4>
+                        <p>Контактное устройство без фиксатора, телефонный провод 70 см, разъем DB9M для последовательного порта RS-232 (9 pin).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img height="138" width="160" alt="Считыватель для iButton RDS-01 USB" src="{{ asset('images/catalog/ibutton/RDS-01_USB_Preview.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-01_USB.jpg') }}" title="Считыватель для iButton RDS-01 USB" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-01 USB</h4>
+                        <p>Контактное устройство без фиксатора для USB порта.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img height="138" width="160" alt="Считыватель для iButton RDS-03" src="{{ asset('images/catalog/ibutton/RDS-03_Preview.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-03.jpg') }}" title="Считыватель для iButton RDS-03" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-03</h4>
+                        <p>Контактное устройство без фиксатора, телефонный провод 70 см, разъем RJ-11.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img height="138" width="160" alt="Считыватель для iButton RDS-04" src="{{ asset('images/catalog/ibutton/RDS-04_Preview.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-04.jpg') }}" title="Считыватель для iButton RDS-04" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-04</h4>
+                        <p>Контактное устройство без фиксатора, телефонный провод 70 см, без разъема.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img height="138" width="160" alt="Считыватель для iButton RDS-11" src="{{ asset('images/catalog/ibutton/RDS-11_Preview.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-11.jpg') }}" title="Считыватель для iButton RDS-11" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-11</h4>
+                        <p>Контактное устройство с фиксатором, телефонный провод 70 см, разъем DB9M для последовательного порта RS-232.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img height="138" width="160" alt="Считыватель для iButton RDS-13" src="{{ asset('images/catalog/ibutton/RDS-13_Preview.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-13.jpg') }}" title="Считыватель для iButton RDS-13" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-13</h4>
+                        <p>Контактное устройство с фиксатором, телефонный провод 70 см, разъем RJ-11.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img height="138" width="160" alt="Считыватель для iButton RDS-14" src="{{ asset('images/catalog/ibutton/RDS-14_Preview.jpg') }}"  />
+                        <a href="{{ asset('images/catalog/ibutton/RDS-14.jpg') }}" title="Считыватель для iButton RDS-14" class="fancybox">Увеличить</a>
+                    </td>
+                    <td>
+                        <h4>RDS-14</h4>
+                        <p>Контактное устройство с фиксатором, телефонный провод 70 см, без разъема.</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

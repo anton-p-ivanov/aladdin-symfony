@@ -1,0 +1,22 @@
+site:
+    resource: 'site.yaml'
+company:
+    resource: 'company.yaml'
+    trailing_slash_on_root: false
+    prefix: /company
+catalog:
+    resource: 'catalog.yaml'
+    prefix: /catalog
+support:
+    resource: 'support.yaml'
+partners:
+    resource: 'partners.yaml'
+    prefix: /partners
+buy:
+    path: /site/index
+login:
+    path: /account/login
+logout:
+    path: /account/logout
+contacts:
+    path: /company/contacts

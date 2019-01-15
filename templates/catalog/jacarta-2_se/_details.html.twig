@@ -1,0 +1,7 @@
+<h2>Дополнительно</h2>
+{% set tabs = [
+    { 'id': 'specification', 'title': 'Спецификация', 'active': true, 'url': path('catalog:product:page', {'product': 'jacarta-2_se', 'page': 'specification'}), 'view': 'catalog/jacarta-2_se/specification.html.twig' },
+    { 'id': 'certificates', 'title': 'Сертификаты', 'active': false, 'url': path('catalog:product:page', {'product': 'jacarta-2_se', 'page': 'certificates'}) },
+    { 'id': 'support', 'title': 'Поддержка', 'active': false, 'url': path('catalog:product:page', {'product': 'jacarta-2_se', 'page': 'support'}) },
+] %}
+{{ include('tabs.html.twig') }}

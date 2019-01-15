@@ -1,0 +1,47 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}ПАК JaCarta{% endblock %}
+
+{% block meta_description %}
+    Программный комплекс аутентификации и безопасного хранения информации пользователей
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p>Программно-аппаратный комплекс аутентификации и безопасного хранения информации пользователей</p>
+            {% set features = [
+                "Двухфакторная аутентификация пользователей",
+                "Хранение информации криптопровайдеров, сторонних приложений, пользовательских данных",
+                "Формирование и проверка электронной подписи",
+                "Визуальная идентификация пользователей и контроль физического доступа пользователей",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta/Group-Card_XL_Nano_Micro.png') }}" class="img-fluid" alt="ПАК JaCarta - программно-аппаратный комплекс аутентификации и безопасного хранения информации пользователей" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'description', 'title': 'Описание', 'active': true, 'url': path('catalog:product:page', {'product': 'pak_jacarta', 'page': 'description'}), 'view': 'catalog/pak_jacarta/description.html.twig' },
+                { 'id': 'specification', 'title': 'Спецификация', 'active': false, 'url': path('catalog:product:page', {'product': 'pak_jacarta', 'page': 'specification'}) },
+                { 'id': 'certificates', 'title': 'Сертификаты', 'active': false, 'url': path('catalog:product:page', {'product': 'pak_jacarta', 'page': 'certificates'}) },
+            ] %}
+            {{ include('tabs.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

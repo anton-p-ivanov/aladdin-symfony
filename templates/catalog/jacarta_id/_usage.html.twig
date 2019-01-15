@@ -1,0 +1,21 @@
+
+<p>Электронное удостоверение может применяться в:</p>
+<ul>
+    <li>частных и государственных компаниях;</li>
+    <li>банках и финансовых организациях;</li>
+    <li>охранных предприятиях;</li>
+    <li>образовательных учреждениях;</li>
+    <li>медицинских центрах;</li>
+    <li>и многих других сферах.</li>
+</ul>
+<p>Ниже перечислены некоторые возможные примеры использования электронного удостоверения в различных сферах и секторах экономики.</p>
+<br>
+
+    {% set tabs = [
+        { 'id': 'usage-1', 'title': 'В медицине', 'active': true, 'view': 'catalog/jacarta_id/usages/usage-1.html.twig' },
+        { 'id': 'usage-2', 'title': 'В финансах', 'active': false, 'view': 'catalog/jacarta_id/usages/usage-2.html.twig' },
+        { 'id': 'usage-3', 'title': 'На предприятиях', 'active': false, 'view': 'catalog/jacarta_id/usages/usage-3.html.twig' },
+        { 'id': 'usage-4', 'title': 'В силовых структурах', 'active': false, 'view': 'catalog/jacarta_id/usages/usage-4.html.twig' },
+        { 'id': 'usage-5', 'title': 'В образовании', 'active': false, 'view': 'catalog/jacarta_id/usages/usage-5.html.twig' },
+    ] %}
+    {{ include('tabs.html.twig', {'class': 'nav-pills'}) }}

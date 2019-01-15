@@ -1,0 +1,33 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Универсальный смарт-карт ридер с разъёмом Lightning{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p>Для iOS-устройств с разъёмом Lightning мы предлагаем использовать смарт-карт ридер iR301-UL. Он лёгкий, компактный и выполнен в фирменном стиле мобильных Apple-устройств.</p>
+            <p><i>Рекомендуется руководителям, топ-менеджерам, клиентам ДБО для работы с электронными системами, сервисами и документами из любого места и в любое время. </i></p>
+            <p><em>Гарантия на изделие осуществляется по серийному номеру в течение 1 года с момента продажи.</em></p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/readers/Lightning_Reader.png') }}" class="img-fluid" alt="{{ block('title') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'advantages', 'title': 'Описание', 'active': true, 'view': 'catalog/readers/Apple_Lighting_advantages.html.twig' },
+                { 'id': 'instruction', 'title': 'Инструкция по работе', 'active': false, 'view': 'catalog/readers/Apple_Lighting_instruction.html.twig' },
+                { 'id': 'specification', 'title': 'Технические характеристики', 'active': false, 'view': 'catalog/readers/Apple_Lighting_specification.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+
+            <p>
+                <a href="{{ path('catalog:product', {'product': 'readers'}) }}">Все смарт-карт ридеры</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

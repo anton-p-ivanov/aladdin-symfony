@@ -1,0 +1,21 @@
+{% set items = [
+    { 'image': 'Computer-Bank.svg', 'title': 'Системы дистанционного банковского обслуживания' },
+    { 'image': 'Checkboard-Checked.svg', 'title': 'Системы сдачи электронной отчётности' },
+    { 'image': 'Documents-Refresh.svg', 'title': 'Системы электронного документооборота' },
+    { 'image': 'Trade-Law.svg', 'title': 'Электронные торговые площадки' },
+    { 'image': 'Computer-Finance.svg', 'title': 'Корпоративные порталы' },
+    { 'image': 'Computer-Government.svg', 'title': 'Порталы государственных услуг' },
+    { 'image': 'Computer-Customs.svg', 'title': 'Системы электронного таможенного декларирования' },
+    { 'image': 'Computer-Globe.svg', 'title': 'Web-сервисы' }
+] %}
+
+<div class="row text-center mt-4">
+    {% for item in items %}
+    <div class="col-3 mb-4">
+        <div class="bg-white shadow-sm p-3 h-100">
+            <img src="{{ asset('icons/' ~ item.image) }}" class="icon icon-64 d-block m-auto" width="64" height="64" alt="{{ item.title }}" />
+            <div class="mt-2">{{ item.title }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

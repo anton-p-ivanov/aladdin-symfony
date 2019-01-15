@@ -1,0 +1,109 @@
+// Colors
+$white:                     #fff !default;
+//$gray-100:                  #f5f5f5 !default;
+$gray-200:                  #eeeeee !default;
+//$gray-300:                  #dddddd !default;
+$gray-400:                  #cccccc !default;
+//$gray-500:                  #aaaaaa !default;
+$gray-600:                  #999999 !default;
+$gray-700:                  #666666 !default;
+$gray-800:                  #444444 !default;
+//$gray-900:                  #222222 !default;
+$black:                     #000 !default;
+$white:                     #ffffff !default;
+$blue:                      #007bff !default;
+$orange:                    #e75012 !default;
+$primary:                   $orange !default;
+$secondary:                 $gray-600 !default;
+$light:                     $gray-200 !default;
+$dark:                      $gray-800 !default;
+$warning:                   $primary;
+
+// Font
+$font-family-base:          "Roboto", "Helvetica", Arial, sans-serif !default;
+$font-family-monospace:     monospace;
+$font-weight-base:          400 !default;
+$font-weight-bold:          500 !default;
+$font-weight-light:         300 !default;
+$font-size-base:            1rem !default;
+$font-size-lg:              ($font-size-base * 1.25) !default;
+$font-size-sm:              ($font-size-base * .875) !default;
+
+// Body styles
+$body-color:                $gray-800 !default;
+$body-bg:                   $white !default;
+
+// Typography
+$line-height-base:          1.5 !default;
+$line-height-lg:            1.5 !default;
+$line-height-sm:            1.5 !default;
+$base-margin-bottom:        1rem !default;
+$headings-margin-bottom:    $base-margin-bottom !default;
+$paragraph-margin-bottom:   $base-margin-bottom !default;
+$lead-font-size:            $font-size-base * 1.25 !default;
+$lead-font-weight:          $font-weight-light !default;
+
+// Headings
+$headings-font-family:      $font-family-base !default;
+$headings-font-weight:      $font-weight-bold !default;
+$headings-line-height:      1.25 !default;
+$headings-color:            inherit !default;
+$h1-font-size:              $font-size-base * 2.5 !default;
+$h2-font-size:              $font-size-base * 2 !default;
+$h3-font-size:              $font-size-base * 1.25 !default;
+$h4-font-size:              $font-size-base !default;
+$h5-font-size:              $font-size-base !default;
+$h6-font-size:              $font-size-base !default;
+
+$border-width:              1px;
+$border-radius:             4px;
+
+$hr-margin-y:               $base-margin-bottom !default;
+$hr-border-width:           $border-width !default;
+$hr-border-color:           rgba($black, .1) !default;
+
+// Grid
+$grid-breakpoints:          (xs: 0, sm: 600px, md: 960px, lg: 1200px, xl: 1440px) !default;
+$grid-gutter-base-width:    30px;
+$grid-gutter-widths:        (lg: 60px, xl: 60px) !default;
+$container-max-widths:      (sm: 540px, md: 900px, lg: 1140px, xl: 1380px) !default;
+
+// Links
+$link-color:                $blue;
+$link-decoration:           none;
+$link-hover-color:          $orange;
+$link-hover-decoration:     underline;
+
+// Nav
+$nav-link-padding-y: .75rem;
+$nav-link-padding-x: 2rem;
+$nav-tabs-border-color: $dark;
+$nav-tabs-link-hover-border-color: $dark;
+$nav-tabs-link-active-color: $black;
+$nav-tabs-link-active-bg: $white;
+$nav-tabs-link-active-border-color: $dark $dark $white;
+
+// Buttons
+$btn-border-width:          2px;
+$btn-padding-x:             1.75rem;
+
+// Dom elements
+$footer-height:             400px;
+$header-height:             100px;
+
+// Forms
+$label-margin-bottom:       .5rem;
+
+// Shadows
+$shadow:                    0 .125rem .25rem rgba($black, .075) !default;
+
+// Utils
+$spacer:                    1rem;
+
+// Modals
+$modal-content-border-radius:   0;
+
+// Alerts
+$alert-border-width:        0 !default;
+$alert-bg-level:            -11 !default;
+$alert-color-level:         0 !default;

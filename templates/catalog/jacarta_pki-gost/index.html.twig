@@ -1,0 +1,93 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta PKI/ГОСТ{% endblock %}
+
+{% block meta_description %}
+    Электронная подпись с использованием ГОСТ 34.10-2001 и аутентификация по зарубежным криптоалгоритмам
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">Электронная подпись с использованием ГОСТ 34.10-2001 и аутентификация по зарубежным криптоалгоритмам</p>
+            <p>JaCarta PKI/ГОСТ – PKI-токен для формирования усиленной квалифицированной электронной подписи и строгой двухфакторной аутентификации пользователей при доступе к защищённым информационным ресурсам, безопасного хранения ключей, ключевых контейнеров программных СКЗИ</p>
+            {% set features = [
+                "Работа с PKI в продуктах мировых вендоров обеспечивается штатными средствами",
+                "Усиленная квалифицированная электронная подпись с неизвлекаемым ключом ЭП для систем электронного документооборота, Web-порталов и облачных сервисов",
+                "Хранение ключевых контейнеров практически для всех программных СКЗИ (КриптоПро CSP, VipNet CSP и др.), а также использования в качестве отчуждаемого сертифицированного криптомодуля в составе других продуктов (в т.ч. КриптоПро CSP, VipNet CSP, Lissi CSP в режиме ЭП с неизвлекаемым ключом)",
+                "Сертифицировано ФСБ России и ФСТЭК России",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta/Group-Card_XL_Nano_Micro.png') }}" class="img-fluid" alt="JaCarta PKI/ГОСТ - электронная подпись с использованием ГОСТ 34.10-2001 и аутентификация по зарубежным криптоалгоритмам" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125863/" target="_blank">№ 4300</a> и <a href="https://reestr.minsvyaz.ru/reestr/125864/" target="_blank">4301</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex">
+                <a href="{{ path('download', {'uuid': 'a27fa7d8-2b67-4cbe-9912-ff3e81522e9b'}) }}" class="btn btn-dark mr-4">Брошюра "JaCarta PKI"</a>
+                <a href="{{ path('download', {'uuid': '603a3f03-92d5-429c-900c-85295f9f6eef'}) }}" class="btn btn-dark mr-4">Брошюра "JaCarta ГОСТ"</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#description">Описание</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/jacarta_pki-gost/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="models">
+            {{ include('catalog/jacarta_pki-gost/_models.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta_pki-gost/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_pki-gost/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta_pki-gost/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

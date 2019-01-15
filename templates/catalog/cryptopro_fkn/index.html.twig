@@ -1,0 +1,59 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}КриптоПро ФКН CSP 3.9{% endblock %}
+
+{% block meta_description %}
+    Функциональный ключевой носитель на базе устройств JaCarta
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>Средство криптографической защиты информации, предназначенное для формирования электронной подписи в системах юридически значимого электронного документооборота и других информационных системах, где требуются технологии ЭП:</p>
+            {% set features = [
+                "дистанционное банковское обслуживание (ДБО); ",
+                "электронные торговые площадки; ",
+                "сдача электронной отчётности; ",
+                "электронное декларирование грузов, перемещаемых через границу;",
+                "системы корпоративного/ведомственного электронного документооборота (СЭД).",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p>Продукт разработан лидерами рынка информационной безопасности России – компаниями "КРИПТО-ПРО" и "Аладдин Р.Д.".</p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/cryptopro_fkn/CryptoPRO_FKN_CSP.png') }}" class="img-fluid" alt="{{ block('title') }} - {{ block('meta_description') }}" style="max-height: 250px;" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a href="{{ asset('files/catalog/cryptopro_fkn/Listovka_JaCarta_CryptoPro.pdf') }}" class="btn btn-secondary">Скачать листовку</a>
+        </div>
+        <div class="col-6 offset-6">
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'description', 'title': 'Описание', 'active': true, 'view': 'catalog/cryptopro_fkn/_description.html.twig' },
+                { 'id': 'advantages', 'title': 'Преимущества', 'active': false, 'view': 'catalog/cryptopro_fkn/_advantages.html.twig' },
+                { 'id': 'specification', 'title': 'Специалисту', 'active': false, 'view': 'catalog/cryptopro_fkn/_specification.html.twig' },
+                { 'id': 'certificates', 'title': 'Сертификаты', 'active': false, 'view': 'catalog/cryptopro_fkn/_certificates.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

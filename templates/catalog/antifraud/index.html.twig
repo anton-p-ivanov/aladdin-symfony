@@ -1,0 +1,96 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}"Антифрод-терминал"{% endblock %}
+{% block meta_description %}"Антифрод-терминал" — Trust Screen-устройство для безопасной аутентификации и безопасного подтверждения операций/транзакций при работе пользователя в недоверенной среде{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p><b>Безопасная работа в недоверенной среде</b></p>
+            <p>"Антифрод-терминал" — Trust Screen-устройство для безопасной аутентификации и безопасного подтверждения операций/транзакций при работе пользователя в недоверенной среде</p>
+            {% set features = [
+                "Визуализация и безопасное подтверждение транзакций",
+                "Безопасное подтверждение намерений пользователя выполнить важные операции в системе",
+                "Безопасный ввод аутентификационных данных (пароля, PIN-кода, кода подтверждения) на клавиатуре терминала",
+                "Возможность интеграции со средствами электронной подписи для строгой двухфакторной аутентификации пользователя и безопасного подтверждения ключевых данных подписываемых электронных документов",
+                "Формирование доказательной базы для разбора конфликтных ситуаций",
+                "Быстрая интеграция с прикладными программами",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    {{ feature }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/antifraud/JCR-770_325_b21.png') }}" alt="Антифрод-терминал - Trust Screen-устройство для безопасной аутентификации и безопасного подтверждения транзакций" class="img-fluid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex">
+            <a href="{{ path('download', {'uuid': 'c7970906-763e-4581-80b6-836eed9ea921'}) }}" class="btn btn-dark mr-4">Брошюра "Антифрод-терминал"</a>
+            <a href="http://developer.aladdin-rd.ru/antifraud_terminal/index.html" target="_blank" class="btn btn-dark mr-4">Руководство по встраиванию</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Купить "Антифрод-терминал"</a>
+                <ul class="list-unstyled">
+                    <li><a href="https://demo.aladdin-rd.ru/" target="_blank">Демонстрационный портал</a></li>
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#description">Описание</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#scenarios">Сценарии использования</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#advantages">Преимущества</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#details">Дополнительно</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/antifraud/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="scenarios">
+            {{ include('catalog/antifraud/_scenarios.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-dark text-light section">
+        <div class="container" id="advantages">
+            {{ include('catalog/antifraud/_advantages.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/antifraud/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/antifraud/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/antifraud/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

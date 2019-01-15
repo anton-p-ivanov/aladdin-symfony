@@ -1,0 +1,26 @@
+<div class="row align-items-center">
+    <div class="col-6 order-0">
+        <h2 class="mt-0">Устанавливается за три простых шага</h2>
+        <div class="large">
+            <p>Приложение JC-WebClient может легко установить даже неподготовленный пользователь. Для этого нужно
+                выполнить всего три простых шага.</p>
+            <ol>
+                <li>Зайти на нужный пользователю Web-сайт.</li>
+                <li>Скачать дистрибутив приложения JC-WebClient.</li>
+                <li>Запустить процесс установки и дождаться его окончания.</li>
+            </ol>
+        </div>
+        <a href="{{ path('catalog:product:page', {'product': 'jc-webclient', 'page': 'details/easy-install'}) }}" class="btn btn-outline-primary" data-target="#easy-install-detailed" data-remote="true" data-destroy="true">
+            <span class="d-flex">Узнать больше ...</span>
+            <span class="d-none">
+                <ion-icon name="hourglass" size="medium" class="d-block rotating mr-2"></ion-icon>
+                Идёт загрузка ...
+            </span>
+        </a>
+    </div>
+    <div class="col-6 order-1 text-center">
+        <img src="{{ asset('images/catalog/jc-webclient/easy-install.png') }}" class="img-fluid" alt="JC-WebClient легко устанавливается" />
+    </div>
+</div>
+
+<div id="easy-install-detailed"></div>

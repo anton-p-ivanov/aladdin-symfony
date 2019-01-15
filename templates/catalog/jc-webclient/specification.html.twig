@@ -1,0 +1,211 @@
+<table class="table">
+    <colgroup>
+        <col width="25%" />
+        <col />
+    </colgroup>
+    <tbody>
+    <tr>
+        <th class="border-top-0">Поддерживаемые ОС</th>
+        <td class="border-top-0">
+            <div class="row">
+                <div class="col-4">
+                    <p class="font-weight-bold">Microsoft Windows</p>
+                    <ul class="list-unstyled list-condensed mb-0">
+                        <li>Microsoft Windows 10</li>
+                        <li>Microsoft Windows 8 &mdash; 8.1</li>
+                        <li>Microsoft Windows 7</li>
+                        <li>Microsoft Windows Vista</li>
+                        <li>Microsoft Windows ХP</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <p class="font-weight-bold">Linux</p>
+                    <ul class="list-unstyled list-condensed mb-0">
+                        <li>CentOS 7 (64-бит)</li>
+                        <li>Debian 8.4</li>
+                        <li>Debian 7.10 (64-бит)</li>
+                        <li>Fedora 23 (64-бит)</li>
+                        <li>openSUSE Leap 42.1 (64-бит)</li>
+                        <li>openSUSE 13.2</li>
+                        <li>Red Hat Enterprise 7.2 (64-бит)</li>
+                        <li>Ubuntu 16.04</li>
+                        <li>Ubuntu 14.04</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <p class="font-weight-bold">Apple</p>
+                    <ul class="list-unstyled list-condensed mb-0">
+                        <li>macOS 10.12 (Sierra)</li>
+                        <li>OS X 10.11 (El Capitan)</li>
+                        <li>OS X 10.10 (Yosemite)</li>
+                        <li>OS X 10.9 (Mavericks)</li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Поддерживаемые браузеры</th>
+        <td>
+            <ul class="list-unstyled list-condensed mb-0">
+                <li>Google Chrome</li>
+                <li>Mozilla Firefox</li>
+                <li>Microsoft Internet Explorer 8 &mdash; 11</li>
+                <li>Microsoft Edge</li>
+                <li>Apple Safari</li>
+                <li>Opera</li>
+                <li>"Яндекс.Браузер"</li>
+                <li>"Спутник"</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Поддерживаемые типы USB-токенов и смарт-карт</th>
+        <td>
+            <div class="row">
+                <div class="col-6">
+                    <p class="font-weight-bold">JaCarta</p>
+                    <ul class="list-unstyled list-condensed mb-0">
+                        <li><a href="{{ path('catalog:product', {'product': 'jacarta-2_gost'}) }}" target="_blank">JaCarta-2 ГОСТ</a></li>
+                        <li><a href="{{ path('catalog:product', {'product': 'jacarta-gost'}) }}" target="_blank">JaCarta ГОСТ</a></li>
+                        <li><a href="{{ path('catalog:product', {'product': 'jacarta-pro'}) }}" target="_blank">JaCarta PRO</a></li>
+                        <li>Комбинированные токены семейства JaCarta-2 ГОСТ и JaCarta, имеющие функциональность PRO и/или ГОСТ</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <p class="font-weight-bold">eToken</p>
+                    <ul class="list-unstyled list-condensed mb-0">
+                        <li>eToken ГОСТ</li>
+                        <li>eToken PRO (Java)</li>
+                    </ul>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Типы аутентификации</th>
+        <td>Строгая взаимная двухфакторная аутентификация пользователя и Web-сервера с выработкой общего симметричного ключа шифрования по ГОСТ (при использовании JaCarta ГОСТ, eToken ГОСТ) или по AES-128 и 3DES (при использовании JaCarta PRO, eToken PRO (Java)</td>
+    </tr>
+    <tr>
+        <th>Интеграция с PKI</th>
+        <td>
+            <ul class="mb-0">
+                <li class="mb-0">Поддержка цифровых сертификатов X.509</li>
+                <li class="mb-0">Генерация запросов на сертификат в формате PKCS#10</li>
+                <li class="mb-0">Формирование и проверка ЭП в формате PKCS#7</li>
+                <li class="mb-0">Проверка цепочек сертификатов</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Поддерживаемые криптоалгоритмы</th>
+        <td>
+            <p class="font-weight-bold">При работе с устройствами JaCarta-2 ГОСТ (средство ЭП "Криптотокен 2 ЭП")</p>
+            <ul>
+                <li class="mb-0">ГОСТ 28147-89 (симметричное шифрование)</li>
+                <li class="mb-0">ГОСТ Р 34.11-94 (функция хэширования)</li>
+                <li class="mb-0">ГОСТ Р 34.10-2001 (генерация ключевых пар, формирование и проверка ЭП)</li>
+                <li class="mb-0">ГОСТ Р 34.10-2012 (генерация ключевых пар, формирование и проверка ЭП)</li>
+                <li class="mb-0">ГОСТ Р 34.11-2012 (функция хэширования)</li>
+                <li class="mb-0">Выработка ключа парной связи на основе преобразований по алгоритмам VKO GOST R 34.10-2001 (в соответствии с RFC 4357) и VKO GOSTR3410_2012_256 (в соответствии с рекомендациями Технического комитета 026)</li>
+            </ul>
+            <p class="font-weight-bold">При работе с устройствами JaCarta ГОСТ и eToken ГОСТ (средство ЭП "Криптотокен ЭП")</p>
+            <ul>
+                <li class="mb-0">ГОСТ 28147-89 (симметричное шифрование)</li>
+                <li class="mb-0">ГОСТ Р 34.11-94 (функция хэширования)</li>
+                <li class="mb-0">ГОСТ Р 34.10-2001 (генерация ключевых пар, формирование и проверка ЭП)</li>
+            </ul>
+            <p class="font-weight-bold">При работе с устройствами JaCarta PRO и eToken PRO (Java)</p>
+            <ul class="mb-0">
+                <li class="mb-0">3DES (симметричное шифрование)</li>
+                <li class="mb-0">AES-128 (симметричное шифрование)</li>
+                <li class="mb-0">SHA-1 (функция хэширования)</li>
+                <li class="mb-0">RSA 1024 (генерация ключевых пар, формирование и проверка ЭП)</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Поддерживаемые типы ЭП</th>
+        <td>
+            <ul class="mb-0">
+                <li class="mb-0">Усиленная (с использованием российских или западных криптоалгоритмов)</li>
+                <li class="mb-0">Усиленная квалифицированная (при выпуске сертификата ЭП в <a href="http://minsvyaz.ru/ru/activity/govservices/2/" target="_blank" rel="nofollow">аккредитованных УЦ</a>)</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Срок хранения закрытого ключа ЭП</th>
+        <td>3 года</td>
+    </tr>
+    <tr>
+        <th>Дополнительный PIN-код для операции формирования ЭП</th>
+        <td>Есть, при использовании устройств JaCarta-2 ГОСТ</td>
+    </tr>
+    <tr>
+        <th>Разблокировка PIN-кодов по PUK-коду</th>
+        <td>Есть</td>
+    </tr>
+    <tr>
+        <th>Поддержка доверенных открытых ключей JaCarta-2 ГОСТ</th>
+        <td>Есть</td>
+    </tr>
+    <tr>
+        <th>Построение защищённого канала между приложением и USB-токеном/смарт-картой</th>
+        <td>Есть, при использовании устройств JaCarta-2 ГОСТ</td>
+    </tr>
+    <tr>
+        <th>Поддержка аппаратного вычисления хэш-функции</th>
+        <td>Есть (для токенов JaCarta ГОСТ и eToken ГОСТ)</td>
+    </tr>
+    <tr>
+        <th>Поддержка программного (быстрого) шифрования</th>
+        <td>Есть, при использовании устройств JaCarta-2 ГОСТ</td>
+    </tr>
+    <tr>
+        <th>Необходимость наличия прав администратора для первичной установки JC-WebClient</th>
+        <td>Есть</td>
+    </tr>
+    <tr>
+        <th>Необходимость перезагрузки браузера или ПК при установке JC-WebClient</th>
+        <td>
+            <ul class="mb-0">
+                <li class="mb-0">Microsoft Windows — нет</li>
+                <li class="mb-0">Linux — нет</li>
+                <li class="mb-0">Apple macOS/OS X — есть</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th>Обновление установленной версии JC-WebClient</th>
+        <td>Обновление, как правило, может быть осуществлено путём скачивания и запуска специального инсталлятора, не требующего прав локального администратора</td>
+    </tr>
+    <tr>
+        <th>Поддерживаемые типы Web-серверов</th>
+        <td>Любые</td>
+    </tr>
+    <tr>
+        <th>Лицензионные отчисления</th>
+        <td>Нет</td>
+    </tr>
+    <tr>
+        <th>Территориальные ограничения</th>
+        <td>Поскольку в составе решения используются сертифицированные СКЗИ "Криптотокен 2 ЭП" или "Криптотокен ЭП", распространение и использование ограничено только территорией РФ (см. Приказ ФСБ РФ от 9 февраля 2005 года № 66). Web-серверы также должны быть расположены на территории РФ (см. Федеральный закон от 31 декабря 2014 года № 531-ФЗ)</td>
+    </tr>
+    <tr>
+        <th>Комплект разработчика JC-WebClient SDK</th>
+        <td>
+            <p>Состав:</p>
+            <ul>
+                <li class="mb-lg-0">примеры интеграции в виде демо-портала с исходными кодами на Microsoft ASP.NET;</li>
+                <li class="mb-lg-0">документация для разработчиков;</li>
+                <li class="mb-lg-0">АРМ Разработчика JaCarta-2 ГОСТ.</li>
+            </ul>
+            <p class="mb-0"><em>При встраивании в прикладное ПО СКЗИ или средств ЭП с использованием российских криптоалгоритмов разработчик должен иметь лицензию ФСБ России.</em></p>
+        </td>
+    </tr>
+    <tr>
+        <th>Поддержка <span class="text-nowrap">Trust Screen-устройств</span> для безопасной работы с ЭП в недоверенной среде</th>
+        <td>"<a href="{{ path('catalog:product', {'product': 'antifraud'}) }}" target="_blank">Антифрод-терминал</a>"</td>
+    </tr>
+    </tbody>
+</table>

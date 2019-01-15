@@ -1,0 +1,17 @@
+{% set class = class is defined ? class : 'nav-tabs' %}
+<nav>
+    <div class="nav {{ class }} justify-content-center" role="tablist">
+        {% for tab in tabs %}
+            <a href="{{ tab.url is defined ? tab.url : ('#' ~ tab.id) }}" class="nav-item nav-link text-center{% if tab.active %} active{% endif %}" data-toggle="tab" data-target="#{{ tab.id }}"{% if tab.url is defined %} data-remote="true"{% endif %} role="tab" aria-controls="{{ tab.id }}" aria-selected="{{ tab.active ? 'true' : 'false' }}">{{ tab.title | raw }}</a>
+        {% endfor %}
+    </div>
+</nav>
+<div class="tab-content bg-white m-0 py-4">
+    {% for tab in tabs %}
+        <div class="tab-pane{% if tab.active %} active{% endif %}" id="{{ tab.id }}">
+            {% if tab.view is defined %}
+                {{ include(tab.view) }}
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

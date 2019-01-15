@@ -1,0 +1,33 @@
+<h2>Исполнения</h2>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-8 large">
+        Устройства JaCarta-2 PRO/ГОСТ выпускаются в двух форм-факторах: USB-токен (в корпусах XL и Nano) и смарт-карта
+        (чёрный пластик, чип с палладиевыми контактами).
+    </div>
+</div>
+
+{{ include('catalog/jacarta-2/_shared/_models.html.twig', {'models': [
+    { 'image': 'Computer_PC_left_JC-XL_Crop.jpg', 'title': 'USB-токены в классическом корпусе XL' },
+    { 'image': 'Computer_PC_left_JC-Nano_Crop.jpg', 'title': 'USB-токены в компактном корпусе Nano' },
+    { 'image': 'Card_JC300_Black_Crop.png', 'title': 'Смарт-карты в базовом чёрном дизайне' },
+]}) }}
+
+<div class="mt-4">
+    {{ include('catalog/jacarta-2/_shared/_custom.html.twig', {'title': 'JaCarta-2 PRO/ГОСТ'}) }}
+</div>
+
+<h2 class="mt-4">Рекомендуемое оборудование</h2>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-8 large">
+        <p>Для работы со смарт-картами со стационарного компьютера рекомендуется использование офисных смарт-карт ридеров <a href="{{ path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_IIIe_USB'}) }}" class="text-nowrap">ASEDrive IIIe USB</a>, с ноутбуками &mdash; компактных <a href="{{ path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_III_USB_Mini'}) }}" class="text-nowrap">ASEDrive III USB Mini</a>.</p>
+        <p>Для использования MicroUSB-токена на ноутбуке или персональном компьютере рекомендуется приобрести переходник MicroUSB-to-USB.</p>
+    </div>
+</div>
+
+{{ include('catalog/jacarta-2/_shared/_recommended.html.twig', {'models': [
+    { 'image': 'ASEDrive_IIIe_USB_Crop.png', 'title': 'ASEDrive IIIe USB', 'description': 'Для работы на стационарных ПК', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_IIIe_USB'}) },
+    { 'image': 'ASEDrive_III_USB_Mini_Crop.png', 'title': 'ASEDrive III USB Mini', 'description': 'Для работы на ноутбуках', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_III_USB_Mini'}) },
+    { 'image': 'Feitian_iR301-UL_Crop.png', 'title': 'Специальные ридеры', 'description': 'Для работы на планшетах и смартфонах', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'mobile'}) },
+]}) }}

@@ -1,0 +1,24 @@
+<h3 class="mt-0">Найдено партнёров: {{ paginator.resulsTotal }}</h3>
+
+{% if paginator.resulsTotal > 0 %}
+
+    {% if paginator.resulsTotal < 5 %}
+        <div class="alert alert-info">
+            Мало результатов? Попробуйте изменить условия поиска партнёров.
+        </div>
+    {% endif %}
+
+    <div class="d-flex flex-wrap align-items-start">
+        {% for partner in paginator.elements %}
+            {{ include('partners/results_' ~ type ~ '.html.twig') }}
+        {% endfor %}
+    </div>
+
+    <div class="mt-4">
+        {% set params = app.request.query.all() %}
+        {{ include('paginator.html.twig', {'route': 'partners:search', 'params': params | merge({'type': type})}) }}
+    </div>
+
+{% else %}
+    <p>К сожалению, по Вашему запросу партнёров не найдено.<br>Попробуйте изменить критерии поиска.</p>
+{% endif %}

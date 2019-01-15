@@ -1,0 +1,89 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}
+    Технологические партнёры
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <div class="d-block mr-4">
+            <img src="{{ asset('images/logos/partners/1s_bitriks.png') }}" alt="{{ partner.title }}" />
+        </div>
+        <div class="d-block ml-4">
+            <h3 class="mt-0">{{ partner.title | upper }}</h3>
+            <div class="partner__statuses">
+                {{ partner.values.STATUSES | join(', ') }}
+            </div>
+            <div class="partner__address">
+                {{ partner.values.CITY }},
+                {{ partner.values.REGION ? partner.values.REGION ~ ', ' : '' }}
+                {{ partner.values.STREET }}
+            </div>
+            <div class="partner__contacts">
+                {{ partner.values.PHONE }}
+                {% if partner.values.URL %}
+                    &middot; <a href="{{ partner.values.URL }}" target="_blank">Сайт партнёра</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% if partner.content %}
+        <div class="partner__content">{{ partner.content | raw }}</div>
+    {% endif %}
+
+    <div class="partner__content my-4">
+        <p>Ut tristique quam non purus vehicula, ut fringilla quam sollicitudin. Aliquam sed dolor ornare, tristique nibh nec, aliquet sapien. Quisque sed venenatis nunc. Maecenas varius elit quis diam dapibus sagittis. Suspendisse dui ipsum, semper id vehicula vel, vulputate ac libero.</p>
+        <p>Nulla facilisi. Donec blandit risus viverra mattis venenatis. Nullam ornare viverra lacinia. Nunc non euismod orci, ac tincidunt sapien. Praesent pellentesque lectus vel eros cursus pretium.</p>
+        <p>Phasellus facilisis ligula ac velit semper tempus. Duis quis rutrum neque. Nulla ultricies ligula at pharetra maximus. Nunc congue nulla vel felis laoreet interdum.</p>
+    </div>
+
+    <h3>Совместные решения</h3>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header font-weight-bold">Управление сайтом</div>
+                <div class="card-body">
+                    Профессиональная система для создания и управления интернет-проектами.
+                    <a href="">Подробнее ...</a>
+                </div>
+                <ul class="list-group list-group-flush list-unstyled">
+                    <li class="list-group-item">Работает с <a href="" title="Скачать сертификат совместимости">JaCarta WebPass</a></li>
+                    <li class="list-group-item">Предназначено для аутентификации пользователей по одноразовым паролям</li>
+                </ul>
+                <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="card-link" title="Скачать сертификат совместимости">Сертификат</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header font-weight-bold">Корпоративный портал</div>
+                <div class="card-body">
+                    Система управления внутренним информационным ресурсом компании для коллективной работы, хранения документов, внутренних коммуникаций.
+                    <a href="">Подробнее ...</a>
+                </div>
+                <ul class="list-group list-group-flush list-unstyled">
+                    <li class="list-group-item">Работает с <a href="" title="Скачать сертификат совместимости">JaCarta WebPass</a></li>
+                    <li class="list-group-item">Предназначено для аутентификации пользователей по одноразовым паролям</li>
+                </ul>
+                <div class="card-footer border-top-0 bg-white">
+                    <a href="#" class="card-link" title="Скачать сертификат совместимости">Сертификат</a>
+                    <a href="#" class="card-link" title="Скачать интеграционную инструкцию">Инструкция</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="list-unstyled list-icons mt-4">
+        <li>
+            <ion-icon name="arrow-back"></ion-icon>
+            <a href="{{ path("partners:search", {"type": "technical"}) }}">Все технологические партнёры</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('partners/_sidebar.html.twig') }}
+{% endblock %}

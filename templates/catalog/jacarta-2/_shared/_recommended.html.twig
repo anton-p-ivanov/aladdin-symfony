@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+    {% for item in models %}
+        {% set col = 12 / (models | length) %}
+        {% set col = col > 3 ? 4 : col %}
+        <div class="col-{{ col }} mb-4">
+            <div class="card h-100 shadow-sm">
+                <a href="{{ item.route }}">
+                    <img class="card-img-top bg-secondary" src="{{ asset('images/catalog/readers/632x300/' ~ item.image) }}" alt="{{ item.title }}" />
+                </a>
+                <div class="card-body text-center">
+                    <h4 class="mb-1">{{ item.title }}</h4>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

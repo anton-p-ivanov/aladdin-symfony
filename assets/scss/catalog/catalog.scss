@@ -1,0 +1,37 @@
+@import "../variables";
+@import "./feature";
+#main {
+    margin: 0;
+}
+#leadspace {
+    background: url('../../images/backgrounds/leadspace_catalog.png') repeat-x 50% 100%;
+    background-size: auto 100%;
+}
+.action-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .list-unstyled {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-base;
+        margin-bottom: 0;
+        margin-left: 1rem;
+
+        li {
+            margin-bottom: 0;
+        }
+    }
+}
+h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+.section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.tab-content {
+    margin-top: 1.5rem;
+}

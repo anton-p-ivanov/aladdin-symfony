@@ -1,0 +1,71 @@
+<p>Пожалуйста, заполните поля формы ниже для отправки Вашего сообщения компании "Аладдин Р.Д.". Менеджер компании
+    обязательно свяжется с Вами по указанным телефону или электронной почте. Обращаем ваше внимание, что в форме
+    обратной связи рассматриваются только общие вопросы, связанные с работой сайта компании, уточнением статуса вашего
+    заказа или поиском нужной вам информации.</p>
+
+<p>Для решения технических вопросов, связанных с работой продуктов компании "Аладдин Р.Д.", пожалуйста,
+    воспользуйтесь разделом "<a href="{{ path('support') }}">Техническая поддержка</a>".</p>
+
+<br class="my-4" />
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+{{ form_errors(form) }}
+
+<div class="form-group">
+    {{ form_label(form.form_field_contact_name, 'Как к вам обращаться?') }}
+    {{ form_widget(form.form_field_contact_name, {'attr': {'autofocus': true, 'placeholder': 'Сергей Иванов'}}) }}
+    {{ form_errors(form.form_field_contact_name) }}
+    <small class="text-secondary form-text">
+        Укажите имя, фамилию и, по желанию, ваше отчество.
+    </small>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(form.form_field_contact_email, 'E-Mail') }}
+            {{ form_widget(form.form_field_contact_email, {'attr': {'placeholder': 'sergey.ivanov@email.com'}}) }}
+            {{ form_errors(form.form_field_contact_email) }}
+            <small class="text-secondary form-text">
+                Обязательно проверьте правильность ввода вашего E-Mail, чтобы мы могли ответить именно вам.
+            </small>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            {{ form_label(form.form_field_contact_phone, 'Контактный телефон (не обязательно)') }}
+            {{ form_widget(form.form_field_contact_phone, {'attr': {'placeholder': '+7 (495) 2230001'}}) }}
+            {{ form_errors(form.form_field_contact_phone) }}
+            <small class="text-secondary form-text">
+                Нам будет проще с вами связаться как по телефону, так и с помощью популярных мессенджеров.
+            </small>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.form_field_subject, 'Тема сообщения') }}
+    {{ form_widget(form.form_field_subject) }}
+    {{ form_errors(form.form_field_subject) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.form_field_message, 'Сообщение') }}
+    {{ form_widget(form.form_field_message, {'attr': {'rows': 10}}) }}
+    {{ form_errors(form.form_field_message) }}
+</div>
+
+<div class="form-group my-4">
+    {{ form_widget(form.agreement) }}
+    {{ form_errors(form.agreement) }}
+</div>
+
+<div class="form-group mt-4 d-flex align-items-center">
+    <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+    <div class="loading ml-4 d-none align-items-center">
+        <div class="lds-dual-ring"></div>
+        <span class="text-secondary ml-2">Подождите, идёт отправка вашего сообщения ...</span>
+    </div>
+</div>
+
+{{ form_end(form) }}

@@ -1,0 +1,48 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Работа в компании{% endblock %}
+
+{% block lead %}
+    <p>Компания "Аладдин Р.Д." является лидером в области разработки и поставок решений для информационной безопасности.
+        Наш коллектив объединяет энергичных, творческих и преданных своему делу людей, стремящихся реализовывать
+        масштабные проекты, а также расширять опыт в области современных технологий информационной безопасности.</p>
+{% endblock %}
+
+{% block content %}
+
+    <h2>Отклик на вакансию "{{ title }}"</h2>
+
+    <div class="alert alert-success alert-lg">
+        <h3 class="alert-heading mt-0">Ваш отклик на вакансию успешно отправлен!</h3>
+        <div>Менеджеры отдела персонала компании "Аладдин Р.Д." рассмотрят ваше резюме и свяжутся с вами по указанным
+            контактным данным.</div>
+    </div>
+
+    <p>Что дальше?</p>
+
+    <ul class="list-unstyled list-nav">
+        <li>
+            <ion-icon name="arrow-forward"></ion-icon>
+            <a href="{{ path('company:history') }}">Познакомиться с историей компании</a>
+        </li>
+        <li>
+            <ion-icon name="arrow-forward"></ion-icon>
+            <a href="{{ path('catalog') }}">Познакомиться с основными продуктами компании</a>
+        </li>
+        <li>
+            <ion-icon name="arrow-forward"></ion-icon>
+            <a href="{{ path('company:employment') }}">Просмотреть другие вакансии компании</a>
+        </li>
+        <li>
+            <ion-icon name="arrow-forward"></ion-icon>
+            <a href="{{ path('home') }}">Перейти на главную страницу сайта</a>
+        </li>
+    </ul>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}

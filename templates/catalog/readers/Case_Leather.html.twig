@@ -1,0 +1,33 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Кожаный чехол для iPad со смарт-карт ридером{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p>Мы предлагаем кожаные чехлы эксклюзивного дизайна, имеющие специальный карман для ридера и позволяющие комфортно пользоваться смарт-картой во время работы на планшете. Смарт-карта в рабочем положении немного выступает за границу устройства, напоминая, что в целях безопасности карту нельзя оставлять в планшете.</p>
+            <p>На выбор предлагаются кожаные чехлы для iPad 3, iPad 4, iPad Air, iPad Air2.</p>
+            <p><em>Рекомендуется руководителям для работы с системами электронного документооборота, системами ДБО и другими сервисами из любого места и в любое время.</em></p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/readers/Apple_iPad_Leather_Cover_Reader.jpg') }}" class="img-fluid" alt="{{ block('title') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'advantages', 'title': 'Описание', 'active': true, 'view': 'catalog/readers/Case_Leather_advantages.html.twig' },
+                { 'id': 'instruction', 'title': 'Инструкция по работе', 'active': false, 'view': 'catalog/readers/Case_Leather_instruction.html.twig' },
+                { 'id': 'specification', 'title': 'Технические характеристики', 'active': false, 'view': 'catalog/readers/Case_Leather_specification.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+
+            <p>
+                <a href="{{ path('catalog:product', {'product': 'readers'}) }}">Все смарт-карт ридеры</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Обучение и сертификация{% endblock %}
+
+{% block content %}
+    <div class="lead mb-5">
+        Квалифицированные специалисты – залог успеха любой компании. Поэтому компания "Аладдин Р.Д." уделяет большое
+        внимание образованию и повышению квалификации своих заказчиков и партнеров. Совместно с ведущими учебными центрами в
+        области информационной безопасности разрабатываются авторские курсы и авторизованные программы, ведется работа с
+        преподавателями, отлажена система сертификации специалистов.
+    </div>
+
+    {% set tabs = [
+        { 'id': 'description', 'title': 'Общие сведения', 'active': true, 'view': 'support/training_description.html.twig' },
+        { 'id': 'courses', 'title': 'Категории курсов', 'active': false, 'view': 'support/training_courses.html.twig' },
+        { 'id': 'authentication', 'title': 'Учебное пособие', 'active': false, 'view': 'support/training_authentication.html.twig' },
+    ] %}
+
+    {{ include('tabs.html.twig') }}
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}

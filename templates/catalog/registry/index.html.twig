@@ -1,0 +1,158 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Единый реестр российских программ для ЭВМ и БД{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-9">
+            Большинство продуктов "Аладдин Р.Д." включены в Единый реестр российских программ для электронных
+            вычислительных машин и баз данных, оператором которого является Министерство связи и
+            массовых коммуникаций Российской Федерации.
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <p>Большинство продуктов "Аладдин Р.Д." включены в <a href="https://reestr.minsvyaz.ru/" target="_blank">
+       Единый реестр российских программ для электронных вычислительных машин и баз данных</a> (далее — Реестр), 
+       оператором которого является Министерство связи и массовых коммуникаций Российской Федерации.</p>
+    <p>Реестр создан в соответствии со статьей 12.1 Федерального закона "Об информации, информационных технологиях и
+       о защите информации" в целях расширения использования российского ПО, подтверждения его происхождения из
+       Российской Федерации, а также в целях оказания правообладателям ПО мер государственной поддержки.</p>
+    <p>Продукты, внесённые в Реестр, имеют преимущество при участии в тендерах, проводимых государственными
+       структурами и предприятиями, и помогают выполнять программу импортозамещения зарубежных разработок
+       отечественными аналогами.</p>
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Продукт</th>
+            <th class="text-nowrap">Номер в Реестре</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <a href="{{ path('catalog:product', {'product': 'jacarta'})}}">JaCarta</a><br>
+                USB-токены, смарт-карты и модули безопасности для обеспечения безопасного доступа в информационные
+                системы, работы с электронной подписью и безопасного хранения пользовательских данных
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/125857/" target="_blank">4294</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125862/" target="_blank">4299</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125863/" target="_blank">4300</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125864/" target="_blank">4301</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('catalog:product', {'product': 'jacarta_client'}) }}">Единый Клиент JaCarta</a><br>
+                Простое и удобное приложение, предназначенное для настройки USB-токенов и смарт-карт семейства JaCarta
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/125847/" target="_blank">4284</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('catalog:product', {'product': 'jacarta_securlogon'}) }}">JaCarta SecurLogon</a><br>
+                Решение для организации двухфакторной аутентификации без развёртывания инфраструктуры открытых 
+                ключей (PKI) и настройки Active Directory
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/93372/" target="_blank">2129</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ path('catalog:product', {'product': 'jms'}) }}">JaCarta Management System</a><br>
+                Система управления жизненным циклом средств аутентификации и электронной подписи JaCarta, а также 
+                USB-токенами и смарт-картами других производителей
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/69445/" target="_blank">311</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125873/" target="_blank">4310</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ path('catalog:product', {'product': 'jas'}) }}">JaCarta Authentication Server </a><br>
+                Высокопроизводительный автономный сервер аутентификации с поддержкой OTP- и U2F-токенов, а также 
+                программных токенов для мобильных устройств
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/93371/" target="_blank">2128</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('catalog:product', {'product': 'cryptobd'}) }}">"Крипто БД"</a><br>
+                Система предотвращения утечек информации из СУБД Microsoft SQL Server, Oracle, PostgreSQL или Tibero
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/73523/" target="_blank">509</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/73532/" target="_blank">518</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125855/" target="_blank">4292</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125856/" target="_blank">4293</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('catalog:product', {'product': 'secret_disk'}) }}">Secret Disk</a><br>
+                Системы для защиты информации на дисках от несанкционированного доступа, копирования, повреждения, 
+                кражи или принудительного изъятия
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/73527/" target="_blank">513</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/73528/" target="_blank">514</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/73533/" target="_blank">519</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125885/" target="_blank">4322</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('catalog:product', {'product': 'jc-webclient'}) }}">JC-WebClient</a><br>
+                Решение, позволяющее легко встроить в Web-приложения или облачные сервисы функции для работы с 
+                USB-токенами, смарт-картами и Trust Screen-устройствами
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/125859/" target="_blank">4296</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125861/" target="_blank">4298</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('catalog:product', {'product': 'jc-mobile'}) }}">JC-Mobile</a><br>
+                Решение, позволяющее легко встроить в мобильные приложения для платформ Google Android и Apple iOS 
+                функции для работы с USB-токенами и смарт-картами JaCarta
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/125860/" target="_blank">4297</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="{{ path('catalog:product', {'product': 'jacarta-arm'}) }}">JaCarta АРМ УЦ</a><br>
+                Приложение, позволяющее формировать запросы к Удостоверяющему центру на получение сертификата открытого 
+                ключа и записывать полученные сертификаты в память USB-токенов и смарт-карт JaCarta
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/125852/" target="_blank">4289</a>
+            </td>
+        </tr>
+        <tr>
+            <td><b>JaCarta SF/ГОСТ</b><br>
+                Защищённый служебный флеш-накопитель и персональное средство ЭП с аппаратно защищённой флеш-памятью
+            </td>
+            <td>
+                <a href="https://reestr.minsvyaz.ru/reestr/125881/" target="_blank">4318</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125883/" target="_blank">4320</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('catalog/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/css/catalog-certified-index.css') }}" />
+{% endblock %}

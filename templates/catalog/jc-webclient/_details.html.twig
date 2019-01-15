@@ -1,0 +1,9 @@
+<h2>Дополнительно</h2>
+{% set tabs = [
+    { 'id': 'specification', 'title': 'Спецификация', 'active': true, 'url': path('catalog:product:page', {'product': 'jc-webclient', 'page': 'specification'}), 'view': 'catalog/jc-webclient/specification.html.twig' },
+    { 'id': 'composition', 'title': 'Состав решения', 'active': false, 'url': path('catalog:product:page', {'product': 'jc-webclient', 'page': 'composition'}) },
+    { 'id': 'certificates', 'title': 'Сертификаты', 'active': false, 'url': path('catalog:product:page', {'product': 'jc-webclient', 'page': 'certificates'}) },
+    { 'id': 'whats_new', 'title': 'Что нового?', 'active': false, 'url': path('catalog:product:page', {'product': 'jc-webclient', 'page': 'whats_new'}) },
+    { 'id': 'support', 'title': 'Поддержка', 'active': false, 'url': path('catalog:product:page', {'product': 'jc-webclient', 'page': 'support'}) },
+] %}
+{{ include('tabs.html.twig') }}

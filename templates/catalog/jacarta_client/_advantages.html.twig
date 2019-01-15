@@ -1,0 +1,38 @@
+{% set features = [
+    {
+        'image': 'tokens_2.png',
+        'description': 'Единое прикладное программное обеспечение для разных моделей USB-токенов и смарт-карт JaCarta и eToken PRO (Java).',
+    },
+    {
+        'image': 'left_right.png',
+        'description': 'Поддержка устройств как c российской, так и с зарубежной криптографией.',
+    },
+    {
+        'image': 'layers.png',
+        'description': 'Работа с комбинированными USB-токенами и смарт-картами (например, JaCarta-2 PKI/ГОСТ) в одном окне.',
+    },
+    {
+        'image': 'pki_gost.png',
+        'description': 'Две версии интерфейса: упрощённый — для рядовых пользователей и расширенный — для продвинутых пользователей (администраторов).',
+    },
+    {
+        'image': 'certificate_3.png',
+        'description': 'Возможность создания запроса на цифровой сертификат.',
+    },
+    {
+        'image': 'csp.png',
+        'description': 'Работа с популярными криптопровайдерами, например, с КриптоПро CSP.',
+    },
+] %}
+
+<h2 class="text-center mb-5 mt-0">Преимущества</h2>
+<div class="row justify-content-center">
+    {% for item in features %}
+        <div class="col-6 d-flex align-items-start mb-5">
+            <img src="{{ asset('icons/' ~ item.image) }}" width="48" height="48" class="mr-4">
+            <div>
+                <div>{{ item.description | raw }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

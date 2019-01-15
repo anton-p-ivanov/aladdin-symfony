@@ -1,0 +1,101 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta-2 PKI/BIO/ГОСТ{% endblock %}
+
+{% block meta_description %}
+    Электронная подпись и строгая аутентификации пользователей с применением биометрии
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p><b>{{ block('meta_description') }}</b></p>
+            <p>USB-токены и смарт-карты с аппаратной реализацией новых российских криптоалгоритмов <span class="text-nowrap">ГОСТ Р 34.10-2012</span> и <span class="text-nowrap">ГОСТ Р 34.11-2012</span> для формирования усиленной квалифицированной электронной подписи (ЭП), а также c поддержкой западных криптоалгоритмов и биометрии для строгой двух- или трёхфакторной аутентификации пользователей при доступе к защищённым информационным ресурсам предприятия</p>
+            {% set features = [
+                "Усиленная квалифицированная ЭП",
+                "Строгая двух- или трёхфакторная аутентификация",
+                "Шифрование и обеспечение целостности данных",
+                "Безопасное хранение пользовательских данных",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    <span>{{ feature | raw }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6">
+            <div class="text-center">
+                <img src="{{ asset('images/catalog/jacarta/Group-Card_XL.png') }}" class="img-fluid" alt="JaCarta-2 PKI/BIO/ГОСТ - электронная подпись и строгая аутентификации пользователей с применением биометрии" />
+                <div class="font-weight-normal small my-4">
+                    Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125863/" target="_blank">№ 4300</a> и <a href="https://reestr.minsvyaz.ru/reestr/125864/" target="_blank">4301</a>)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-dark" href="{{ path('download', {'uuid': '30b8738d-b176-4070-82db-54044d0d027d'}) }}">Скачать брошюру</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="purpose">
+            {{ include('catalog/jacarta-2_pki-bio-gost/_purpose.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="use">
+            {{ include('catalog/jacarta-2_pki-bio-gost/_use.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="models">
+            {{ include('catalog/jacarta-2_pki-bio-gost/_models.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="features">
+            {{ include('catalog/jacarta-2/_shared/_features.html.twig', {
+                'code': 'jacarta-2_pki-bio-gost',
+                'title': 'JaCarta-2 PKI/BIO/ГОСТ'
+            }) }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta-2_pki-bio-gost/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta-2_pki-bio-gost/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta-2_pki-bio-gost/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

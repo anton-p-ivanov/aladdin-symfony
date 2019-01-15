@@ -1,0 +1,35 @@
+@import "../variables";
+
+#leadspace {
+  background: linear-gradient(to bottom, $light, $white);
+}
+
+#main {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  & > .section-base {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  & > .section-discontinue {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    .list-icons {
+      margin-bottom: 0;
+      & > li {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+}

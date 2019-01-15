@@ -1,0 +1,38 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta SF/ГОСТ{% endblock %}
+
+{% block meta_description %}
+    Средство контроля отчуждения (переноса) информации на съёмных носителях
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            {% set features = [
+                "Защищённый флэш-диск для безопасного хранения и переноса информации ограниченного доступа (ДСП, гостайна)",
+                "Персональное средство усиленной или усиленной квалифицированной электронной подписи",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta/300x150/JaCarta_XL_215_Cherry_Opened_Cap.png') }}" class="img-fluid" alt="{{ block('title') }} - {{ block('meta_description') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {{ include('catalog/jacarta_sf-gost/_description.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

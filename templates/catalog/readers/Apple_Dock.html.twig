@@ -1,0 +1,33 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Универсальный смарт-карт ридер с разъёмом Apple 30-pin{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p>Лёгкий и компактный смарт-карт ридер iR301-U идеально подходит для работы со смарт-картами на Вашем iPhone или iPad, имеющим разъём Apple 30-pin. </p>
+            <p><i>Рекомендуется руководителям, топ-менеджерам, клиентам ДБО для работы с электронными системами, сервисами и документами из любого места и в любое время. </i></p>
+            <p><em>Гарантия на изделие осуществляется по серийному номеру в течение 1 года с момента продажи.</em></p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/readers/Apple_Dock_Reader.png') }}" class="img-fluid" alt="{{ block('title') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'advantages', 'title': 'Описание', 'active': true, 'view': 'catalog/readers/Apple_Dock_advantages.html.twig' },
+                { 'id': 'instruction', 'title': 'Инструкция по работе', 'active': false, 'view': 'catalog/readers/Apple_Dock_instruction.html.twig' },
+                { 'id': 'specification', 'title': 'Технические характеристики', 'active': false, 'view': 'catalog/readers/Apple_Dock_specification.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+
+            <p>
+                <a href="{{ path('catalog:product', {'product': 'readers'}) }}">Все смарт-карт ридеры</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

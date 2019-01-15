@@ -1,0 +1,15 @@
+<div class="mb-4">
+    <div class="text-muted small">{{ element.activeFrom | date_custom }}</div>
+    <div class="large">
+        <a href="{{ path("pressroom:events:view", {"code": element.code}) }}">{{ element.title | raw }}</a>
+    </div>
+    <div class="d-block">{{ element.description | raw }}</div>
+    <div class="small mt-2">
+        {% for code, section in element.sections | slice(0, 2) %}
+            <a href="{{ path('pressroom:events:tags', {'tag': code}) }}" class="text-muted d-inline-block mr-3">{{ section }}</a>
+        {% endfor %}
+        {% if (element.sections | length) > 2 %}
+            <span class="text-muted d-inline-block">Ещё {{ (element.sections | length) - 2 }}</span>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,98 @@
+{% extends 'wide.html.twig' %}
+
+{% block title %}Продукты и решения{% endblock %}
+
+{% block content %}
+
+    {% set items = include('catalog/index.json.twig') | json_decode %}
+
+    {% for section in items %}
+    <div class="{% if loop.index % 2 %}bg-white{% else %}bg-light{% endif %} py-5 section-base">
+        <div class="container" id="{{ section.id }}">
+            <h2 class="text-center mb-5">{{ section.title }}</h2>
+            <div class="row justify-content-center">
+            {% for item in section.items %}
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4 pt-4">
+                            <a href="{{ path('catalog:product', {'product': item.name}) }}" title="{{ item.title }}">
+                                <img width="175" height="175" src="{{ asset('images/catalog/350x350/' ~ item.img) }}" alt="{{ item.title }}">
+                            </a>
+                        </div>
+                        <div class="col-8">
+                            <h3>
+                                <a href="{{ path('catalog:product', {'product': item.name}) }}" title="{{ item.title }}">{{ item.title }}</a>
+                            </h3>
+                            <div>{{ item.description }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="bg-dark text-light py-5 section-base">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <h2 class="mb-5">Сертифицированные продукты и решения</h2>
+                    <p>
+                        Компания имеет все необходимые лицензии ФСТЭК России, ФСБ России и Министерства обороны России
+                        для проектирования, производства и поддержки СЗИ и СКЗИ, включая работу с гостайной и
+                        производство продукции в рамках гособоронзаказа.
+                    </p>
+                </div>
+                <div class="col-4">
+                    <h2 class="mb-5">Единый реестр российских программ для ЭВМ и БД</h2>
+                    <p>
+                        Продукты, внесённые в Реестр, имеют преимущество при участии в тендерах, проводимых
+                        государственными структурами и предприятиями, и помогают выполнять программу импортозамещения
+                        зарубежных разработок отечественными аналогами.
+                    </p>
+                </div>
+                <div class="col-4">
+                    <h2 class="mb-5">Совместные решения с тех.&nbsp;партнёрами</h2>
+                    <p>
+                        Компания "Аладдин Р.Д." уделяет пристальное внимание взаимодействию с ведущими российскими
+                        разработчиками СКЗИ (компаниями "Крипто-Про", "Инфотекс", "Сигнал-КОМ", "ЛИССИ-Софт"), систем
+                        защиты информации, а также с производителями множества прикладных систем.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <a href="{{ path('catalog:product', {'product': 'certified'}) }}" class="btn btn-primary">Подробнее ...</a>
+                </div>
+                <div class="col-4">
+                    <a href="{{ path('catalog:product', {'product': 'registry'}) }}" class="btn btn-primary">Подробнее ...</a>
+                </div>
+                <div class="col-4">
+                    <a href="{{ path('partners:solutions') }}" class="btn btn-primary">Подробнее ...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-secondary py-4 section-discontinue">
+        <div class="container">
+            <ul class="list-unstyled list-icons">
+                <li>
+                    <ion-icon name="arrow-forward" class="text-dark"></ion-icon>
+                    <a class="text-dark" href="{{ path('support:page', {'page': 'discontinue'}) }}">Продукты, снятые с продаж</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('site/sidebar.html.twig') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/css/catalog-index.css') }}" />
+{% endblock %}

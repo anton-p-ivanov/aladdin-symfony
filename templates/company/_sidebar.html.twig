@@ -1,0 +1,24 @@
+{% set items = include('company/_sidebar.json.twig') | json_decode %}
+
+{% for section in items %}
+<div class="sidebar-nav mb-4">
+    <p class="font-weight-bold">{{ section.title }}</p>
+    <ul class="list-unstyled list-icons">
+        {% for item in section.items %}
+            {% if item.route is iterable %}
+                {% set url = path(item.route.name, item.route.params) %}
+            {% else %}
+                {% set url = path(item.route) %}
+            {% endif %}
+            {% set isActive = false %}
+            {% if item.route is defined %}
+                {% set isActive = item.route == app.request.attributes.get('_route') %}
+            {% endif %}
+            <li{% if isActive %} class="active"{% endif %}>
+                <ion-icon name="arrow-forward"></ion-icon>
+                <a href="{{ url }}">{{ item.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}

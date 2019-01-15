@@ -1,0 +1,7 @@
+<h2>Дополнительно</h2>
+{% set tabs = [
+    { 'id': 'specification', 'title': 'Специалисту', 'active': true, 'url': path('catalog:product:page', {'product': 'jacarta_webpass', 'page': 'specification'}), 'view': 'catalog/jacarta_webpass/specification.html.twig' },
+    { 'id': 'how-to-use', 'title': 'Как использовать', 'active': false, 'url': path('catalog:product:page', {'product': 'jacarta_webpass', 'page': 'how-to-use'}) },
+    { 'id': 'support', 'title': 'Поддержка', 'active': false, 'url': path('catalog:product:page', {'product': 'jacarta_webpass', 'page': 'support'}) },
+] %}
+{{ include('tabs.html.twig') }}

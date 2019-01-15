@@ -1,0 +1,39 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}События и мероприятия{% endblock %}
+
+{% block content %}
+    {% if sections is defined %}
+        <div class="d-flex large align-items-center mb-4">
+            <span class="mr-2">Поиск по тегам:</span>
+            {% for section in sections %}
+                <span class="tag bg-light">
+            {{ section.title }}
+                    <a href="{{ path('pressroom:events') }}" class="ml-2">&times;</a>
+        </span>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if future and future.elements %}
+        <h2 class="mt-0">Предстоящие мероприятия</h2>
+        {% for element in future.elements %}
+            {{ include('company/pressroom/events/_element.html.twig') }}
+        {% endfor %}
+    {% endif %}
+
+    <h2 class="mt-0">Прошедшие мероприятия</h2>
+    {% for element in paginator.elements %}
+        {{ include('company/pressroom/events/_element.html.twig') }}
+    {% endfor %}
+
+    {% if app.request.get('tag') %}
+        {{ include('paginator.html.twig', {'route': 'pressroom:events:tags', 'params': {'tag': app.request.get('tag')}}) }}
+    {% else %}
+        {{ include('paginator.html.twig', {'route': 'pressroom:events'}) }}
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}

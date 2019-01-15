@@ -1,0 +1,21 @@
+<div class="row align-items-center">
+    <div class="col-6 order-1">
+        <h2 class="mt-0">Просто использовать</h2>
+        <p class="large">JC-WebClient делает процесс использования USB-токена или смарт-карты совместно с
+            браузером максимально простым и понятным. Приложение JC-WebClient работает в фоновом режиме и не требует
+            от пользователя каких-либо действий по запуску или настройке.
+        </p>
+        <a href="{{ path('catalog:product:page', {'product': 'jc-webclient', 'page': 'details/easy-use'}) }}" class="btn btn-outline-primary" data-target="#easy-use-detailed" data-remote="true" data-destroy="true">
+            <span class="d-flex">Узнать больше ...</span>
+            <span class="d-none">
+                <ion-icon name="hourglass" size="medium" class="d-block rotating mr-2"></ion-icon>
+                Идёт загрузка ...
+            </span>
+        </a>
+    </div>
+    <div class="col-6 order-0 text-center">
+        <img src="{{ asset('images/catalog/jc-webclient/easy-use.png') }}" class="img-fluid" alt="JC-WebClient просто использовать" />
+    </div>
+</div>
+
+<div id="easy-use-detailed"></div>

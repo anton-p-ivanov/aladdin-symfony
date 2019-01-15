@@ -1,0 +1,10 @@
+{% set title = 'JaCarta-2 PKI/BIO/ГОСТ' %}
+{% set features = include('catalog/jacarta-2/_shared/_features.json.twig') | json_decode %}
+{% set features = features | merge({"certified": {
+    "image": "icons/JC-2-07.png",
+    "title": "Сертифицировано по новым требованиям ФСБ России",
+    "description": "<p>СКЗИ в составе <span class=\"text-nowrap\">" ~ title ~ "</span> сертифицировано по новым требованиям ФСБ России и является функционально законченным и криптографически безопасным.</p>",
+    "view": "catalog/jacarta-2_pki-bio-gost/features/certified.html.twig"
+}}) %}
+
+{{ include('catalog/jacarta-2/_features/modal.html.twig') }}

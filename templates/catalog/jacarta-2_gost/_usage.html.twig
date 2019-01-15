@@ -1,0 +1,8 @@
+<h2>Возможности применения</h2>
+
+{% set tabs = [
+    { 'id': 'usage-1', 'title': 'USB-токены и смарт-карты', 'active': true, 'view': 'catalog/jacarta-2_gost/usage/usage-1.html.twig' },
+    { 'id': 'usage-2', 'title': 'Смарт-карты', 'active': false, 'view': 'catalog/jacarta-2_gost/usage/usage-2.html.twig' },
+    { 'id': 'usage-3', 'title': 'SIM-модули и микросхемы', 'active': false, 'view': 'catalog/jacarta-2_gost/usage/usage-3.html.twig' },
+] %}
+{{ include('tabs.html.twig') }}

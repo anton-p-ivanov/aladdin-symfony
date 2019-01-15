@@ -1,0 +1,55 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Доверенная платформа{% endblock %}
+
+{% block meta_description %}
+    на ARM-процессорах с собственной TrustZone
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            {% set features = [
+                "Технология \"стерилизации\" импортных процессоров (i.MX6)",
+                "Доверенная загрузка, ввод-вывод, визуализация",
+                "Контроль ОС и исполняемых приложений",
+                "Система дистанционного управления и мониторинга",
+                "Сертификация (до гостайны)",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/trustzone/TrustZone_Logo.png') }}" class="img-fluid" alt="{{ block('title') }} - {{ block('meta_description') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/trustzone/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="details">
+            {{ include('catalog/trustzone/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="try">
+            {{ include('catalog/trustzone/_try.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

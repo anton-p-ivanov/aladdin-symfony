@@ -1,0 +1,6 @@
+terms:
+    path: /terms
+    defaults: { template: 'site/terms.html.twig' }
+privacy:
+    path: /privacy
+    defaults: { template: 'site/privacy.html.twig' }

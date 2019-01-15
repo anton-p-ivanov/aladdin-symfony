@@ -1,0 +1,11 @@
+{% extends 'support/requests/jacarta_sdk.html.twig' %}
+
+{% block title %}Заявка на получение JaCarta-2 SDK{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ include('captcha.html.twig', {
+        'action': 'request/JaCarta2SDK',
+        'id': 'sdk_captcha'
+    }) }}
+{% endblock %}

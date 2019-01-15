@@ -1,0 +1,10 @@
+{% extends 'support/requests/jacarta_sdk.html.twig' %}
+
+{% block title %}Заявка на получение JaCarta Management System SDK{% endblock %}
+
+{% block javascripts %}
+    {{ include('captcha.html.twig', {
+        'action': 'request/JmsSDK',
+        'id': 'sdk_captcha'
+    }) }}
+{% endblock %}

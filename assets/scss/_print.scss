@@ -1,0 +1,37 @@
+@media print {
+    a:after {
+        content: " <" attr(href) ">";
+    }
+    #header, #push {
+        display: none;
+    }
+    #wrapper {
+        margin-bottom: 0;
+    }
+    #footer {
+        height: auto;
+    }
+    #main {
+        .content {
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+}
+.print {
+    #wrapper {
+        margin-bottom: 0;
+    }
+    #footer {
+        height: auto;
+        & > .copyright-links {
+            position: relative;
+        }
+    }
+    .d-print-none {
+        display: none !important;
+    }
+}

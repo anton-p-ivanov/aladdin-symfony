@@ -1,0 +1,24 @@
+<div class="row align-items-center">
+    <div class="col-6 order-1">
+        <h2 class="mt-0">Обеспечивает высокий уровень информационной безопасности</h2>
+        <div class="large">
+            <p>В JC-WebClient применяются развитые механизмы информационной безопасности: обеспечивается взаимная
+                строгая двухфакторная аутентификация пользователя и Web-сервера, конфиденциальность данных и
+                надёжная защита от кражи закрытых ключей.</p>
+            <p>Совместимость с инфраструктурой открытых ключей (PKI) обеспечивает дополнительный уровень
+                доверия.</p>
+        </div>
+        <a href="{{ path('catalog:product:page', {'product': 'jc-webclient', 'page': 'details/high-security'}) }}" class="btn btn-outline-primary" data-target="#high-security-detailed" data-remote="true" data-destroy="true">
+            <span class="d-flex">Узнать больше ...</span>
+            <span class="d-none">
+                <ion-icon name="hourglass" size="medium" class="d-block rotating mr-2"></ion-icon>
+                Идёт загрузка ...
+            </span>
+        </a>
+    </div>
+    <div class="col-6 order-0 text-center">
+        <img src="{{ asset('images/catalog/jc-webclient/high-security.png') }}" class="img-fluid" alt="JC-WebClient обеспечивает высокий уровень информационной безопасности" />
+    </div>
+</div>
+
+<div id="high-security-detailed"></div>

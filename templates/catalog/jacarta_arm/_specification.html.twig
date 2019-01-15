@@ -1,0 +1,107 @@
+<h2>Системные требования</h2>
+
+<table class="table">
+    <colgroup>
+        <col width="200" />
+        <col />
+    </colgroup>
+    <tbody>
+    <tr>
+        <td>Поддерживаемые модели электронных ключей</td>
+
+        <td><ul><li>JaCarta ГОСТ
+                </li><li>JaCarta ГОСТ/Flash
+                </li><li>JaCarta PKI/ГОСТ
+                </li><li>JaCarta PKI/ГОСТ/Flash
+                </li><li>eToken ГОСТ
+                </li></ul></td>
+    </tr>
+    <tr>
+        <td>Поддерживаемые УЦ</td>
+
+        <td>
+
+            <ul><li>Автономный режим:
+                    <ul><li>любой УЦ, поддерживающий запросы PKCS #10.</li></ul></li>
+                <li>Автоматический режим:
+                    <ul><li>КриптоПро УЦ 1.5.</li></ul></li>
+                </ul>
+
+        </td>
+    </tr>
+    <tr>
+        <td>Необходимые аппаратные средства</td>
+        <td>
+
+            <ul><li>Для токенов: USB-порт
+                </li><li>Для смарт-карт: наличие подключенного считывателя смарт-карт
+                </li><li>Для токенов в форм-факторе MicroUSB: USB-порт через переходник MicroUSB-to-USB
+                </li><li>Для токенов в форм-факторе MicroSD  можно использовать следующее:
+                    <ul><li>разъём MicroSD;
+                        </li><li>разъём SD через переходник MicroSD-to-SD;
+                        </li><li>USB-порт через переходник MicroSD-to-USB.</li></ul></li>
+                </ul>
+
+
+        </td>
+    </tr>
+    <tr>
+        <td>Рекомендуемое разрешение экрана</td>
+        <td> Для корректного отображения интерфейса JaCarta АРМ УЦ рекомендуется установить разрешение монитора не ниже 1024x768 (минимальное разрешение: 800х600)</td>
+    </tr>
+
+
+    <tr>
+        <td>Поддерживаемые операционные системы</td>
+        <td>
+            <ul><li>Microsoft Windows 10 (32/64-бит)
+                </li><li>Microsoft Windows 8.1 (32/64-бит)
+                </li><li>Microsoft Windows 8 (32/64-бит)
+                </li><li>Microsoft Windows 7 SP1 (32/64-бит)
+                </li><li>Microsoft Windows Vista SP2 (32/64-бит)
+                </li><li>Microsoft Windows XP SP3 (32-бит), SP2 (64-бит)
+                </li><li>Microsoft Windows Server 2012 R2
+                </li><li>Microsoft Windows Server 2012
+                </li><li>Microsoft Windows Server 2008 R2 SP1
+                </li><li>Microsoft Windows Server 2008 SP2 (32/64-бит)
+                </li><li>Microsoft Windows Server 2003 R2 SP2 (32/64-бит)
+                </li><li>Microsoft Windows Server 2003 SP2 (32/64-бит)
+                </li></ul> </td>
+    </tr>
+
+    <tr>
+        <td>Дополнительное ПО</td>
+
+        <td><ul><li>Microsoft NET. Framework 3.5
+                </li><li>КриптоПро CSP версии 3.6/3.6 R2 и выше
+                </li><li>Единый Клиент JaCarta версии 2.8 и выше
+                </li><li>Microsoft Management Console 3.0
+                </li></ul></td>
+    </tr>
+
+    <tr>
+        <td>Другие требования</td>
+
+        <td>
+
+            <p>Для работы в автоматическом режиме (режим online) необходимо:</p>
+            <ul><li>доступ к КриптоПро УЦ;
+                </li><li>установленные сертификаты:
+                    <ul><li>корневой сертификат КриптоПро УЦ (хранилище доверенных корневых центров сертификации);
+                        </li><li>сертификат Оператора и/или Администратора, который будет использован для аутентификации в Центре регистрации (личное хранилище сертификатов);</li></ul>
+
+                </li><li>для Microsoft Windows XP необходимо установить обновление KB967048 с сайта Microsoft <a href="https://support.microsoft.com/ru-ru/kb/967048">https://support.microsoft.com/ru-ru/kb/967048</a>;
+
+                </li><li>для Microsoft Windows 7 и Microsoft Windows 2008 R2 необходимо установить обновление KB2800095 c сайта Microsoft <a href="https://support.microsoft.com/en-us/kb/2800095">https://support.microsoft.com/en-us/kb/2800095</a>;
+
+                </li><li style="color: rgb(230, 65, 23)">только в случае, если испытываются проблемы с работой подсистемы USB-CCID, необходимо установить HotFix KB2800095 c сайта Microsoft <a href="http://support2.microsoft.com/hotfix/KBHotfix.aspx?kbnum=2800095&kbln=en-us">http://support2.microsoft.com/hotfix/KBHotfix.aspx?kbnum=2800095&kbln=en-us</a>.
+                </li></ul>
+
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Применяемые программные технологии</h2>
+<p>В качестве основы приложения применяются .Net Framework 3.5 и библиотека Microsoft Management Console (ММС) 3.0. Соответственно, ПО JaCarta АРМ УЦ представляет собой оснастку, которую можно использовать как отдельно, так и добавлять к прочим оснасткам в консоль на усмотрение пользователя. </p>

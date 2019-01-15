@@ -1,0 +1,36 @@
+{% set features = include('catalog/jacarta-2_se/features/features.json.twig') | json_decode %}
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="font-weight-bold">Особенности JaCarta-2 SE</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body py-0 small">
+            <div class="row h-100">
+                <div class="col-4 bg-light px-0">
+                    <div class="nav nav-pills nav-features flex-column" role="tablist" aria-orientation="vertical">
+                        {% for feature in features %}
+                            {% if feature.name is defined %}
+                                <a class="nav-link{% if loop.first %} active{% endif %}" href="#feature-{{ feature.name }}" data-toggle="pill" role="tab">{{ feature.title }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-8 px-0">
+                    <div class="tab-content h-100 my-0 p-4" style="overflow-y: auto">
+                        {% for feature in features %}
+                            {% if feature.name is defined %}
+                                <div class="tab-pane{% if loop.first %} active{% endif %}" id="feature-{{ feature.name }}" role="tabpanel">
+                                    {{ include('catalog/jacarta-2_se/features/' ~ feature.name ~'.html.twig') }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

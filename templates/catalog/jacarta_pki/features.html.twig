@@ -1,0 +1,9 @@
+{% set title = 'JaCarta PKI' %}
+{% set features = include('catalog/jacarta/_shared/_features.json.twig') | json_decode %}
+{% set features = features | merge({"certified": {
+    "image": "icons/JC-2-07.png",
+    "title": "Сертифицировано ФСТЭК России",
+    "description": "<p>Все устройства {{ title }} сертифицированы ФСТЭК России (сертификат № 3449). Это позволяет применять их в АС до класса защищённости 1Г, в ГИС до 1 класса защищённости и в ИСПДн до 1 уровня защищённости включительно.</p>",
+    "view": "catalog/jacarta_pki/features/certified.html.twig"
+}}) %}
+{{ include('catalog/jacarta/_features/modal.html.twig') }}

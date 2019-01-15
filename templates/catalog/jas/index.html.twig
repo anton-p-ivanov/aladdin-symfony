@@ -1,0 +1,84 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta Authentication Server{% endblock %}
+{% block meta_description %}Аутентификация по одноразовым паролям, стандарту U2F или программным токенам{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p><b>{{ block('meta_description') }}</b></p>
+            <p>JaCarta Authentication Server (JAS) – автономный высокопроизводительный сервер аутентификации с поддержкой OTP- и U2F-токенов, а также программных токенов для мобильных устройств</p>
+            {% set features = [
+                "Усиленная аутентификация пользователей по одноразовым паролям (OTP)",
+                "Строгая аутентификация пользователей по протоколу U2F (разработка FIDO Alliance)",
+                "Обеспечение аутентификации на десктопах, ноутбуках и мобильных устройствах",
+                "Простая интеграция с прикладным ПО по стандартным протоколам",
+                "Высокая производительность (более 1000 аутентификаций в секунду)",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    {{ feature }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jas/JaCarta_Authentication_Server.png') }}" alt="JaCarta Authentication Server (JAS) - автономный высокопроизводительный сервер аутентификации с поддержкой OTP- и U2F-токенов" />
+
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/93371/" target="_blank">№ 2128</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex">
+                <a href="{{ path('download', {'uuid': '6cb7d6ab-f92b-4983-9f4c-73857600351a'}) }}" class="btn btn-dark mr-4">Скачать буклет</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить?</a>
+                <ul class="list-unstyled">
+                    <li><a class="btn btn-link" href="{{ path('support') }}">Техническая поддержка</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/jas/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="advantages">
+            {{ include('catalog/jas/_advantages.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jas/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jas/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jas/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

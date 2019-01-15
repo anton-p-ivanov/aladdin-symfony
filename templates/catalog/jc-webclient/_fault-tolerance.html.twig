@@ -1,0 +1,22 @@
+<div class="row align-items-center">
+    <div class="col-6 order-0">
+        <h2 class="mt-0">Обладает повышенной отказоустойчивостью</h2>
+        <p class="large">
+            Сервис мониторинга, реализованный в составе JC-WebClient, контролирует целостность
+            приложения и перезапускает его при возникновении нештатных ситуаций в операционной системе. Единая
+            технология для работы с разными браузерами также делает приложение более стабильным.
+        </p>
+        <a href="{{ path('catalog:product:page', {'product': 'jc-webclient', 'page': 'details/fault-tolerance'}) }}" class="btn btn-outline-primary" data-target="#fault-tolerance-detailed" data-remote="true" data-destroy="true">
+            <span class="d-flex">Узнать больше ...</span>
+            <span class="d-none">
+                <ion-icon name="hourglass" size="medium" class="d-block rotating mr-2"></ion-icon>
+                Идёт загрузка ...
+            </span>
+        </a>
+    </div>
+    <div class="col-6 order-1 text-center">
+        <img src="{{ asset('images/catalog/jc-webclient/fault-tolerance.png') }}" class="img-fluid" alt="JC-WebClient обладает повышенной отказоустойчивостью" />
+    </div>
+</div>
+
+<div id="fault-tolerance-detailed"></div>

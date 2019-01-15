@@ -1,0 +1,60 @@
+<h2>Исполнения</h2>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-8 large">
+        Устройства JaCarta PKI могут поставляться в виде USB-токенов или смарт-карт. Функционально они идентичны, но предполагают различные модели использования, разный набор доступных опций (расширение функциональных или эксплуатационных характеристик) и разные возможности кастомизации.
+    </div>
+</div>
+
+{{ include('catalog/jacarta/_shared/_models.html.twig', {'models': [
+    { 'image': 'Computer_PC_left_JC-XL_Crop.jpg', 'title': 'USB-токены в классическом корпусе XL' },
+    { 'image': 'Computer_PC_left_JC-Nano_Crop.jpg', 'title': 'USB-токены в компактном корпусе Nano' },
+    { 'image': 'Smartphone_left_JC-MicroUSB_Crop.png', 'title': 'MicroUSB-токены для мобильных устройств' },
+    { 'image': 'Card_JC300_Black_Crop.png', 'title': 'Смарт-карты в базовом чёрном дизайне' },
+    { 'image': 'Card_Custom_Crop.png', 'title': 'В виде "белого пластика" или с фирменной печатью' },
+    { 'image': 'Chip_for_Card_Gold_Crop.png', 'title': 'Модули смарт-карт на технологической ленте' },
+]}) }}
+
+<h2 class="mt-4">Комбинированные модели</h2>
+
+{% set models = [
+    { 'title': 'JaCarta PKI/ГОСТ', 'description': 'Поддержка российских криптоалгоритмов ГОСТ 28147-89, ГОСТ Р 34.10-2001 и ГОСТ Р 34.11-94', 'route': path('catalog:product', {'product': 'jacarta_pki-gost'}) },
+    { 'title': 'JaCarta-2 PKI/ГОСТ', 'description': 'Поддержка новых российских криптоалгоритмов ГОСТ Р 34.10-2012 и ГОСТ Р 34.11-2012', 'route': path('catalog:product', {'product': 'jacarta-2_pki-gost'}) },
+] %}
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <img class="img-fluid p-4" src="{{ asset('images/catalog/jacarta/Group-Card_XL_Nano_Micro.png') }}" alt="Комбинированные модели JaCarta PKI" />
+                    </div>
+                    <div class="col-6">
+                        {% for item in models %}
+                        <div{% if not loop.last %} class="mb-4"{% endif %}>
+                            <h4><a href="{{ item.route }}">{{ item.title }}</a></h4>
+                            <p>{{ item.description }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="mt-4">Дополнительное оборудование</h2>
+
+<div class="row justify-content-center mb-4">
+    <div class="col-8 large">
+        <p>Для работы со смарт-картами со стационарного компьютера рекомендуется использование офисных смарт-карт ридеров <a href="{{ path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_IIIe_USB'}) }}" class="text-nowrap">ASEDrive IIIe USB</a>, с ноутбуками &mdash; компактных <a href="{{ path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_III_USB_Mini'}) }}" class="text-nowrap">ASEDrive III USB Mini</a>.</p>
+        <p>Для использования MicroUSB-токена на ноутбуке или персональном компьютере рекомендуется приобрести переходник MicroUSB-to-USB.</p>
+    </div>
+</div>
+
+{{ include('catalog/jacarta/_shared/_recommended.html.twig', {'models': [
+    { 'image': 'ASEDrive_IIIe_USB_Crop.png', 'title': 'ASEDrive IIIe USB', 'description': 'Для работы на стационарных ПК', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_IIIe_USB'}) },
+    { 'image': 'ASEDrive_III_USB_Mini_Crop.png', 'title': 'ASEDrive III USB Mini', 'description': 'Для работы на ноутбуках', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'ASEDrive_III_USB_Mini'}) },
+    { 'image': 'Feitian_iR301-UL_Crop.png', 'title': 'Специальные ридеры', 'description': 'Для работы на планшетах и смартфонах', 'route': path('catalog:product:page', {'product': 'readers', 'page': 'mobile'}) },
+]}) }}

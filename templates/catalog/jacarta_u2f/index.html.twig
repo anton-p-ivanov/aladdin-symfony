@@ -1,0 +1,67 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta U2F{% endblock %}
+
+{% block meta_description %}
+    Строгая аутентификация в онлайн-сервисах по стандарту FIDO U2F
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>Универсальный USB-токен, предназначенный для использования в качестве второго фактора при
+                парольной аутентификации конечных пользователей онлайн-сервисов, поддерживающих стандарт
+                <a href="https://fidoalliance.org/" target="_blank">FIDO U2F</a><sup>*</sup></p>
+            {% set features = [
+                "\"Облачные\" сервисы (Dropbox, Google Cloud Platform)",
+                "Почтовые сервисы (GMail)",
+                "Файловый хостинг, видеохостинг,  хостинг IT-проектов и их совместной разработки  (Google Drive, YouTube, GitHub)",
+                "Электронные платёжные системы (Google Wallet)",
+                "Социальные сети (Google+)",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="small">* полный список сервисов, поддерживающих стандарт FIDO U2F, представлен на сайте <a href="http://www.dongleauth.info" target="_blank">www.dongleauth.info</a>.</p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta_webpass/JaCarta_WebPass.png') }}" class="img-fluid" alt="JaCarta WebPass - усиленная аутентификация по одноразовым паролям" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a href="{{ path('download', {'uuid': 'dc14e25c-5910-431e-b78b-0f9a7171c4c2'}) }}" class="btn btn-dark mr-3">Краткая инструкция</a>
+            <a href="{{ path('download', {'uuid': 'cd5abbb4-bd02-4c06-89e9-dcb8be5c48a1'}) }}" class="btn btn-dark mr-3">Руководство по применению</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('download', {'uuid': '848c94d8-3d95-4702-a675-b106c73498aa'}) }}">Скачать обзорную презентацию</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'description', 'title': 'Описание', 'active': true, 'view': 'catalog/jacarta_u2f/_description.html.twig' },
+                { 'id': 'specialist', 'title': 'Специалисту', 'active': false, 'view': 'catalog/jacarta_u2f/_specialist.html.twig' },
+                { 'id': 'how-to-use', 'title': 'Как использовать', 'active': false, 'view': 'catalog/jacarta_u2f/_how-to-use.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

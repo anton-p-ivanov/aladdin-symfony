@@ -1,0 +1,8 @@
+<ul class="list-unstyled">
+    {% for item in response %}
+    <li class="mb-4">
+        <a href="{{ path('pressroom:news:view', {'code': item.code}) }}" class="d-block">{{ item.title }}</a><br class="d-none" />
+        <small class="d-block">{{ item.description | raw }}</small>
+    </li>
+    {% endfor %}
+</ul>

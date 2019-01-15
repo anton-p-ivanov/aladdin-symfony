@@ -1,0 +1,55 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}ASEDrive IIIe Keyboard{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p><b>Смарт-карт ридер ASEDrive IIIe Keyboard</b> — клавиатура со встроенным считывателем смарт-карт, подключаемая к USB-порту.</p>
+
+            <p>Применение ASEDrive IIIe Keyboard позволяет сэкономить пространство на рабочем месте. Клавиатура имеет высоконадёжную контактную мембрану, выгодно отличается низким уровнем шума и профилем срабатывания клавиш.</p>
+
+            <p><em>Рекомендуется использовать для корпоративного сегмента и частных пользователей, где необходимо введение PIN-кода для доступа к карте (двухфакторная аутентификация).</em></p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/readers/ASEDrive_Keyboard_Preview.jpg') }}" class="img-fluid" alt="{{ block('title') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            <div class="bg-white section">
+                <h2>Технические характеристики</h2>
+
+                <table class="specs" width="100%" cellspacing="0" cellpadding="5" border="1">
+                    <tbody>
+                    <tr> <td width="26%"><b>Поддерживаемые карты</b></td> <td width="73%">ISO7816 T=0, T=1,EMV, JICSAP</td> </tr>
+
+                    <tr> <td><b>Интерфейс подключения</b></td> <td>USB 2.0 FullSpeed 12 Мбит/с или RS-232 115,200 bps</td> </tr>
+
+                    <tr> <td><b>Скорость обмена данными со смарт-картой</b></td> <td>До 323 Кбит/с, 4 МГц</td> </tr>
+
+                    <tr> <td><b>Контактная группа</b></td> <td>ISO, 8 контактов. Опускающиеся контакты (Landing), минимум 300,000 циклов </td> </tr>
+
+                    <tr> <td><b>Напряжение питания карты</b></td><td>5V (ISO7816 Class A), 3V (ISO7816 Class B) </td> </tr>
+
+                    <tr> <td><b>Питание</b></td> <td>Порт USB или PS/2 порт</td> </tr>
+
+                    <tr> <td><b>Сканер отпечатка пальца</b></td> <td>UPEKс поддержкой технологии Match-On-Card компании Precise Biometrics</td> </tr>
+
+                    <tr> <td><b>Стандарты по безопасности</b></td> <td>FCC Class B, CE, TUV, UL </td> </tr>
+
+                    <tr> <td><b>Поддерживаемые ОС</b></td> <td>Linux, Mac OS X, Windows 7, Windows Vista, Windows XP, Windows Server 2008 R2, Windows Server 2008, Windows Server 2003 R2, Windows Server 2003, MS Windows 2000 </td> </tr>
+
+                    <tr> <td><b>Сертификаты</b></td> <td>Microsoft WHQL 2000, XP, 2003, PC/SC Compliant, EMV Level 1 </td> </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <a href="{{ path('catalog:product', {'product': 'readers'}) }}">Все смарт-карт ридеры</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+<h2>Модельный ряд</h2>
+<div class="row justify-content-center large">
+    <div class="col-md-8">
+        <p>Устройства JaCarta-2 ГОСТ выпускаются в различных исполнениях и форм-факторах, с широким набором опций, дополнительных функций и возможностей кастомизации.</p>
+        <p>На базе моделей JaCarta-2 ГОСТ выпускается линейка комбинированных моделей с поддержкой зарубежной криптографии (PKI), биометрической идентификации пользователя по отпечаткам пальцев с вычислением "на карте" (Match-On-Card) и др.</p>
+    </div>
+</div>
+
+{{ include('catalog/jacarta-2/_shared/_models.html.twig', {'col': 4, 'models': [
+    { 'image': 'Computer_PC_left_JC-XL_Crop.jpg', 'title': 'USB-токены в классическом корпусе XL' },
+    { 'image': 'Computer_PC_left_JC-Nano_Crop.jpg', 'title': 'USB-токены в компактном корпусе Nano' },
+    { 'image': 'Smartphone_left_JC-MicroUSB_Crop.png', 'title': 'MicroUSB-токены для мобильных устройств' },
+    { 'image': 'Card_JC300_Black_Crop.png', 'title': 'Смарт-карты в базовом чёрном дизайне' },
+    { 'image': 'Card_Custom_Crop.png', 'title': 'В виде "белого пластика" или с фирменной печатью' },
+    { 'image': 'Chip_for_Card_Gold_Crop.png', 'title': 'Модули смарт-карт на технологической ленте' },
+    { 'image': 'SIM_Cards.jpg', 'title': 'SIM-модули для использования во встраиваемой электронике' },
+    { 'image': 'Chip_On_PCB.png', 'title': 'Микросхемы для монтажа на печатную плату' },
+]}) }}
+
+<h3 class="text-center mt-4">Комбинированные модели</h3>
+
+{{ include('catalog/jacarta-2/_shared/_models.html.twig', {
+    'col': 3,
+    'imagePath': 'images/catalog/jacarta/300x150/',
+    'models': [
+        { 'image': 'Group-Card_XL_Nano_Micro_Crop.png', 'title': 'JaCarta-2 PKI/ГОСТ', 'route': path('catalog:product', {'product': 'jacarta-2_pki-gost'}) },
+        { 'image': 'Group-Card_XL_Nano_Crop.png', 'title': 'JaCarta-2 PRO/ГОСТ', 'route': path('catalog:product', {'product': 'jacarta-2_pro-gost'}) },
+        { 'image': 'Group-Card_XL_Crop.png', 'title': 'JaCarta-2 PKI/BIO/ГОСТ', 'route': path('catalog:product', {'product': 'jacarta-2_pki-bio-gost'}) },
+        { 'image': 'JaCarta_XL_215_Cherry_Opened_Cap.png', 'title': 'JaCarta SF/ГОСТ', 'route': path('catalog:product', {'product': 'jacarta_sf-gost'}) },
+    ]
+}) }}

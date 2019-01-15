@@ -1,0 +1,126 @@
+{% extends 'main.html.twig' %}
+{% form_theme form _self %}
+
+{% block title %}Заявка на презентацию продукта{% endblock %}
+
+{% block content %}
+
+    <p>Заполните заявку на презентацию продукта, чтобы менеджеры компании "Аладдин Р.Д." связались с вами для обсуждения интересующих вас тем и вопросов.</p>
+
+    <br />
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.fullName, 'Как к вам обращаться?') }}
+        {{ form_widget(form.fullName, {'attr': {'autofocus': true, 'placeholder': 'Сергей Иванов'}}) }}
+        {{ form_errors(form.fullName) }}
+        <small class="text-secondary form-text">
+            Укажите имя, фамилию и, по желанию, ваше отчество.
+        </small>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.email, 'E-Mail') }}
+                {{ form_widget(form.email, {'attr': {'placeholder': 'sergey.ivanov@email.com'}}) }}
+                {{ form_errors(form.email) }}
+                <small class="text-secondary form-text">
+                    Обязательно проверьте правильность ввода вашего E-Mail, чтобы мы могли ответить именно вам.
+                </small>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.phone, 'Контактный телефон') }}
+                {{ form_widget(form.phone, {'attr': {'placeholder': '+7 (495) 2230001'}}) }}
+                {{ form_errors(form.phone) }}
+                <small class="text-secondary form-text">
+                    Ваш контактный номер телефон, который будет использован для обратного звонка.
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.product, 'Продукт') }}
+                {{ form_widget(form.product, {'placeholder': '- Не выбран -'}) }}
+                {{ form_errors(form.product) }}
+                <small class="text-secondary form-text">
+                    Выберите продукт, презентацию которого вы хотите посмотреть.
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="extra-fields my-5">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    {{ form_label(form.company, 'Название компании') }}
+                    {{ form_widget(form.company, {'attr': {'placeholder': 'ЗАО "Аладдин Р.Д."'}}) }}
+                    {{ form_errors(form.company) }}
+                    <small class="text-secondary form-text">
+                        Полное название организации (не обязательно), представителем/сотрудником которой вы являетесь.
+                    </small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    {{ form_label(form.position, 'Должность') }}
+                    {{ form_widget(form.position, {'attr': {'placeholder': 'Менеджер'}}) }}
+                    {{ form_errors(form.position) }}
+                    <small class="text-secondary form-text">
+                        Ваша должность в организации (не обязательно).
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.comments, 'Комментарии') }}
+            {{ form_widget(form.comments, {'attr': {'rows': 7}}) }}
+            {{ form_errors(form.comments) }}
+        </div>
+    </div>
+
+    <div class="form-group my-4">
+        {{ form_widget(form.agreement) }}
+        {{ form_errors(form.agreement) }}
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary" disabled="disabled">Отправить заявку</button>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block _presentation_agreement_label %}
+    <input type="checkbox" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="form-check-input"
+           value="{{ form.vars.value }}" {% if form.vars.checked %} checked="checked"{% endif %}>
+    <label class="form-check-label required" for="{{ form.vars.id }}">
+        Отправляя эту заявку на презентацию продукта, я принимаю <a href="{{ path('terms') }}">Условия использования</a>,
+        подтверждаю достоверность предоставленных мной данных и даю согласие на их обработку.
+    </label>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/app-93a08fe6.js') }}"></script>
+    {{ include('captcha.html.twig', {
+        'action': 'request/JaCartaSDK',
+        'id': 'sdk_captcha'
+    }) }}
+{% endblock %}

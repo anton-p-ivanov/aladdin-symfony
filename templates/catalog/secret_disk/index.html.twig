@@ -1,0 +1,129 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Линейка продуктов Secret Disk{% endblock %}
+
+{% block meta_description %}
+    Защита конфиденциальной информации на ПК и серверах
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>Продукты линейки Secret Disk предназначены для защиты информации от несанкционированного доступа, копирования, повреждения, кражи или принудительного изъятия.</p>
+            <p>Решения Secret Disk обеспечивают защиту информации на логических дисках, отдельных жёстких дисках, дисковых массивах (SAN, программных и аппаратных RAID-массивах), а также на съёмных носителях.</p>
+            <p>Сертифицированные версии обеспечивают выполнение требований законодательства по защите персональных данных и конфиденциальной информации.</p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/secret_disk/Secret_Disk_Family.png') }}" class="img-fluid" alt="Secret Disk - {{ block('meta_description') }}" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (
+                <a href="https://reestr.minsvyaz.ru/reestr/73527/" target="_blank">№ 513</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/73528/" target="_blank">№ 514</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/73533/" target="_blank">№ 519</a>,
+                <a href="https://reestr.minsvyaz.ru/reestr/125885/" target="_blank">№ 4322</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a href="{{ path('download', {'uuid': 'b8da479d-2dd9-473c-a6ba-7049a4333f62'}) }}" class="btn btn-dark mr-4">Скачать буклет</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            <h2 class="my-4 py-4">Коммерческие версии</h2>
+            <div class="row my-4">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{ asset('/images/catalog/secret_disk/Box_Media_Kit_SDE.png') }}" class="img-fluid" alt="Secret Disk Enterprise" />
+                        </div>
+                        <div class="col-8">
+                            <p class="large">
+                                <a href="{{ path('catalog:product', {'product': 'secret_disk_enterprise'}) }}">Secret Disk Enterprise</a><br>
+                                <span>коммерческая версия</span>
+                            </p>
+                            <p>Корпоративная система защиты информации с централизованным управлением.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{ asset('/images/catalog/secret_disk/Box_Media_Kit_SDS.png') }}" class="img-fluid" alt="Secret Disk Server NG" />
+                        </div>
+                        <div class="col-8">
+                            <p class="large">
+                                <a href="{{ path('catalog:product', {'product': 'secret_disk_server_ng'}) }}">Secret Disk Server NG</a><br>
+                                <span>коммерческая версия</span>
+                            </p>
+                            <p>Комплекс защиты информации на сервере от <abbr title="Несанкционированный доступ">НСД</abbr>, копирования, повреждения, кражи или неправомерного изъятия.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{ asset('/images/catalog/secret_disk/Box_Media_Kit_SD5.png') }}" class="img-fluid" alt="Secret Disk 5" />
+                        </div>
+                        <div class="col-8">
+                            <p class="large">
+                                <a href="{{ path('catalog:product', {'product': 'secret_disk_5'}) }}">Secret Disk 5</a><br>
+                                <span>коммерческая версия</span>
+                            </p>
+                            <p>Система защиты информации на персональном компьютере или ноутбуке с возможностью коллективной работы по сети.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="my-4">Сертифицированные версии</h2>
+
+            <div class="row justify-content-center my-4 py-4">
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{ asset('/images/catalog/secret_disk/Box_Media_Kit_SDSS.png') }}" class="img-fluid" alt="Secret Disk Server NG" />
+                        </div>
+                        <div class="col-8">
+                            <p class="large">
+                                <a href="{{ path('catalog:product:page', {'product': 'secret_disk_server_ng', 'page': 'certified'}) }}">Secret Disk Server NG</a><br>
+                                <span>сертифицированная версия</span>
+                            </p>
+                            <p>Комплекс защиты конфиденциальной информации и персональных данных на сервере от
+                                <abbr title="Несанкционированный доступ">НСД</abbr>, копирования, повреждения, кражи или неправомерного
+                                изъятия.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{ asset('/images/catalog/secret_disk/Box_Media_Kit_SD5S.png') }}" class="img-fluid" alt="Secret Disk 5" />
+                        </div>
+                        <div class="col-8">
+                            <p class="large">
+                                <a href="{{ path('catalog:product:page', {'product': 'secret_disk_5', 'page': 'certified'}) }}">Secret Disk 5</a><br>
+                                <span>сертифицированная версия</span>
+                            </p>
+                            <p>Система защиты конфиденциальной информации и персональных данных на персональном компьютере или ноутбуке с возможностью коллективной работы по сети.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

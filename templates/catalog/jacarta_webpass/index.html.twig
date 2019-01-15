@@ -1,0 +1,85 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta WebPass{% endblock %}
+
+{% block meta_description %}
+    Усиленная аутентификация по одноразовым паролям
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">Усиленная аутентификация по одноразовым паролям</p>
+            <p>USB-токен с "OTP на борту" для двухфакторной аутентификации пользователей при доступе к
+                защищённым информационным ресурсам с использованием одноразового пароля, либо хранимого
+                в памяти токена многоразового пароля</p>
+            {% set features = [
+                "Генерация одноразовых паролей",
+                "Генерация и защищённое хранение сложных многоразовых паролей",
+                "Автоматическая подстановка паролей в поля экранных форм",
+                "Защищённое хранение адресов Web-ресурсов и запуск Web-браузера с переходом по сохранённому адресу",
+                "Хранение криптоконтейнеров программных СКЗИ",
+                "Полная совместимость с классическими ОТР-токенами (eToken PASS, eToken NG-OTP и др.), согласно RFC 4226",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta_webpass/JaCarta_WebPass.png') }}" class="img-fluid" alt="JaCarta WebPass - усиленная аутентификация по одноразовым паролям" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125863/" target="_blank">№ 4300</a> и <a href="https://reestr.minsvyaz.ru/reestr/125864/" target="_blank">4301</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/jacarta_webpass/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="features">
+            {{ include('catalog/jacarta_webpass/_features.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta_webpass/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_webpass/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta_webpass/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

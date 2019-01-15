@@ -1,0 +1,34 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}ПО "JaCarta АРМ УЦ"{% endblock %}
+
+{% block meta_description %}
+    Инициирование устройств JaCarta ГОСТ для Удостоверяющих центров
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">{{ block('meta_description') }}</p>
+            <p>ПО JaCarta АРМ УЦ - приложение, позволяющее генерировать ключевые пары с использованием встроенных криптографических возможностей токенов JaCarta ГОСТ и eToken ГОСТ, а также формировать запросы к Удостоверяющему центру на получение сертификата открытого ключа и записывать полученные сертификаты в память токена</p>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta_arm/Microsoft_CA_Manager.png') }}" class="img-fluid" alt="JaCarta АРМ УЦ - {{ block('meta_description') }}" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125852/" target="_blank">№ 4289</a>)
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {% set tabs = [
+                { 'id': 'description', 'title': 'Описание', 'active': true, 'view': 'catalog/jacarta_arm/_description.html.twig' },
+                { 'id': 'specification', 'title': 'Спецификация', 'active': false, 'view': 'catalog/jacarta_arm/_specification.html.twig' },
+            ] %}
+            {{ include('tabs.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

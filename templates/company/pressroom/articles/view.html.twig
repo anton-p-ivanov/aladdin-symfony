@@ -1,0 +1,65 @@
+{% extends app.request.get('print') ? 'main.print.html.twig' : 'main.html.twig' %}
+
+{% block title %}Статьи и публикации{% endblock %}
+{% block meta_description %}{{ element.description }}{% endblock %}
+
+{% block content %}
+
+    <h2 class="text-primary mt-0">
+        {{ element.title | raw }}
+    </h2>
+
+    <div class="lead mb-5">
+        {{ element.description | raw }}
+    </div>
+
+    <div class="news-item_content">
+        {{ element.content | raw }}
+    </div>
+
+    <div class="mb-4">
+        {% if element.values['FILE'] %}
+            <a href="{{ path('download', {'uuid': element.values['FILE']}) }}" class="btn btn-outline-primary" target="_blank">Полная версия</a>
+        {% endif %}
+        {% if element.values['URL'] %}
+            <a href="{{ element.values['URL'] }}" class="btn btn-outline-primary" target="_blank">Источник</a>
+        {% endif %}
+    </div>
+
+    <div class="text-muted small d-flex justify-content-between d-print-none">
+        <div>
+            <a href="{{ path('pressroom:articles') }}" class="tag bg-light text-dark">Все публикации</a>
+            {% for code, section in element.sections %}
+                <a href="{{ path('pressroom:articles:tags', {'tag': code}) }}" class="tag bg-light text-dark mb-3">{{ section }}</a>
+            {% endfor %}
+        </div>
+        <div>
+            <a href="{{ path('pressroom:articles:view', {'code': element.code, 'print': true}) }}" class="tag bg-info text-white">
+                Версия для печати
+            </a>
+        </div>
+    </div>
+
+    <div class="news-other__block mt-5 small d-print-none">
+        <p class="large">Другие публикации</p>
+        {% set conditions = {
+            "catalog": "articles",
+            "type": "E",
+            "limit": 5,
+            "order": "sort,-activeFrom"
+        } %}
+        <div data-widget="api"
+             data-url="{{ path('widget') }}"
+             data-endpoint="/catalogs/elements"
+             data-conditions="{{ conditions | json_encode }}"
+             data-template="/_widgets/articles.light.html.twig">
+            {% for i in 1..3 %}
+                {{ include('_widgets/news.light.placeholder.html.twig') }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}

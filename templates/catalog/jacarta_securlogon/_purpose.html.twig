@@ -1,0 +1,35 @@
+<h2 class="text-center mb-4">Назначение JaCarta SecurLogon</h2>
+<div class="lead">
+    <p>JaCarta SecurLogon® — сертифицированное программно-аппаратное решение, позволяющее осуществить простой и быстрый
+        переход от однофакторной аутентификации на основе пары логин-пароль к двухфакторной аутентификации при входе в
+        операционную систему и доступе к сетевым ресурсам за счёт использования USB-токенов и смарт-карт.</p>
+    <p>Для функционирования JaCarta SecurLogon не нужно закупать дорогостоящее серверное оборудование для развёртывания
+        Active Directory и собственного Удостоверяющего центра для выпуска цифровых сертификатов. Вместо них JaCarta
+        SecurLogon генерирует сложные пароли (до 63-х символов), которые записываются в USB-токен или смарт-карту. При
+        этом такие пароли могут быть неизвестны и не видны самим пользователям, им остаётся лишь запомнить свой простой
+        и короткий PIN-код. Поддержка биометрической аутентификации позволяет заменить ввод PIN-кода сканированием
+        отпечатка пальца.</p>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <img src="{{ asset('/images/catalog/jacarta_securlogon/JaCarta_SecurLogon_Advantages.png') }}" alt="Преимущества JaCarta SecurLogon" class="img-fluid" />
+    </div>
+</div>
+
+<h2 class="text-center my-4">Применение JaCarta SecurLogon</h2>
+
+{% set items = [
+    { 'image': 'icons/pincode_with_lock.png', 'description': 'Решение проблемы "слабых" паролей пользователей и регулярности их смены на компьютерах сотрудников' },
+    { 'image': 'icons/secure_check.png', 'description': 'Повышение уровня информационной безопасности благодаря внедрению механизмов двухфакторной аутентификации' },
+    { 'image': 'icons/tokens.png', 'description': 'Плавный переход на инфраструктуру открытых ключей (PKI) с использованием цифровых сертификатов' },
+    { 'image': 'icons/castle.png', 'description': 'Автоматизация выполнения пользователями требований и регламентов ИБ в компании' },
+] %}
+<div class="row">
+    {% for item in items %}
+    <div class="col-6 d-flex align-items-center mb-4">
+        <img src="{{ asset(item.image) }}" width="64" height="64" class="mr-4">
+        <div>{{ item.description }}</div>
+    </div>
+    {% endfor %}
+</div>

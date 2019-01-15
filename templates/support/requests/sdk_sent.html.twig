@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Заявка на получение SDK{% endblock %}
+
+{% block content %}
+
+    <div class="alert alert-success">
+        <h3>ЗАЯВКА ОТПРАВЛЕНА!</h3>
+        <p>Ваша заявка на получение SDK была успешно отправлена.<br>
+            Наши менеджеры свяжутся с Вами по указанным контактным данным.</p>
+        <p>
+            <a href="{{ path('support:page', {'page': 'sdk'}) }}">Вернуться</a> &middot;
+            <a href="{{ path('support:request', {'code': app.request.get('code')}) }}">Заполнить заявку ещё раз</a>
+        </p>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}

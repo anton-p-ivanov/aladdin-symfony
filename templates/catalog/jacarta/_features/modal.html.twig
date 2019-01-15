@@ -1,0 +1,36 @@
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="font-weight-bold">Особенности {{ title }}</div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body py-0 small">
+            <div class="row h-100">
+                <div class="col-4 bg-light px-0">
+                    <div class="nav nav-pills nav-features" style="overflow-y: auto;" role="tablist">
+                        {% for name, feature in features %}
+                            {% if feature.view is defined %}
+                                <a class="nav-link w-100{% if loop.first %} active{% endif %}" href="#{{ name }}" data-toggle="pill" data-target="#feature-{{ name }}" role="tab">{{ feature.title }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-8 px-0">
+                    <div class="tab-content h-100 my-0 p-4" style="overflow-y: auto">
+                        {% for name, feature in features %}
+                            {% if feature.view is defined %}
+                                <div class="tab-pane{% if loop.first %} active{% endif %}" id="feature-{{ name }}" role="tabpanel">
+                                    {% if feature.view is defined %}
+                                        {{ include(feature.view) }}
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Программное средство JaCarta OS{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p>Программное средство JaCarta OS (далее — JaCarta OS) USB-токена JaCarta SF/ГОСТ является собственной разработкой ЗАО "Аладдин Р.Д.", предназначенной для</p>
+            {% set features = [
+                "обеспечения взаимодействия программ, выполняющихся на терминальном оборудовании (рабочей станции или персональном компьютере), к которому подключается USB-токен JaCarta SF/ГОСТ;",
+                "управления жизненным циклом карты памяти USB-токена JaCarta SF/ГОСТ;",
+                "управления доступом к разделам карты памяти USB-токена JaCarta SF/ГОСТ."
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta/Group-Card_XL_Nano_Micro.png') }}" class="img-fluid" alt="{{ block('title') }}" />
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="bg-white section">
+        <div class="container">
+            {{ include('catalog/jacarta_os/_description.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

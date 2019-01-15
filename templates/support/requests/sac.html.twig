@@ -1,0 +1,105 @@
+{% extends 'main.html.twig' %}
+{% form_theme form _self %}
+
+{% block title %}Заявка на получение SafeNet Authentication Client{% endblock %}
+
+{% block content %}
+
+    <div class="alert alert-info">
+        <h3>ВНИМАНИЕ!</h3>
+        <p>
+            Предлагаемая к скачиванию версия ПО SafeNet Authentication Client является тестовой, и требует
+            приобретения коммерческой лицензии на данное ПО. Коммерческая лицензия на ПО SafeNet Authentication
+            Client приобретается через партнёрскую сеть компании "Аладдин Р.Д.". Функциональность скачиваемого
+            тестового ПО будет полной, но в разделе "About" Вы будете предупреждены о необходимости приобретения
+            коммерческой лицензии.
+        </p>
+    </div>
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.form_field_first_name, 'Имя') }}
+                {{ form_widget(form.form_field_first_name, {'attr': {'autofocus': true, 'placeholder': 'Сергей'}}) }}
+                {{ form_errors(form.form_field_first_name) }}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.form_field_last_name, 'Фамилия') }}
+                {{ form_widget(form.form_field_last_name, {'attr': {'placeholder': 'Иванов'}}) }}
+                {{ form_errors(form.form_field_last_name) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.form_field_email, 'E-Mail') }}
+                {{ form_widget(form.form_field_email, {'attr': {'placeholder': 'sergey.ivanov@email.com'}}) }}
+                {{ form_errors(form.form_field_email) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.form_field_company_name, 'Название компании') }}
+                {{ form_widget(form.form_field_company_name, {'attr': {'placeholder': 'ЗАО "Аладдин Р.Д."'}}) }}
+                {{ form_errors(form.form_field_company_name) }}
+                <small class="text-secondary form-text">
+                    Полное название организации, в которой вы работаете.
+                </small>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.form_field_company_position, 'Должность') }}
+                {{ form_widget(form.form_field_company_position, {'attr': {'placeholder': 'Менеджер'}}) }}
+                {{ form_errors(form.form_field_company_position) }}
+                <small class="text-secondary form-text">
+                    Ваша должность в организации.
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group my-4">
+        {{ form_widget(form.agreement) }}
+        {{ form_errors(form.agreement) }}
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block _sac_agreement_label %}
+    <input type="checkbox" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="form-check-input"
+           value="{{ form.vars.value }}" {% if form.vars.checked %} checked="checked"{% endif %}>
+    <label class="form-check-label required" for="{{ form.vars.id }}">
+        Я информирован о том, что скачиваю тестовую версию ПО, для которой в последующем необходимо приобрести коммерческую лицензию.
+    </label>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}
+
+{% block javascripts %}
+    {{ include('captcha.html.twig', {
+        'action': 'request/SAC',
+        'id': 'sac_captcha'
+    }) }}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% set prevPage = (paginator.page > 1 ? (paginator.page - 1) : 1) %}
+{% set nextPage = (paginator.page < paginator.pagesTotal ? (paginator.page + 1) : paginator.pagesTotal) %}
+{% set params = params is defined ? params : {} %}
+
+<div class="row large align-content-between align-items-center">
+    <div class="col-sm">
+        {% if paginator.pagesTotal > 1 %}
+        <ul class="{{ (class is defined ? class : []) | merge(['pagination', 'mb-0']) | join(' ') }}">
+            <li class="page-item{% if paginator.page == 1 %} d-none{% endif %}">
+                <a class="page-link" href="{{ path(route, params|merge({'page': 1})) }}" data-page="1">В начало</a>
+            </li>
+            {% for page in paginator.pagesRange.min..paginator.pagesRange.max %}
+                <li class="page-item{% if paginator.page == page %} active{% endif %}">
+                    <a class="page-link" href="{{ path(route, params|merge({'page': page})) }}" data-page="{{ page }}">{{ page }}</a>
+                </li>
+            {% endfor %}
+            <li class="page-item{% if paginator.page == paginator.pagesTotal %} d-none{% endif %}">
+                <a class="page-link" href="{{ path(route, params|merge({'page': nextPage})) }}" data-page="{{ nextPage }}">дальше</a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{% extends 'support/requests/jacarta_sdk.html.twig' %}
+
+{% block title %}Заявка на получение JC-WebClient SDK{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/app-93a08fe6.js') }}"></script>
+    {{ include('captcha.html.twig', {
+        'action': 'request/JCWebClientSDK',
+        'id': 'sdk_captcha'
+    }) }}
+{% endblock %}

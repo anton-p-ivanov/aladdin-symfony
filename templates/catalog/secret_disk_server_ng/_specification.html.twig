@@ -1,0 +1,126 @@
+<h2>Спецификация Secret Disk Server NG</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th class="table-head__cell">Параметр</th>
+        <th class="table-head__cell">Значение</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="table-row__head">Поддерживаемые платформы (Сервер)</td>
+        <td class="table-row__cell">
+            <ul>
+                <li>Microsoft Windows Server 2012 R2</li>
+                <li>Microsoft Windows Server 2012</li>
+                <li>Microsoft Windows Server 2008 R2</li>
+                <li>Microsoft Windows Server 2008</li>
+                <li>Microsoft Windows Server 2003 R2</li>
+                <li>Microsoft Windows Server 2003</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Поддерживаемые платформы (Рабочая станция администратора)</td>
+        <td class="table-row__cell">
+            <ul>
+                <li>Microsoft Windows Server 2012 R2</li>
+                <li>Microsoft Windows Server 2012</li>
+                <li>Microsoft Windows Server 2008 R2</li>
+                <li>Microsoft Windows Server 2008</li>
+                <li>Microsoft Windows Server 2003 R2</li>
+                <li>Microsoft Windows Server 2003</li>
+                <li>Microsoft Windows 8.1</li>
+                <li>Microsoft Windows 8</li>
+                <li>Microsoft Windows 7</li>
+                <li>Microsoft Windows Vista</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Типы поддерживаемых дисков</td>
+        <td class="table-row__cell">
+            <ul>
+                <li>Основные разделы и логические диски жёстких дисков</li>
+                <li>Тома динамических дисков</li>
+                <li>Съёмные диски (USB-диски, магнитооптика и др.)</li>
+                <li>Виртуальные диски (файлы-контейнеры)</li>
+                <li>Внешние хранилища (SAN)</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Типы файловых систем</td>
+        <td class="table-row__cell">
+            <ul>
+                <li>NTFS</li>
+                <li>FAT 32</li>
+                <li>FAT 16</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Размер защищаемых дисков</td>
+        <td class="table-row__cell">
+            <ul>
+                <li>До 64 ТБ (для NTFS)</li>
+                <li>До 8 ТБ (для FAT32)</li>
+                <li>До 4 ГБ (для FAT16) </li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Модели электронных ключей</td>
+        <td class="table-row__cell">
+            <ul>
+                <li>USB-ключи линейки JaCarta (кроме JaCarta LT); </li>
+                <li>USB-ключ eToken PRO (Java); </li>
+                <li>Смарт-карты линейки JaCarta (кроме JaCarta LT); </li>
+                <li>Смарт-карта eToken PRO (Java); </li>
+                <li>Комбинированный ключ eToken NG-FLASH; </li>
+                <li>Комбинированный ключ eToken NG-OTP; </li>
+                <li>eToken PRO Anywhere. </li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Размер занимаемой памяти на электронном ключе</td>
+        <td class="table-row__cell">От 4 КБ в ключе администратора, 1КБ в ключе сервера.</td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Встроенные алгоритмы шифрования</td>
+        <td class="table-row__cell">Нет</td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Поддерживаемые внешние поставщики службы криптографии (CSP) и блочные алгоритмы шифрования</td>
+        <td class="table-row__cell">
+            <ul>
+                <li>Крипто-библиотеки режима ядра, входящие в состав пакета расширения Secret Disk Crypto Extension Pack, &mdash; рекомендуются как более быстрые и надёжные:
+                    <ul>
+                        <li>AES с длиной ключа 128/256-бит; </li>
+                        <li>Twofish с длиной ключа 256-бит. </li>
+                    </ul>
+                </li>
+                <li>КриптоПро CSP и CSP (реализуют российский стандарт, сертифицированы ФСБ России &mdash; рекомендуются государственным учреждениям и корпоративным пользователям):
+                    <ul>
+                        <li>ГОСТ 28147-89 с длиной ключа 256-бит. </li>
+                    </ul>
+                </li>
+                <li>Microsoft Enhanced Crypto Provider (входит в состав операционной системы):
+                    <ul>
+                        <li>RC2 с длиной ключа 128-бит (используется по умолчанию); </li>
+                        <li>Triple DES с длиной ключа 168-бит. </li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-row__head">Поддержка других алгоритмов шифрования</td>
+        <td class="table-row__cell">
+            <p>Secret Disk Server NG может поддерживать внешние алгоритмы шифрования через подключаемые библиотеки режима ядра (криптографические драйверы режима ядра).</p>
+        </td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+support:
+    path: /support
+support:tickets:create:
+    path: /support/tickets/create
+support:page:
+    path: /support/{page<(?!tickets)[\w\-]+>}
+    defaults: { template: 'support/{page}.html.twig' }
+support:downloads:
+    path: /support/downloads
+support:downloads:section:
+    path: /support/downloads/{code<[\w\-]+>}

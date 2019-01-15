@@ -1,0 +1,7 @@
+{% set tabs = [
+    { 'id': 'models-compact', 'title': 'Компактные', 'active': true, 'view': 'catalog/readers/models/_compact.html.twig' },
+    { 'id': 'models-bio', 'title': 'Биометрические', 'active': false, 'view': 'catalog/readers/models/_bio.html.twig' },
+    { 'id': 'models-mobile', 'title': 'Мобильные', 'active': false, 'view': 'catalog/readers/models/_mobile.html.twig' },
+    { 'id': 'models-keyboard', 'title': 'Клавиатуры', 'active': false, 'view': 'catalog/readers/models/_keyboard.html.twig' },
+] %}
+{{ include('tabs.html.twig', {'class': 'nav-pills'}) }}

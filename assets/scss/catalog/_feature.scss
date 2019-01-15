@@ -1,0 +1,58 @@
+$spacer: 1rem;
+
+.features {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    .feature {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: $spacer;
+    }
+
+    .feature-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: $spacer / 2;
+        & > img {
+            width: 64px;
+            height: 64px;
+            margin-right: $spacer;
+        }
+
+        & > h4 {
+            margin: 0;
+        }
+    }
+
+    .feature-body {
+        flex: 1 1 auto;
+    }
+}
+.modal-features {
+    & .modal-dialog {
+        overflow: hidden;
+        & .modal-content {
+            height: 500px;
+        }
+        & .modal-body {
+            overflow-y: auto;
+            flex: 1 1 100%;
+        }
+
+    }
+}
+.nav-features {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 100% !important;
+    align-content: start;
+    & .nav-link {
+        padding: .5rem 1rem;
+        &.active {
+            background-color: $white;
+            color: $body-color;
+        }
+    }
+}

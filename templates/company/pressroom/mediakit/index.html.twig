@@ -1,0 +1,31 @@
+{% extends 'main.html.twig' %}
+
+{% set sections = [
+    {
+        'title': 'Изображения продуктов',
+        'code': 'catalog'
+    },
+    {
+        'title': 'Логотипы',
+        'code': 'logo'
+    },
+    {
+        'title': 'Руководство компании',
+        'code': 'photo'
+    }
+] %}
+
+{% block title %}Медиа-кит{% endblock %}
+
+{% block content %}
+    <p>Выберите раздел:</p>
+    <ul>
+        {% for section in sections %}
+            <li><a href="{{ path('pressroom:mediakit:section', {'section': section.code}) }}">{{ section.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}

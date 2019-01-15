@@ -1,0 +1,60 @@
+<div id="footer">
+    <div class="container footer-links">
+        <div class="row">
+            {% set items = include('footer.json.twig') | json_decode %}
+            {% for block in items %}
+                <div class="col-3" aria-label="{{ block.title }}">
+                    <h4 class="mt-0">{{ block.title }}</h4>
+                    <ul class="list-unstyled list-condensed" role="menu">
+                    {% for item in block.items %}
+                        {%
+                            set url = item.url is defined
+                                ? item.url
+                                : path(item.route, item.params is defined ? item.params : {})
+                        %}
+                        <li role="menuitem">
+                            <a href="{{ url }}">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+            <div class="col-3">
+                {% set socials = [
+                    { 'name': 'facebook', 'url': 'https://www.facebook.com/AladdinRD' },
+                    { 'name': 'twitter', 'url': 'https://twitter.com/AladdinRD' },
+                    { 'name': 'youtube', 'url': 'https://www.youtube.com/AladdinRD' },
+                    { 'name': 'vk', 'url': 'https://www.vk.com/aladdin_rd' },
+                ] %}
+                <div class="social-links">
+                    {% for item in socials %}
+                    <a class="social-link" href="{{ item.url }}">
+                        <ion-icon name="logo-{{ item.name }}" size="large"></ion-icon>
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <address>
+                    <span class="contact-address">Москва, ул. Докукина, д. 16, стр. 1</span>
+                    <a class="contact-email" href="mailto:dealer@aladdin-rd.ru">aladdin@aladdin-rd.ru</a>
+                    <span class="contact-phone">+7 (495) 2230001</span>
+                </address>
+
+                <p><a href="https://www.aladdin-rd.ru/company/contacts">Контактная информация</a></p>
+                <p><a href="https://partners.aladdin-rd.ru/" class="btn btn-outline-secondary" target="_blank">Стать партнёром</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-links">
+        <div class="container">
+            <span>
+                © 1995 &ndash; {{ "now"|date("Y") }},
+                <a href="http://www.aladdin-rd.ru/" target="_blank">Компания "Аладдин Р.Д."</a>
+            </span>
+
+            <a href="{{ path('terms') }}">Условия использования</a>
+            <a href="{{ path('privacy') }}">Конфиденциальность</a>
+            <a href="{{ path('feedback') }}">Обратная связь</a>
+        </div>
+    </div>
+</div>

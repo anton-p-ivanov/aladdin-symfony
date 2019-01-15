@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+    {% for model in models %}
+    {% if col is not defined %}
+        {% set col = 12 / (models | length) %}
+        {% set col = col > 3 ? 4 : col %}
+    {% endif %}
+    {% if imagePath is not defined %}
+        {% set imagePath = 'images/catalog/jacarta/632x300/' %}
+    {% endif %}
+    <div class="col-{{ col }} mb-4">
+        <div class="card h-100 shadow-sm">
+            {% if model.route is defined %}
+                <a href="{{ model.route }}">
+                    <img class="card-img-top bg-secondary" src="{{ asset(imagePath ~ model.image ) }}" alt="{{ model.title }}" />
+                </a>
+            {% else %}
+                <img class="card-img-top bg-secondary" src="{{ asset(imagePath ~ model.image ) }}" alt="{{ model.title }}" />
+            {% endif %}
+            <div class="card-body text-center">
+                {{ model.title }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

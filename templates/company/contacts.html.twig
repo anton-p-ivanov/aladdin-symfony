@@ -1,0 +1,23 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Контактная информация{% endblock %}
+
+{% block content %}
+
+    {% set tabs = [
+        { 'id': 'address', 'title': 'Адрес и контакты', 'active': true, 'view': 'company/_contacts.address.html.twig' },
+        { 'id': 'account', 'title': 'Платёжные реквизиты', 'active': false, 'view': 'company/_contacts.account.html.twig' },
+    ] %}
+    {{ include('tabs.html.twig') }}
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

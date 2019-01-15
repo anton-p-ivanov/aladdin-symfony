@@ -1,0 +1,82 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta PRO/ГОСТ{% endblock %}
+
+{% block meta_description %}
+    Электронная подпись по ГОСТ 34.10-2001 и строгая аутентификация в инфраструктуре для eToken PRO (Java)
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p class="font-weight-bold">Электронная подпись по ГОСТ 34.10-2001 и строгая аутентификация в инфраструктуре для eToken PRO (Java)</p>
+            <p>JaCarta PRO/ГОСТ — семейство USB-токенов и смарт-карт для обеспечения строгой двухфакторной аутентификации и электронной подписи в организациях, уже эксплуатирующих токены eToken PRO (Java), в том числе совместно с системной управления жизненным циклом токенов (JMS/TMS/SAM)</p>
+            {% set features = [
+                "Усиленная квалифицированная электронная подпись",
+                "Работа с инфраструктурой открытых ключей (PKI), включая поддержку продуктов популярных вендоров",
+                "Обратная совместимость с программными продуктами, выпущенными компанией Aladdin Knowledge Systems",
+                "Хранение ключевых контейнеров для программных CSP (КриптоПро CSP, ViPNet CSP и др.)",
+                "Сертифицировано ФСТЭК России и ФСБ России",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                    <li>
+                        <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                        <span>{{ feature | raw }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta/Group-Card_XL_Nano-Green.png') }}" class="img-fluid" alt="JaCarta PRO/ГОСТ - электронная подпись по ГОСТ 34.10-2001 и строгая аутентификация в инфраструктуре для eToken PRO (Java)" />
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/125863/" target="_blank">№ 4300</a> и <a href="https://reestr.minsvyaz.ru/reestr/125864/" target="_blank">4301</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/jacarta_pro-gost/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="advantages">
+            {{ include('catalog/jacarta_pro-gost/_advantages.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta_pro-gost/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_pro-gost/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta_pro-gost/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

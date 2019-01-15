@@ -1,0 +1,17 @@
+{% for item in response %}
+<div class="col-{{ 12 / response | length }} list-icons">
+    <div>
+        <ion-icon name="arrow-down"></ion-icon>
+        <span>
+            <a href="{{ path('support:downloads:view', {'uuid': item.uuid}) }}" class="d-block">{{ item.title }}</a>
+            {% if item.description %}
+                <small class="d-block">{{ item.description | raw }}</small>
+            {% elseif app.environment == 'dev' %}
+                <small class="d-block">
+                    Mauris eleifend, neque sed commodo malesuada, nisi lacus volutpat sem, ut suscipit est nisi ac tortor. Cras elementum metus quis urna elementum mattis.
+                </small>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endfor %}

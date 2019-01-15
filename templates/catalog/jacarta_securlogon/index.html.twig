@@ -1,0 +1,95 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta SecurLogon{% endblock %}
+{% block meta_description %}JaCarta SecurLogon — решение для простого и быстрого перехода от обычных паролей к двухфакторной аутентификации при входе в операционную систему и доступе к сетевым ресурсам по USB-токенам и смарт-картам JaCarta{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p><b>Простой переход к двухфакторной аутентификации без PKI и AD</b></p>
+            <p>JaCarta SecurLogon — решение для простого и быстрого перехода от обычных паролей к двухфакторной аутентификации при входе в операционную систему и доступе к сетевым ресурсам по USB-токенам и смарт-картам JaCarta</p>
+            {% set features = [
+                "Двухфакторная аутентификация без развёртывания инфраструктуры открытых ключей (PKI) и Active Directory",
+                "Решение проблемы \"слабых\" паролей",
+                "Автоматизация соблюдения пользователями требований политик ИБ",
+                "Плавный переход к использованию PKI",
+                "Сертифицировано ФСТЭК России"
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    {{ feature }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6 text-center">
+            <img src="{{ asset('images/catalog/jacarta_securlogon/JaCarta_SecurLogon.png') }}" alt="JaCarta SecurLogon - решение для простого и быстрого перехода от обычных паролей к двухфакторной аутентификации" />
+
+            <div class="font-weight-normal small my-4">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/93372/" target="_blank">№ 2129</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path('download', {'uuid': '155041e2-c614-4d7a-85f2-91de994bd896'}) }}">Скачать JaCarta SecurLogon</a>
+                <ul class="list-unstyled">
+                    <li><a class="btn btn-link" href="{{ path('support') }}">Техническая поддержка</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#purpose">Назначение</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#features">Особенности</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#advantages">Преимущества</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#details">Специалисту</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="purpose">
+            {{ include('catalog/jacarta_securlogon/_purpose.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="features">
+            {{ include('catalog/jacarta_securlogon/_features.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="advantages">
+            {{ include('catalog/jacarta_securlogon/_advantages.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta_securlogon/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta_securlogon/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta_securlogon/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

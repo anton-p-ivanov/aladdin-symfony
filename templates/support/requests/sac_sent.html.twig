@@ -1,0 +1,20 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Заявка на получение SafeNet Authentication Client{% endblock %}
+
+{% block content %}
+
+    <div class="alert alert-success">
+        <h3>ЗАЯВКА ОТПРАВЛЕНА!</h3>
+        <p>
+            Ваша заявка на получение SafeNet Authentication Client была успешно отправлена. В течении 5 минут на
+            указанный в заявке адрес электронной почты Вы получите письмо с ссылками на загрузку актуальной версии
+            SafeNet Authentication Client.
+        </p>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}

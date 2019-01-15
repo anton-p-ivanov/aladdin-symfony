@@ -1,0 +1,91 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta-2 SE для ЕГАИС{% endblock %}
+
+{% block meta_description %}
+    Новое поколение USB-токенов JaCarta для строгой двухфакторной аутентификации пользователей в Единой государственной
+    автоматизированной информационной системе (ЕГАИС)
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p>Новое поколение USB-токенов с аппаратной реализацией новых российских криптоалгоритмов <span class="text-nowrap">ГОСТ Р 34.10-2012</span> и <span class="text-nowrap">ГОСТ Р 34.11-2012</span> для формирования усиленной квалифицированной электронной подписи (ЭП) и зарубежными криптоалгоритмами для строгой двухфакторной аутентификации пользователей в специализированных системах (например, ЕГАИС)</p>
+            {% set features = [
+                "Средство усиленной квалифицированной ЭП",
+                "Средство строгой двухфакторной аутентификации",
+                "Имеет обратную совместимость с моделью <span class=\"text-nowrap\">JaCarta SE</span>",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    {{ feature | raw }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6">
+            <div class="text-center">
+                <img src="{{ asset('images/catalog/jacarta-2_se/JaCarta-2_SE-PKI-GOST.png') }}" class="img-fluid" alt="JaCarta-2 SE для ЕГАИС" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-danger" href="{{ path('support:downloads:view', {'uuid': 'a3bfee80-cf61-4090-8c65-4f2bb6af6d27'}) }}">Обновление ПО для ЕГАИС</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads:section', {'code': 'jacarta'}) }}">Скачать ПК "Единый Клиент JaCarta"</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scroll_spy_nav %}
+    <nav class="nav nav-pills">
+        <a class="p-3 nav-item nav-link scrollable" href="#purpose">Назначение и применение</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#features">Особенности</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#details">Дополнительно</a>
+        <a class="p-3 nav-item nav-link scrollable" href="#buy">Купить</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="purpose">
+            {{ include('catalog/jacarta-2_se/_purpose.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="features">
+            {{ include('catalog/jacarta-2_se/_features.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/jacarta-2_se/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jacarta-2_se/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jacarta-2_se/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

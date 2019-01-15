@@ -1,0 +1,29 @@
+{% extends 'main.html.twig' %}
+{% form_theme form _self %}
+
+{% block title %}Обратная связь{% endblock %}
+
+{% block content %}
+    {{ include('site/_feedback.html.twig') }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('site/sidebar.html.twig') }}
+{% endblock %}
+
+{% block _feedback_agreement_label %}
+    <input type="checkbox" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="form-check-input"
+           value="{{ form.vars.value }}" {% if form.vars.checked %} checked="checked"{% endif %}>
+    <label class="form-check-label required" for="{{ form.vars.id }}">
+        Отправляя это сообщение, я принимаю <a href="{{ path('terms') }}">Условия использования</a>,
+        подтверждаю достоверность предоставленных мной данных и даю согласие на их обработку.
+    </label>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ include('captcha.html.twig', {
+        'action': 'contacts/feedback',
+        'id': 'feedback_captcha'
+    }) }}
+{% endblock %}

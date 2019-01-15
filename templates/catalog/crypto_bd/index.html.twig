@@ -1,0 +1,87 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}"Крипто БД"{% endblock %}
+
+{% block meta_description %}
+    Предотвращение утечек информации из систем управления базами данных
+{% endblock %}
+
+{% block lead %}
+    <div class="row">
+        <div class="col-6 font-weight-normal">
+            <p><b>{{ block('meta_description') }}</b></p>
+            <p>Сертифицированная система предотвращения утечек информации из высокопроизводительных систем управления базами данных (СУБД) Oracle, Microsoft SQL Server, Tibero и PostgreSQL</p>
+            {% set features = [
+                "Рекомендуется для защиты персональных данных, хранящихся в СУБД, в соответствии с 152-ФЗ \"О персональных данных\"",
+                "Обеспечивает надёжное ограничение доступа Администраторов СУБД к хранящейся в базе информации",
+                "Позволяет выполнить требования стандарта PCI DSS для систем, использующих банковские карты",
+                "Не имеет аналогов на российском рынке и дополняет штатные средства безопасности СУБД ",
+                "Может быть использована для защиты персональных данных в облачных средах",
+                "Сертифицирована ФСБ России по требованиям к СКЗИ классов <a href=\"" ~ path('download', {'uuid': '8694e8c3-52b4-49ab-9a20-0afc5cbb4ca9'}) ~ "\">КС1/КС2</a> и <a href=\"" ~ path('download', {'uuid': '9f9f61ce-04ca-44b4-870f-602c9e52bf4d'}) ~ "\">КС3</a>",
+            ] %}
+            <ul class="list-unstyled list-icons small">
+                {% for feature in features %}
+                <li>
+                    <ion-icon name="checkmark" class="text-primary"></ion-icon>
+                    <span>{{ feature | raw }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6">
+            <div class="text-center">
+                <img src="{{ asset('images/catalog/350x350/Crypto_BD.png') }}" class="img-fluid" alt="{{ block('title') }} - {{ block('meta_description') }}" />
+                <div class="font-weight-normal small my-4">
+                    Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (
+                        <a href="https://reestr.minsvyaz.ru/reestr/73523/" target="_blank">№ 509</a>,
+                        <a href="https://reestr.minsvyaz.ru/reestr/73532/" target="_blank">№ 518</a>,
+                        <a href="https://reestr.minsvyaz.ru/reestr/125855/" target="_blank">№ 4292</a>,
+                        <a href="https://reestr.minsvyaz.ru/reestr/125856/" target="_blank">№ 4293</a>
+                    )
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-dark" href="{{ path('download', {'uuid': 'ac00d332-479c-4543-b91a-c5edd361f0d4'}) }}">Скачать буклет</a>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support') }}">Часто задаваемые вопросы</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="description">
+            {{ include('catalog/crypto_bd/_description.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="details">
+            {{ include('catalog/crypto_bd/_details.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/crypto_bd/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/crypto_bd/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

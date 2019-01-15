@@ -1,0 +1,8 @@
+{% for item in response %}
+<div class="news-item__block mb-3">
+    <div class="news-item__date">{{ item.activeFrom.date | date_custom }}</div>
+    <div class="news-item__title">
+        <a href="{{ path('pressroom:events:view', {'code': item.code}) }}">{{ item.title | raw }}</a>
+    </div>
+</div>
+{% endfor %}

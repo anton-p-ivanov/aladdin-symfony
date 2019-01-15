@@ -1,0 +1,12 @@
+catalog:
+    path: /
+    defaults: { template: 'catalog/index.html.twig' }
+catalog:product:
+    path: /{product<[\w\-_]+>}
+    defaults: { template: 'catalog/{product}/index.html.twig' }
+catalog:product:page:
+    path: /{product<[\w\-_]+>}/{page<[\w\-_\/]+>}
+    defaults: { template: 'catalog/{product}/{page}.html.twig' }
+#catalog:secret_disk:product:
+#    path: /catalog/{product<[\w\-_]+>}
+#    defaults: { template: 'catalog/secret_disk/{product}.html.twig' }

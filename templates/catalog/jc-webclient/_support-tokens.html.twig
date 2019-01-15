@@ -1,0 +1,26 @@
+<div class="row align-items-center">
+    <div class="col-6 order-0">
+        <h2 class="mt-0">Поддерживает популярные токены</h2>
+        <div class="large">
+            <p>JC-WebClient поддерживает работу с самыми распространёнными в России токенами: 
+                <a href="{{ path('catalog:product', {'product': 'jacarta-2_gost'}) }}" class="text-nowrap">JaCarta-2 ГОСТ</a>, 
+                <a href="{{ path('catalog:product', {'product': 'jacarta-gost'}) }}" class="text-nowrap">JaCarta ГОСТ</a>, 
+                eToken ГОСТ и eToken PRO (Java).</p>
+            <p>Если у пользователя уже есть одно из перечисленных устройств и его устраивает функциональность этого
+                токена, то переход на JC-WebClient в таком случае не потребует каких-либо финансовых затрат с его
+                стороны.</p>
+        </div>
+        <a href="{{ path('catalog:product:page', {'product': 'jc-webclient', 'page': 'details/support-tokens'}) }}" class="btn btn-outline-primary" data-target="#support-tokens-detailed" data-remote="true" data-destroy="true">
+            <span class="d-flex">Узнать больше ...</span>
+            <span class="d-none">
+                <ion-icon name="hourglass" size="medium" class="d-block rotating mr-2"></ion-icon>
+                Идёт загрузка ...
+            </span>
+        </a>
+    </div>
+    <div class="col-6 order-1 text-center">
+        <img src="{{ asset('images/catalog/jc-webclient/support-tokens.png') }}" class="img-fluid" alt="JC-WebClient поддерживает популярные токены" />
+    </div>
+</div>
+
+<div id="support-tokens-detailed"></div>

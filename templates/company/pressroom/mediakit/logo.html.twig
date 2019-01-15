@@ -1,0 +1,34 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Логотипы{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-4 px-5">
+            <img src="{{ asset('images/logos/Aladdin_logo_main_rus.jpg') }}" class="img-fluid" alt="Логотип компании Аладдин Р.Д." />
+        </div>
+        <div class="col-8">
+            <p>
+                <b>Логотип компании "Аладдин Р.Д."</b><br>
+                Форматы:
+                <a href="{{ path('download', {'uuid': '91e94245-e906-42d9-87fc-f663267f5ff7'}) }}">JPEG</a> ·
+                <a href="{{ path('download', {'uuid': '2306bfb9-6917-4549-8f7e-45564a868dd8'}) }}">EPS</a>
+            </p>
+            <p>
+                Перед использованием логотипа, пожалуйста, ознакомьтесь с <a href="{{ path('download', {'uuid': '68cc3035-9a8b-4546-a6e0-ae396341f5ed'}) }}">Правилами</a> функционирования логотипа компании "Аладдин Р.Д".
+            </p>
+        </div>
+    </div>
+
+    <ul class="list-unstyled list-icons mt-5">
+        <li>
+            <ion-icon name="arrow-back"></ion-icon>
+            <a href="{{ path('pressroom:mediakit') }}">Медиа-кит</a>
+        </li>
+    </ul>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}

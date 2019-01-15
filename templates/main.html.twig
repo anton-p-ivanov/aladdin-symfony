@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if block('pagenav') is defined %}
+        <div id="pagenav">
+            <div class="container">
+                {{ block('pagenav') }}
+            </div>
+        </div>
+    {% endif %}
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-9 main">
+                    {% block content %}{% endblock %}
+                </div>
+                <div class="col-3 sidebar">
+                    {% block sidebar %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="push"></div>
+{% endblock %}

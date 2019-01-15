@@ -1,0 +1,441 @@
+// Import base styles
+@import "variables";
+// the ~ allows you to reference things in node_modules
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/custom-forms';
+@import '~bootstrap/scss/input-group';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/alert';
+@import '~bootstrap/scss/close';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/pagination';
+@import '~bootstrap/scss/list-group';
+
+//@import '~bootstrap/scss/print';
+
+@import "compatibility";
+@import "print";
+
+html, body {
+    height: 100%;
+}
+body {
+    position: relative;
+}
+#header {
+    height: $header-height;
+    background-color: $body-bg;
+    position: relative;
+    box-shadow: $box-shadow-sm;
+}
+//noinspection CssOverwrittenProperties
+#wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+}
+#push {
+    height: $footer-height;
+}
+#main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+#leadspace {
+    padding: 2rem 0;
+    background: $gray-200;
+    min-height: 150px;
+    font-family: $headings-font-family;
+    & .lead {
+        margin-top: 2rem;
+    }
+}
+#scroll-spy-nav {
+    background: $dark;
+    position: fixed;
+    top: -(1.5rem * 2 + 1rem);
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: top .5s;
+    &.active {
+        top: 0;
+    }
+    .nav-link {
+        padding: 1rem 1.5rem;
+        color: $white;
+        border-radius: 0;
+        &.active {
+            background-color: $white;
+            color: $dark;
+        }
+    }
+}
+//.nav-pills {
+//    background: transparent;
+//    .nav-link {
+//        padding: 1rem 1.5rem;
+//        color: $white;
+//        border-radius: 0;
+//        &.active {
+//            background-color: $white;
+//            color: inherit;
+//        }
+//    }
+//}
+#footer {
+    position: relative;
+    background-color: $gray-200;
+    padding: 3rem 0 0;
+    height: $footer-height;
+    & > .copyright-links {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: $gray-400;
+        & > .container {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        & > .container > * {
+            margin-right: 1rem;
+        }
+    }
+    & > .footer-links {
+        margin-bottom: 2rem;
+    }
+    & > .footer-links li > a {
+        line-height: $line-height-base * $line-height-lg;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    & a,
+    & a:hover,
+    & a:visited,
+    & a:active {
+        color: $gray-700;
+    }
+    & .social-links {
+        display: flex;
+        margin-bottom: 1rem;
+        & > .social-link {
+            color: $gray-500;
+            margin-right: 1.5rem;
+            text-decoration: none;
+        }
+        & > .social-link:hover {
+            color: $link-hover-color;
+        }
+    }
+    [class^="contact-"] {
+        display: block;
+        white-space: nowrap;
+    }
+}
+h1, .h1 {
+    letter-spacing: -0.05rem;
+    font-size: $font-size-base * 2.5;
+    font-weight: $font-weight-light;
+    margin: 0;
+}
+h2, .h2 {
+    letter-spacing: -0.03rem;
+    font-size: $font-size-base * 2;
+    font-weight: $font-weight-light;
+    margin-top: 2rem;
+}
+h3, .h3 {
+    font-size: $font-size-base * 1.25;
+    font-weight: $font-weight-bold;
+    margin-top: 1.5rem;
+}
+h4, .h4 {
+    font-size: $font-size-base;
+    line-height: $line-height-sm;
+}
+li {
+    margin-bottom: .5rem;
+}
+li > ul {
+    margin-top: .5rem;
+}
+small, .small {
+    font-size: 87.5%;
+}
+.large {
+    font-size: 125%;
+}
+nav.main {
+    font-size: $font-size-base;
+    display: flex;
+    & > a {
+        color: $body-color;
+        padding: .75rem;
+    }
+    & > a:hover,
+    & > a.active {
+        color: $link-hover-color;
+        text-decoration: none;
+    }
+}
+.nav-tabs {
+    .nav-item {
+        margin-right: .5rem;
+    }
+    .nav-link {
+        background-color: $light;
+        border-color: $dark;
+        color: $dark;
+        &:hover,
+        &:focus,
+        &:hover:focus {
+            color: $black;
+        }
+    }
+}
+@media (min-width: breakpoint-min('xl')) {
+    nav.main {
+        font-size: $font-size-lg;
+    }
+}
+ion-icon.icon-medium {
+    font-size: 1.5rem;
+}
+.search-container {
+    position: relative;
+    & > button {
+        position: absolute;
+        right: 0;
+        top: 2px;
+    }
+    & > input {
+        padding-right: 50px;
+    }
+}
+th, b, strong {
+    font-weight: $font-weight-bold;
+}
+//.btn {
+//    overflow: hidden;
+//    text-overflow: ellipsis;
+//    &.disabled,
+//    &:disabled {
+//        background-color: $secondary;
+//        border-color: $secondary;
+//        color: $black;
+//    }
+//    &:focus,
+//    &.focus,
+//    &:active,
+//    &.active {
+//        background-color: $dark !important;
+//        border-color: $dark !important;
+//        color: $white !important;
+//    }
+//}
+.btn-outline-primary {
+    color: $body-color;
+    background-color: $white;
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+        background-color: $primary !important;
+        //border-color: $primary !important;
+        color: $white !important;
+    }
+}
+//.btn-outline-dark {
+//    background-color: $white;
+//}
+label.required {
+    font-weight: $font-weight-bold;
+    &.form-check-label {
+        font-weight: $font-weight-base;
+    }
+}
+.list-condensed li {
+    margin-bottom: 0;
+}
+.list-icons {
+    & > li,
+    & > div {
+        position: relative;
+        padding-left: 2rem;
+        & > a {
+            display: block;
+        }
+        & > ion-icon {
+            position: absolute;
+            font-size: 1.5rem;
+            color: $gray-400;
+            top: 0;
+            left: 0;
+        }
+    }
+    & > li:hover,
+    & > li.active,
+    & > div:hover,
+    & > div.active {
+        & > ion-icon {
+            color: $primary;
+        }
+        & > a {
+            color: $primary;
+            text-decoration: none;
+        }
+    }
+}
+@media (min-width: breakpoint-min('xl')) {
+    .row {
+        margin-left: -30px;
+        margin-right: -30px;
+    }
+    .col,
+    [class*="col-"] {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+    .alert-lg {
+        padding: 1.75rem 2rem;
+    }
+}
+// Loader
+.rotating {
+    animation: loader-animation 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+@keyframes loader-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.no-transitions {
+    transition: none;
+}
+.logo {
+    padding: 10px 0;
+}
+ul:not(.list-unstyled) > li {
+    list-style-type: none;
+    position: relative;
+    &::before {
+        content: "\2014";
+        position: absolute;
+        left: -1.25rem;
+    }
+    li {
+        list-style-type: disc;
+        &::before {
+            content: none;
+        }
+    }
+}
+.icon {
+    overflow: hidden;
+    position: relative;
+    &:before {
+        content: "Sorry :(";
+        display: block;
+        position: absolute;
+        background-color: lighten($danger, 20);
+        color: $white;
+        font-size: $font-size-sm;
+        padding: .5rem;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+.icon-64 {
+    flex: 0 0 64px;
+    height: 64px;
+    width: 64px;
+}
+ul.pagination {
+    & > li::before {
+        content: "";
+    }
+}
+.page-item {
+    margin: 0 .25rem;
+    &.active .page-link {
+        background-color: transparent;
+        color: $dark;
+    }
+}
+.page-link {
+    border: solid 2px transparent;
+    border-radius: 19px;
+    min-width: 38px;
+    line-height: 34px;
+    padding: 0;
+    text-align: center;
+    color: $dark;
+    &:hover {
+        background-color: $light;
+        border-color: $light;
+        color: $dark;
+    }
+}
+.page-item:first-child > .page-link,
+.page-item:last-child > .page-link {
+    background-color: transparent;
+    border-color: transparent;
+    &:focus {
+        box-shadow: none;
+    }
+}
+.tag {
+    display: inline-block;
+    padding: .5rem 1rem;
+    margin-right: .5rem;
+    line-height: 1;
+    text-align: center;
+    border-radius: 10rem;
+    &:hover,
+    & > a:hover {
+        text-decoration: none;
+    }
+}
+.custom-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.cloak {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: .75;
+}
+.cloak.active {
+    display: block;
+}
+.input-group-append {
+    .btn {
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+}

@@ -1,0 +1,17 @@
+<h2 class="text-center mb-5 mt-0">
+    Лучше один раз увидеть
+</h2>
+<div class="row text-center">
+    <div class="col-sm-4 col-md-3 offset-md-1">
+        <img src="{{ asset('images/catalog/demo.svg') }}" width="150" height="150" class="mb-4"><br />
+        <a href="https://demo.aladdin-rd.ru" class="btn btn-outline-primary">Демонстрационный портал</a>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <img src="{{ asset('images/catalog/presentation.svg') }}" width="150" height="150" class="mb-4"><br />
+        <a href="{{ path('support:request', {'code': 'presentation', 'from': 'jc-webclient'}) }}" class="btn btn-outline-primary" target="_blank">Заказать живую презентацию</a>
+    </div>
+    <div class="col-sm-4 col-md-3">
+        <img src="{{ asset('images/catalog/call.svg') }}" width="150" height="150" class="mb-4"><br />
+        <a href="{{ path('support:request', {'code': 'callback', 'from': 'jc-webclient'}) }}" class="btn btn-outline-primary" target="_blank">Заказать обратный звонок</a>
+    </div>
+</div>

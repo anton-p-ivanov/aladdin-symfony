@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Записи вебинаров{% endblock %}
+
+{% block content %}
+    {% for element in paginator.elements %}
+        <div class="mb-4">
+            <div class="text-muted small">{{ element.activeFrom | date_custom }}</div>
+            <div class="large">
+                <a href="{{ path("pressroom:webinars:view", {"code": element.code}) }}">{{ element.title | raw }}</a>
+            </div>
+            <div class="d-block">{{ element.description | raw }}</div>
+        </div>
+    {% endfor %}
+
+    {{ include('paginator.html.twig', {'route': 'pressroom:webinars'}) }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}

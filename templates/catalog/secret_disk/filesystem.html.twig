@@ -1,0 +1,60 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}Особенности файловых систем NTFS и FAT{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container">
+            <TABLE borderColor=#eaeaea cellSpacing=0 borderColorDark=#eaeaea cellPadding=0 width="100%" borderColorLight=#eaeaea border=0>
+                <TR>
+                    <TD colSpan=5>
+                        <HR>
+                    </TD></TR>
+                <TR>
+                    <TD width="19%"><font color=#990000>Ограничения</font></TD>
+                    <TD width="1%"></TD>
+                    <TD width="35%"><font color=#990000>NTFS</font></TD>
+                    <TD width="1%"></TD>
+                    <TD width="43%"><font color=#990000>FAT и FAT 32</font></TD>
+                </TR>
+                <TR><TD colSpan=5><HR></TD></TR>
+                <TR>
+                    <TD rowSpan=5>Размеры тома (раздела)</TD>
+                    <TD rowSpan=5></TD>
+                    <TD>Минимальный размер тома составляет приблизительно 10 МБ.</TD>
+                    <TD></TD>
+                    <TD>FAT поддерживает различные размеры томов - от объема дискет и до 4 ГБ (2ГБ – FAT16, кластер - до 32КБ; 4ГБ – VFAT кластер до 64КБ).</TD>
+                </tr>
+                <TR><TD colSpan=5><HR></TD></TR>
+                <TR>
+                    <TD><p>На практике рекомендуется создавать тома, размеры которых не превышают 2 ТБ.
+                        <p>Максимальный размер тома 16 ЭБ.
+                    </TD>
+                    <TD></TD>
+                    <TD><p>FAT32 поддерживает тома объемом от 2 ГБ до 2 ТБ.
+                        <p>Работая под управлением Windows XP для FAT32 можно отформатировать тома, размер которых не превышает 32 ГБ.
+                    </TD>
+                </TR>
+                <TR><TD colSpan=5><HR></TD></TR>
+                <TR>
+                    <TD>С помощью NTFS нельзя форматировать дискеты (1.44 МБ).</TD>
+                    <TD></TD>
+                    <TD>Не поддерживаются диски размеры, которых меньше 512 МБ.</TD>
+                </TR>
+                <TR><TD colSpan=5><HR></TD></TR>
+                <TR>
+                    <TD>Размеры файлов</TD>
+                    <TD></TD>
+                    <TD>Теоретически размер файла может составлять до 16 ЭБ.</TD>
+                    <TD></TD>
+                    <TD><p>FAT поддерживает файлы размером не более 2 ГБ.
+                        <p>FAT 32 поддерживает файлы размером не более 4 ГБ.
+                    </TD>
+                </TR>
+                <TR><TD colSpan=5><HR></TD></TR>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,198 @@
+
+<h2>Состав</h2>
+<p><b>"КриптоПро ФКН CSP" версии 3.9</b> состоит из двух ключевых компонент. </p>
+
+<p><b>1.	USB-токен или смарт-карта JaCarta CryptoPro:</b></p>
+
+<ul><li>является функциональным ключевым носителем (ФКН), в котором аппаратно реализована российская криптография;</li>
+    <li>позволяет безопасно хранить и использовать закрытые ключи ЭП;</li>
+    <li>формирует ЭП "под маской" - K(h), что позволяет защитить канал обмена между токеном (смарт-картой) и программным криптопровайдером (CSP);</li>
+    <li>выполняет взаимную аутентификацию CSP и токена и строгую двухфакторную аутентификацию пользователя - владельца токена.</li></ul>
+
+<p><b>2.	Криптопровайдер (CSP):</b></p>
+<ul><li>является высокоуровневым программным интерфейсом (MS CAPI) для внешних приложений и предоставляет им набор криптографических функций;</li>
+    <li>из подписи "под маской", полученной от аппаратного токена (смарт-карты) - K(h), "снимает" маску K(s) и формирует "нормальную" подпись, понятную для внешних приложений</li></ul>
+
+<h3>Архитектура "КриптоПро ФКН CSP" версии 3.9</h3>
+
+<img width="600" class="text_center" src="{{ asset('images/catalog/cryptopro_fkn/Scheme.png') }}">
+
+
+<h2>Технические характеристики токена JaCarta CryptoPro</h2>
+
+
+<table class="specs" width="100%" cellpadding="5" cellspacing="0" border="0">
+    <colgroup>
+        <col width="200" />
+        <col />
+        <col />
+    </colgroup>
+    <tbody>
+    <tr>
+        <th ROWSPAN="3" align="right" class="align-top"><strong>Характеристики микроконтроллера</strong></th>
+        <td>Производитель</td>
+        <td>INSIDE Secure</td>
+    </tr>
+    <tr>
+
+        <td>Модель</td>
+        <td>AT90SC25672RCT</td>
+    </tr>
+    <tr>
+
+        <td>EEPROM Memoryс</td>
+        <td>72 Кб</td>
+    </tr>
+
+    <tr>
+        <th ROWSPAN="3" align="right" class="align-top"><strong>Характеристики операционной системы</strong></th>
+        <td>Операционная система</td>
+        <td>Athena Smartcard Solutions OS755</td>
+    </tr>
+    <tr>
+
+        <td>Международные сертификаты</td>
+        <td>CC EAL4+</td>
+    </tr>
+    <tr>
+
+        <td>Поддерживаемые криптоалгоритмы</td>
+        <td>ГОСТ Р 34.10-2001, ГОСТ 28147-89, ГОСТ Р 34.11-94</td>
+    </tr>
+
+    <tr>
+        <th ROWSPAN="2" align="right" class="align-top"><strong>Поддерживаемые интерфейсы</strong></th>
+        <td>USB</td>
+        <td>Да</td>
+    </tr>
+    <tr>
+        <td>Контактный интерфейс (ISO7816-3)</td>
+        <td>T=1</td>
+    </tr>
+
+    <tr>
+        <th align="right" class="align-top"><strong>Сертификаты безопасности</strong></th>
+        <td>ФСБ России</td>
+        <td><a href="{{ path('download', {'uuid': '417109d7-fc3f-494d-bc05-03308463dd17'}) }}">Сертификат соответствия ФСБ России № СФ/114-2734</a><br>
+            <a href="{{ path('download', {'uuid': '17a354c3-c5c6-402c-9038-dd5d96a96b99'}) }}">Сертификат соответствия ФСБ России № СФ/114-2735</a></td>
+    </tr>
+
+
+    <tr>
+        <th ROWSPAN="16" align="right" class="align-top"><strong>Поддерживаемые ОС</strong></th>
+        <td>Microsoft Windows Server 2003</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+    <tr>
+
+        <td>Microsoft Windows Vista</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Microsoft Windows 7</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Microsoft Windows Server 2008</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Microsoft Windows Server 2008 R2</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>CentOS 5/6</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Linpus Lite 1.3</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Mandriva Server 5</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Oracle Enterprise Linux 5/6</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Оpen SUSE 12</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Red Hat Enterprise Linux 5/6</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>SUSE Linux Enterprise 11</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+        <td>Ubuntu 8.04/10.04/11.04/11.10/12.04</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+        <td>ALT Linux 5/6</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>Debian 6</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+
+        <td>FreeBSD 7/8/9</td>
+        <td>(32/64-битные платформы)</td>
+    </tr>
+
+    <tr>
+        <th ROWSPAN="2" align="right" class="align-top"><strong>Время выполнения криптографических операций</strong></th>
+        <td>Импорт ключа</td>
+        <td>3.2 op/s  (USB-токен), 2.4 op/s (смарт-карта)</td>
+    </tr>
+    <tr>
+
+        <td>Создание подписи</td>
+        <td>5.8 op/s (USB-токен), 3.9 op/s (смарт-карта)</td>
+    </tr>
+
+    <tr>
+        <th ROWSPAN="2" align="right" class="align-top"><strong>Доступные ключевые носители</strong></th>
+        <td>Смарт-карта</td>
+        <td>JaCarta CryptoPro</td>
+    </tr>
+    <tr>
+
+        <td>USB-токен</td>
+        <td>JaCarta CryptoPro</td>
+    </tr>
+
+
+    </tbody>
+</table>

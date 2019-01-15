@@ -1,0 +1,15 @@
+<h2 class="mt-0 text-center">Преимущества использования</h2>
+
+<nav class="nav nav-tabs justify-content-center mt-5">
+    <a class="nav-item nav-link active" data-toggle="tab" href="#business">Для бизнеса</a>
+    <a class="nav-item nav-link" data-toggle="tab" href="#developers">Для разработчиков</a>
+</nav>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="business">
+        {{ include('catalog/jc-mobile/details/_business.html.twig') }}
+    </div>
+    <div class="tab-pane" id="developers">
+        {{ include('catalog/jc-mobile/details/_developers.html.twig') }}
+    </div>
+</div>

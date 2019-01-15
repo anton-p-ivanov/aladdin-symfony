@@ -1,0 +1,78 @@
+{% extends 'wide.html.twig' %}
+
+{% block title %}Комплекты разработчика{% endblock %}
+
+{% block lead %}
+    Комплекты разработчика (SDK) предназначены для встраивания решений компании "Аладдин Р.Д." в прикладное программное
+    обеспечение собственной разработки. Для получения комплекта разработчика необходимо отправить заявку.
+{% endblock %}
+
+{% block content %}
+
+    {% set items = include('support/sdk/list.json.twig') | json_decode %}
+
+    <div class="bg-light pb-4">
+        <div class="container">
+            {{ include('support/sdk/list.html.twig', {'items': items}) }}
+        </div>
+    </div>
+
+    {% for index, item in items %}
+        {% set even = index % 2 == 0 %}
+        <div class="{{ even ? 'bg-white' : 'bg-light' }} py-5" id="{{ item.name }}">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-6 order-{{ even ? 0 : 1 }}">
+                        <h2 class="mt-0">Комплект разработчика <span class="text-nowrap">{{ item.title }}</span></h2>
+                        {{ include('support/sdk/' ~ item.name ~ '.html.twig') }}
+                        <p>
+                            <a href="{{ path('support:request', {'code': item.name}) }}" class="btn btn-outline-primary">Отправить заявку</a>
+                            {% if item.details is defined and item.details %}
+                                <a href="#collapse-{{ item.name }}" data-toggle="collapse" class="btn btn-outline-dark ml-4">Подробнее ...</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                    <div class="col-6 order-{{ even ? 1 : 0 }} text-center">
+                        <img src="{{ asset('images/support/sdk/' ~ item.image) }}" alt="Комплект разработчика {{ item.title }}">
+                    </div>
+                </div>
+                {% if item.details is defined and item.details %}
+                    <div class="collapse" id="collapse-{{ item.name }}">
+                        {{ include('support/sdk/_' ~ item.name ~ '.html.twig') }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="bg-info text-white py-3">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-9">
+                    Партнёры компании "Аладдин Р.Д." могут скачать комплекты разработчика на
+                    партнёрском сайте.
+                </div>
+                <div class="col-3">
+                    <a href="https://partners.aladdin-rd.ru/developers/" class="btn btn-block btn-outline-info text-white border-white" target="_blank">
+                        Перейти на партнёрский сайт
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--suppress CssUnusedSymbol -->
+    <style type="text/css">
+        #main {
+            margin: 0;
+        }
+        #leadspace {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('site/sidebar.html.twig') }}
+{% endblock %}
