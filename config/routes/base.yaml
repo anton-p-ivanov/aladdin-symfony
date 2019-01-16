@@ -13,7 +13,8 @@ partners:
     resource: 'partners.yaml'
     prefix: /partners
 buy:
-    path: /site/index
+    path: /buy
+    defaults: { template: 'buy/index.html.twig' }
 login:
     path: /account/login
 logout:

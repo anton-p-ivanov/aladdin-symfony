@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Цены и заказ продуктов{% endblock %}
+{% block meta_description %}{% endblock %}
+
+{% block body %}
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Где купить?</h2>
+                    <p>Купить продукцию компании <span class="text-nowrap">"Аладдин Р.Д."</span> в розницу или мелким оптом Вы
+                        можете у одного из партнёров компании. Партнёрская сеть работает во многих городах России и
+                        странах СНГ.</p>
+
+                    <div class="text-center">
+                        <a href="{{ path('partners:search', {'type': 'business'}) }}" class="btn btn-outline-primary">Найти партнёра</a>
+                    </div>
+
+                    <br>
+
+                    <h2>Партнёрам</h2>
+                    <p>Авторизованные партнёры компании <span class="text-nowrap">"Аладдин Р.Д."</span> могут
+                        оформить заказ на <a href="https://partners.aladdin-rd.ru/" target="_blank">партнёрском сайте</a>.</p>
+
+                </div>
+                <div class="col-6">
+                    <h2>Цены</h2>
+                    <p>Прайс-листы на продукцию компании <span class="text-nowrap">"Аладдин Р.Д."</span>, представленные в формате
+                        Microsoft Excel:</p>
+
+                    <ul>
+                        <li><a href="{{ path('buy:price', {'file': 'jacarta_enduser.xls'}) }}" data-goal="target-1">Смарт-карты, USB- и MicroUSB-токены JaCarta</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'jacarta_securlogon_enduser.xls'}) }}" data-goal="price-jacarta-securlogon">JaCarta SecurLogon</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'jms_enduser.xls'}) }}" data-goal="price-jms-jas">Система централизованного управления JMS и JAS</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'sd_enduser.xls'}) }}" data-goal="price-secret-disk">Продукты семейства Secret Disk</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'antifraud_terminal_enduser.xls'}) }}" data-goal="price-antifraud"> Антифрод-терминал</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'etoken_enduser.xls'}) }}" data-goal="price-etoken">USB-токены и смарт-карты eToken</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'smartcard_readers_enduser.xls'}) }}" data-goal="price-smart-card-reader">Смарт-карт ридеры</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'dallas_ase_enduser.xls'}) }}" data-goal="price-smart-card">Смарт-карты ASECard</a></li>
+                        <li><a href="{{ path('buy:price', {'file': 'dallas_ase_enduser.xls'}) }}" data-goal="price-ibutton">Идентификаторы iButton</a></li>
+                    </ul>
+
+                    <p>Цены указаны в рублях и включают НДС.</p>
+
+                    <p class="text-muted"><em>
+                            Прайс-листы доступны только для чтения; для открытия файлов может потребоваться подтвердить действие
+                            нажатием кнопки "Только для чтения".
+                        </em></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="push"></div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('company/_sidebar.html.twig') }}
+{% endblock %}
