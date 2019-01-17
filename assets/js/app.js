@@ -64,5 +64,35 @@ $(function () {
             });
         }
     });
+
+    $('.modal').on('show.bs.modal', function (e) {
+        let trigger = $(e.relatedTarget),
+            hash = e.relatedTarget.hash,
+            target = $(e.target);
+
+        if (hash) {
+            $('.nav a[href="' + hash + '"]').tab('show');
+        }
+
+        if (trigger.data('remote') && !target.data('loaded')) {
+            target.load(trigger.attr('href'), function () {
+                target.data('loaded', true);
+                if (hash) {
+                    $('.nav a[href="' + hash + '"]').tab('show');
+                }
+            });
+        }
+    });
+
+    $('.collapse').on('show.bs.collapse', function (e) {
+        let target = $(e.target);
+
+        if (target.data('remote') && !target.data('loaded')) {
+            target.load(target.data('remote'), function () {
+                target.data('loaded', true);
+            });
+        }
+    });
+
 });
 

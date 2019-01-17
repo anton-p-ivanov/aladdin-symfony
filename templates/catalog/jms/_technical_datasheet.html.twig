@@ -1,0 +1,8 @@
+<h2>Технические подробности</h2>
+{% set tabs = [
+    { 'id': 'specification', 'title': 'Спецификация', 'active': true, 'view': 'catalog/jms/details/_specification.html.twig' },
+    { 'id': 'architecture', 'title': 'Архитектура', 'active': false, 'view': 'catalog/jms/details/_architecture.html.twig' },
+    { 'id': 'extensions', 'title': 'Расширения', 'active': false, 'view': 'catalog/jms/details/_extensions.html.twig' },
+    { 'id': 'whats-new', 'title': 'Что нового?', 'active': false, 'view': 'catalog/jms/details/_whats-new.html.twig' },
+] %}
+{{ include('tabs.html.twig') }}

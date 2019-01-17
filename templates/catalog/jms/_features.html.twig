@@ -1,0 +1,33 @@
+{{ include('catalog/jms/assets/icons/icons-def.svg') }}
+
+{% set feats = [
+    [
+        {'title': 'Учитывает токены и СКЗИ', 'image': '11-01'},
+        {'title': 'Контролирует жизненный цикл токенов', 'image': '26-01'},
+        {'title': 'Применяет политики ИБ', 'image': '21-01'},
+        {'title': 'Предоставляет сервис самообслуживания', 'image': '20-01'},
+        {'title': 'Производительна и масштабируема', 'image': '16-01'},
+    ],
+    [
+        {'title': 'Отслеживает действия пользователей', 'image': '23-01'},
+        {'title': 'Имеет встроенные механизмы ИБ', 'image': '1-01'},
+        {'title': 'Участник Реестра отечественного ПО', 'image': '6-01'},
+        {'title': 'Проста во внедрении и эксплуатации', 'image': '13-01'},
+        {'title': 'Экономит время и деньги', 'image': '29-01'},
+    ]
+] %}
+
+<div class="row large">
+    {% for block in feats %}
+        <div class="col-6">
+            {% for item in block %}
+                <div class="features__item d-flex">
+                    <svg class="features__image">
+                        <use xlink:href="#{{ item.image }}"></use>
+                    </svg>
+                    <div class="features__title">{{ item.title }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

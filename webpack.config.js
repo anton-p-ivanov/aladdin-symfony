@@ -27,6 +27,7 @@ Encore
     .addStyleEntry('css/catalog-index', './assets/scss/catalog/index.scss')
     .addStyleEntry('css/catalog-jacarta-index', './assets/scss/catalog/jacarta/index.scss')
     .addStyleEntry('css/catalog-jacarta-faq', './assets/scss/catalog/jacarta/faq.scss')
+    .addStyleEntry('css/catalog-jms-index', './assets/scss/catalog/jms/index.scss')
 
     .copyFiles({from: './assets/images'})
 

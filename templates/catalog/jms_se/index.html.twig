@@ -1,0 +1,118 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta Management System Special Edition{% endblock %}
+{% block meta_description %}
+    Учёт и управление жизненным циклом токенов, сертификатов и СКЗИ
+{% endblock %}
+
+{% block lead %}
+    <div class="row position-relative" style="min-height: 400px;">
+        <div class="col-6 font-weight-normal">
+            <p><b>Учёт и управление жизненным циклом токенов, сертификатов и СКЗИ</b></p>
+            <p>JMS — сертифицированная корпоративная система управления жизненным циклом средств аутентификации и электронной подписи (токенов).</p>
+            <p>Использование JMS позволяет в разы сократить расходы на администрирование токенов, способствуя укреплению информационной безопасности и повышению производительности сотрудников.</p>
+        </div>
+        <div class="col-6 text-center bg-hand"></div>
+    </div>
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить?</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads') }}">Библиотека ресурсов</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="features">
+            {{ include('catalog/jms_se/_features.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white" id="token-registration">
+        {{ include('catalog/jms_se/_token_registration.html.twig') }}
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="total-control">
+            {{ include('catalog/jms_se/_total_control.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-dark text-light" id="security-compliance">
+        {{ include('catalog/jms_se/_security_compliance.html.twig') }}
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="self-service">
+            {{ include('catalog/jms_se/_self_service.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="server-performance">
+            {{ include('catalog/jms_se/_server_performance.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="reporting-system">
+            {{ include('catalog/jms_se/_reporting_system.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="safety-and-cryptography">
+            {{ include('catalog/jms_se/_safety_and_cryptography.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="simple-use">
+            {{ include('catalog/jms_se/_simple_use.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="money-saver">
+            {{ include('catalog/jms_se/_money_saver.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="top-clients">
+            {{ include('catalog/jms_se/_top_clients.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="technical-datasheet">
+            {{ include('catalog/jms_se/_technical_datasheet.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jms_se/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jms_se/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/css/catalog-jms-index.css') }}" />
+{% endblock %}

@@ -1,0 +1,73 @@
+@import "//fonts.googleapis.com/icon?family=Material+Icons";
+
+.collapse-toggle,
+.collapse-toggle:visited {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    display: block;
+    position: absolute;
+    bottom: -19px;
+    width: 20%;
+    left: 40%;
+    text-align: center;
+    z-index: 100;
+    text-decoration: none;
+}
+.collapse-toggle:hover,
+.collapse-toggle:active,
+.collapse-toggle:focus {
+    text-decoration: none;
+    color: rgb(234, 90, 34);
+}
+.collapse-toggle:active,
+.collapse-toggle:focus {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.collapse-toggle_in {
+    display: none;
+}
+.collapse-toggle__btn {
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 38px;
+    height: 38px;
+    border: solid 2px rgb(234, 90, 34);
+    border-radius: 19px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+.collapse-toggle__btn::after {
+    content: "\e145";
+    font-family: 'Material Icons', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+.collapse-toggle__label {
+    display: inline-block;
+}
+.collapse-toggle__btn_loading::after {
+    animation-name: spin;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}

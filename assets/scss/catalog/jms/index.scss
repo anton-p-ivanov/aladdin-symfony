@@ -1,0 +1,175 @@
+@import "../../collapse.css";
+
+.section {
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.bg-token-registration {
+    background: url("/images/catalog/jms/backgrounds/parallax_bg.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.bg-inverse {
+    background: url("/images/catalog/jms/backgrounds/inverse_bg.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.bg-russia {
+    background: url("/images/catalog/jms/backgrounds/russia_bg.png") no-repeat 50% 50%;
+    background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {
+    .bg-hand {
+        background: url("/images/catalog/jms/backgrounds/hand_bg.png") no-repeat 0 0;
+        height: 450px;
+        right: 0;
+        top: -150px;
+        position: absolute;
+    }
+}
+
+.collapse-toggle[aria-expanded="true"] {
+    display: none;
+}
+/*
+.grid-row_details {
+    margin-bottom: 30px;
+}
+.grid-row_centered {
+    display: flex;
+    align-items: center;
+}
+.content-block {
+    position: relative;
+}
+.content-block__container {
+    padding: 50px 0;
+}
+@media only screen and (min-width: 768px) {
+    .content-block__container {
+        padding: 100px 0;
+        display: flex;
+        align-items: center;
+    }
+}
+.content-block_alt {
+    background-color: rgb(236, 236, 236);
+}
+.content-block_inverse {
+    background: url("/images/catalog/jms/inverse_bg.jpg") no-repeat 50% 50%;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+}
+.content-block_russia {
+    background: url("/images/catalog/jms/russia_bg.png") no-repeat 50% 50%;
+    background-size: contain;
+}
+.content-block__title {
+    margin: 0 0 20px 0;
+}
+.content-block__title_inverse {
+    color: white;
+}
+.img_customers {
+    margin-top: 50px;
+    max-width: 800px;
+    width: 100%;
+}
+*/
+.features__image {
+    width: 48px;
+    height: 48px;
+    margin-right: 20px;
+}
+
+.features__item {
+    margin-bottom: 20px;
+}
+
+.features__title {
+    line-height: 48px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
+.collapse {
+    padding-bottom: 30px;
+}
+.collapse-toggle__label_inverse {
+    color: white;
+}
+.collapse-toggle__label_inverse:hover {
+    color: rgb(234, 90, 34);
+}
+.img_jms_architecture,
+.img_jms_extensions {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+}
+.img_jms_architecture {
+    height: auto;
+    max-height: 744px;
+    margin: 0;
+    padding: 20px 0;
+}
+.img_jms_extensions {
+    height: auto;
+    max-height: 478px;
+    margin: 0;
+    padding: 20px 0;
+}
+.helper {
+    position: fixed;
+    right: -100px;
+    opacity: 0;
+    bottom: 0;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    transition: all .25s ease-out;
+}
+.helper_affix {
+    opacity: 1;
+    right: 0;
+    transition: all .25s ease-out;
+}
+.helper__up {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+.container_try-me,
+.container_buy-me {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+@media only screen and (max-width: 425px) {
+    .btn {
+        width: 100%;
+    }
+    .helper {
+        width: 90px;
+        height: 90px;
+    }
+    .helper__up {
+        bottom: 20px;
+        right: 20px;
+    }
+    .list_dashed {
+        margin: 20px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .container_try-me,
+    .container_buy-me {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+*/

@@ -1,0 +1,130 @@
+{% extends 'catalog.html.twig' %}
+
+{% block title %}JaCarta Management System{% endblock %}
+{% block meta_description %}
+    Учёт и управление жизненным циклом токенов, сертификатов и СКЗИ
+{% endblock %}
+
+{% block lead %}
+    <div class="row position-relative" style="min-height: 400px;">
+        <div class="col-6 font-weight-normal">
+            <p><b>{{ block('meta_description') }}</b></p>
+            <p>JMS — сертифицированная корпоративная система управления жизненным циклом средств аутентификации и электронной подписи (токенов).</p>
+            <p>Использование JMS позволяет в разы сократить расходы на администрирование токенов, способствуя укреплению информационной безопасности и повышению производительности сотрудников.</p>
+        </div>
+        <div class="col-6 text-center bg-hand">
+            <div class="font-weight-normal small" style="margin-top:480px;">
+                Зарегистрировано в реестре российских программ<br>для ЭВМ и БД (<a href="https://reestr.minsvyaz.ru/reestr/69445/" target="_blank">№ 311</a>)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex">
+                <a href="{{ path('download', {'uuid': 'f5b6a2b7-5aea-4208-a2ed-eb90d3faea57'}) }}" class="btn btn-dark mr-4">Скачать брошюру</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="action-group">
+                <a class="btn btn-primary" href="{{ path("partners:search", {"type": "business"}) }}">Где купить?</a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('support') }}">Техническая поддержка</a></li>
+                    <li><a href="{{ path('support:downloads') }}">Библиотека ресурсов</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="bg-white section">
+        <div class="container" id="features">
+            {{ include('catalog/jms/_features.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white" id="token-registration">
+        {{ include('catalog/jms/_token_registration.html.twig') }}
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="total-control">
+            {{ include('catalog/jms/_total_control.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-dark text-light" id="security-compliance">
+        {{ include('catalog/jms/_security_compliance.html.twig') }}
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="self-service">
+            {{ include('catalog/jms/_self_service.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="server-performance">
+            {{ include('catalog/jms/_server_performance.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="reporting-system">
+            {{ include('catalog/jms/_reporting_system.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="safety-and-cryptography">
+            {{ include('catalog/jms/_safety_and_cryptography.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white" id="made-for-russia">
+        {{ include('catalog/jms/_made_for_russia.html.twig') }}
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="simple-use">
+            {{ include('catalog/jms/_simple_use.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="money-saver">
+            {{ include('catalog/jms/_money_saver.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="top-clients">
+            {{ include('catalog/jms/_top_clients.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="technical-datasheet">
+            {{ include('catalog/jms/_technical_datasheet.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-light section">
+        <div class="container" id="try">
+            {{ include('catalog/jms/_try.html.twig') }}
+        </div>
+    </div>
+
+    <div class="bg-white section">
+        <div class="container" id="buy">
+            {{ include('catalog/jms/_buy.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/css/catalog-jms-index.css') }}" />
+{% endblock %}
