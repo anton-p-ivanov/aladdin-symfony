@@ -1,0 +1,118 @@
+{% extends 'wide.html.twig' %}
+
+{% block title %}Техническая поддержка{% endblock %}
+
+{% block lead %}
+    Компания "Аладдин Р.Д." оказывает базовую техническую поддержку по всем выпускаемым продуктам по текущей и, как
+    правило, по предшествующей версиям. Базовая техническая поддержка входит в стоимость всех поставляемых продуктов,
+    по умолчанию, на 1 год.
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="alert alert-warning">
+            <h3>Важная информация!</h3>
+            <p>Компания "Аладдин Р.Д." извещает о планах прекращения продажи, поддержки и сопровождения USB-токенов и смарт-карт семейства <b class="text-nowrap">eToken PRO (Java)</b>, <b>eToken</b> и <b class="text-nowrap">СКЗИ "Криптотокен"</b> в составе изделий <b class="text-nowrap">eToken ГОСТ</b>.</p>
+            <p><a href="{{ path('pressroom:news:view', {'code': 'izvesenie_o_planah_prekrasenia_prodazi_podderzki_i_soprovozdenia_usb_tokenov_i_smart_kart_semejstva_etoken_pro_java_etoken_i_skzi_kriptotoken_v_sostave_izdelij_etoken_gost'}) }}" target="_blank">Ознакомиться с Извещением</a></p>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <h2>Центр загрузки</h2>
+                {% set downloads = [
+                    {
+                        'uuid': 'a3bfee80-cf61-4090-8c65-4f2bb6af6d27',
+                        'title': 'Конфигурационная утилита JaCarta (ЕГАИС)',
+                        'description': 'Утилита для Единого клиента JaCarta 2.11 содержит блок настроек для корректной и бесперебойной работы устройств JaCarta SE и JaCarta-2 SE на рабочих местах с УТМ ЕГАИС. УТМ – универсальный транспортный модуль.'
+                    },
+                    {
+                        'uuid': '87d06960-71a6-4fc0-853f-31c518fc1e2d',
+                        'title': 'Единый Клиент JaCarta и JaCarta SecurLogon',
+                        'description': 'Программное обеспечение, необходимое для работы с любым токеном JaCarta. Актуальная версия. Рекомендуется для установки.'
+                    },
+                    {
+                        'uuid': 'dfdba15d-fa6d-4a55-b8a7-30becbc71bf1',
+                        'title': 'SafeNet Authentication Client',
+                        'description': 'Набор драйверов и дополнительных утилит, обеспечивающий работу с электронными ключами eToken для Microsoft Windows (<em>предоставляется только в рамках технической поддержки</em>).'
+                    },
+                    {
+                        'uuid': '6b23e20a-c832-4846-8581-b8b11319e1a9',
+                        'title': 'eToken PKI Client 5.1 SP1',
+                        'description': 'Набор драйверов и дополнительных утилит, обеспечивающий работу с электронными ключами eToken для Microsoft Windows.'
+                    }
+                ] %}
+                <ul class="list-unstyled">
+                    {% for download in downloads %}
+                    <li class="mt-4">
+                        <a href="{{ path('support:downloads:view', {'uuid': download.uuid}) }}" class="large d-block">{{ download.title }}</a>
+                        {{ download.description | raw }}
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <br>
+
+                <div class="text-center">
+                    <a href="{{ path('support:downloads') }}" class="btn btn-outline-primary">Все файлы</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>Мои обращения</h2>
+                {% if app.user %}
+                    <div id="tickets" class="small" data-url="{{ path('support:tickets') }}"></div><br>
+                {% else %}
+                    <div class="alert alert-info">
+                        Для просмотра списка Ваших обращений,<br />
+                        пожалуйста, <a href="{{ path('login', {'returnUrl': app.request.attributes.get('_route')}) }}">авторизуйтесь</a>.
+                    </div>
+                {% endif %}
+
+                <div class="small">
+                    Перед обращением в техническую поддержку рекомендуем Вам воспользоваться
+                    <a href="http://kbp.aladdin-rd.ru/">Базой знаний</a>. В ней собраны ответы на самые актуальные
+                    вопросы наших клиентов, среди которых может оказаться ответ и на Ваш вопрос.
+                </div>
+
+                <br>
+
+                <div class="text-center">
+                    <a href="{{ path('support:tickets:create') }}" class="btn btn-outline-primary">Создать обращение</a>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-6">
+                <h2>Обучение и сертификация</h2>
+                <p>Квалифицированные специалисты – залог успеха любой компании. Поэтому компания "Аладдин Р.Д." уделяет большое
+                    внимание образованию и повышению квалификации своих заказчиков и партнёров. Совместно с ведущими учебными
+                    центрами в области информационной безопасности разрабатываются авторские курсы и авторизованные программы,
+                    ведётся работа с преподавателями, отлажена система сертификации специалистов.</p>
+                <br>
+                <div class="text-center">
+                    <a href="{{ path('support:page', {'page': 'training'}) }}" class="btn btn-outline-primary">Узнать больше</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>Дополнительно</h2>
+                <ul>
+                    <li><a href="{{ path('support:page', {'page': 'faq'}) }}">Часто задаваемые вопросы (FAQ)</a></li>
+                    <li><a href="https://kbp.aladdin-rd.ru" target="_blank">База знаний</a></li>
+                    <li><a href="{{ path('support:page', {'page': 'sdk'}) }}">Комплекты разработчика</a></li>
+                    <li><a href="{{ path('support:page', {'page': 'guides'}) }}">Интеграционные инструкции</a></li>
+                    <li><a href="{{ path('support:page', {'page': 'discontinue'}) }}">Продукты, снятые с продаж</a></li>
+                    <li><a href="{{ path('support:page', {'page': 'rules'}) }}">Правила оказания услуг</a></li>
+                    <li><a href="https://old.aladdin-rd.ru/solutions/partners/" target="_blank">Решения с технологическими партнёрами</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('site/sidebar.html.twig') }}
+{% endblock %}

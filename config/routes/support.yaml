@@ -1,5 +1,6 @@
 support:
     path: /support
+    defaults: { template: 'support/index.html.twig' }
 support:tickets:create:
     path: /support/tickets/create
 support:page:
