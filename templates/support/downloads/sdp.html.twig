@@ -1,0 +1,42 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Центр загрузки{% endblock %}
+
+{% block content %}
+
+    <h2>Secret Disk 4</h2>
+    <div class="section mb-5">
+        <h3 class="section__title">Программное обеспечение</h3>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'programmnoe-obespecenie-8'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Документация</h3>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'dokumentacia-24'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Информационные материалы</h3>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'informacionnye-materialy-6'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Утилиты</h3>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'utility-7'}) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}

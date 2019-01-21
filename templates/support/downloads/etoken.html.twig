@@ -1,0 +1,74 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Центр загрузки{% endblock %}
+
+{% block content %}
+
+    <h2>Электронные USB-ключи и смарт-карты eToken</h2>
+    <div class="section mb-5">
+        <h3 class="section__title">Драйверы для Microsoft Windows</h3>
+        <div class="section__description">
+            <p>Наборы драйверов и дополнительных утилит, обеспечивающие работу с
+                электронными ключами eToken под управлением операционной системы семейства Microsoft Windows и
+                Microsoft Windows Server.</p>
+            <p><span class="strong">ВНИМАНИЕ!</span> Перед установкой драйвера убедитесь, что все установленные на
+                Вашем компьютере программные продукты, работающие с электронными ключами eToken, поддерживают
+                выбранную версию драйвера. Подробную информацию можно найти в документации каждого продукта.</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'drajvery-dla-microsoft-windows'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Драйверы для других платформ</h3>
+        <div class="section__description">
+            <p>Наборы драйверов и дополнительных утилит, обеспечивающие работу с электронными ключами eToken под
+                управлением операционных систем семейства Linux и Apple macOS.</p>
+            <p>ВНИМАНИЕ! Перед установкой драйвера убедитесь, что все установленные на Вашем компьютере программные
+                продукты, работающие с электронными ключами eToken, поддерживают выбранную версию драйвера. Подробную
+                информацию можно найти в документации каждого продукта.</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'drajvery-dla-drugih-platform'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Модули поддержки</h3>
+        <div class="section__description">
+            <p>Модули поддержки позволяют использовать электронные ключи eToken в качестве ключевых носителей для
+                КриптоПро CSP, КриптоПро JCP и Signal-COM CSP.</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'moduli-podderzki'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Утилиты</h3>
+        <div class="section__description">
+            <p>Дополнительное программное обеспечение для работы с электронными ключами eToken.</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'utility'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Документация</h3>
+        <div class="section__description">
+            <p>Документация для работы с электронными ключами eToken.</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'dokumentacia'}) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}

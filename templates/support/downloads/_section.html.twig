@@ -1,0 +1,15 @@
+{% set conditions = {
+    "catalog": "files",
+    "section": section,
+    "type": "E",
+    "order": "sort,title"
+} %}
+<div data-widget="api"
+     data-url="{{ path('widget') }}"
+     data-endpoint="/catalogs/elements"
+     data-conditions="{{ conditions | json_encode }}"
+     data-template="/support/_widgets/downloads.html.twig">
+    {% for i in 1..3 %}
+        {{ include('support/_widgets/downloads.placeholder.html.twig') }}
+    {% endfor %}
+</div>

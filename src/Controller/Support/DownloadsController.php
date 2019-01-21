@@ -6,6 +6,7 @@ use App\Repository\Repository;
 use App\Resource\Catalog\Element;
 use App\Resource\Storage\Storage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;

@@ -1,0 +1,44 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Центр загрузки{% endblock %}
+
+{% block content %}
+
+    {% set products = {
+        'jacarta': 'JaCarta',
+        'jms': 'JaCarta Management System',
+        'jas': 'JaCarta Authentication Server',
+        'cryptobd': '"Крипто БД"',
+        'sd': 'Secret Disk 5',
+        'sdp': 'Secret Disk 4',
+        'sdsng': 'Secret Disk Server NG',
+        'sde': 'Secret Disk Enterprise',
+        'antifraud': '"Антифрод-терминал"',
+        'jc-webclient': 'JC-WebClient',
+        'ibutton': 'iButton',
+        'cardreaders': 'Смарт-карт ридеры ASEDrive',
+        'etoken': 'eToken',
+    } %}
+
+    {% set categories = {
+        'drivers': 'Драйверы',
+        'software': 'Программное обеспечение',
+        'documentation': 'Документация'
+    } %}
+
+    <p>Для поиска элементов Центра загрузки выберите категорию продуктов.</p>
+    <ul>
+        {% for name, title in products %}
+            <li>
+                <a href="{{ path('support:downloads:section', {'code': name}) }}">{{ title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}

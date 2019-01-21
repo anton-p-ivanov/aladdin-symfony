@@ -4,9 +4,11 @@ support:
 support:tickets:create:
     path: /support/tickets/create
 support:page:
-    path: /support/{page<(?!tickets)[\w\-]+>}
+    path: /support/{page<(?!tickets|downloads)[\w\-]+>}
     defaults: { template: 'support/{page}.html.twig' }
 support:downloads:
     path: /support/downloads
+    defaults: { template: 'support/downloads/index.html.twig' }
 support:downloads:section:
     path: /support/downloads/{code<[\w\-]+>}
+    defaults: { template: 'support/downloads/{code}.html.twig' }

@@ -1,0 +1,10 @@
+<div class="list-icons mb-4">
+    {% for item in response %}
+    <div class="mb-4">
+        <ion-icon name="arrow-down"></ion-icon>
+        <span>
+            <a href="{{ path('support:downloads:view', {'uuid': item.uuid}) }}" class="d-block">{{ item.title }}</a>
+        </span>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,35 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Центр загрузки{% endblock %}
+
+{% block content %}
+
+    <h2>Secret Disk 5</h2>
+    <div class="section mb-5">
+        <h3 class="section__title">Программное обеспечение</h3>
+        <div class="section__description">
+            <p>Программное обеспечение для защиты конфиденциальной информации и персональных данных на ПК или ноутбуке
+                с возможностью коллективной работы по сети.</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'programmnoe-obespecenie-9'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Документация</h3>
+        <div class="section__description">
+            <p>Документация по установке, настройке и использованию программного обеспечения Secret Disk 5.</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'dokumentaciya-5'}) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}

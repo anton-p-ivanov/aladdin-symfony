@@ -1,0 +1,31 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Центр загрузки{% endblock %}
+
+{% block content %}
+
+    <h2>JC-WebClient</h2>
+    <div class="section mb-5">
+        <h3 class="section__title">Программное обеспечение</h3>
+        <div class="section__description">
+            <p>Дистрибутив JC-WebClient доступен только в составе комплекта разработчика JC-WebClient SDK, заявку на который Вы можете оформить на странице "<a href="{{ path('support:page', {'page': 'sdk', '_fragment': 'jc-webclient_sdk'}) }}">Комплекты разработчика</a>".</p>
+        </div>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'distributiv'}) }}
+        </div>
+    </div>
+
+    <div class="section mb-5">
+        <h3 class="section__title">Информационные материалы</h3>
+        <div class="section__files">
+            {{ include('support/downloads/_section.html.twig', {'section': 'dokumentaciya-3'}) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block back_to_top %}{% endblock %}
