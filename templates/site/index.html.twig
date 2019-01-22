@@ -30,91 +30,117 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="" class="btn btn-outline-primary">Все продукты</a>
+                <a href="{{ path('catalog') }}" class="btn btn-outline-primary">Все продукты</a>
             </div>
         </div>
 
-        <div class=" bg-light my-5 py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-3 d-flex align-items-center">
-                    <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
-                        <div style="font-size:1.5rem;">10</div>
+        <div class=" bg-light mb-5 py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 d-flex align-items-center">
+                        <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
+                            <div style="font-size:1.5rem;">10</div>
+                        </div>
+                        <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
                     </div>
-                    <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
-                </div>
-                <div class="col-3 d-flex align-items-center">
-                    <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
-                        <div style="font-size:1.5rem;">20</div>
+                    <div class="col-3 d-flex align-items-center">
+                        <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
+                            <div style="font-size:1.5rem;">20</div>
+                        </div>
+                        <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
                     </div>
-                    <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
-                </div>
-                <div class="col-3 d-flex align-items-center">
-                    <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
-                        <div style="font-size:1.5rem;">30</div>
+                    <div class="col-3 d-flex align-items-center">
+                        <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
+                            <div style="font-size:1.5rem;">30</div>
+                        </div>
+                        <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
                     </div>
-                    <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
-                </div>
-                <div class="col-3 d-flex align-items-center">
-                    <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
-                        <div style="font-size:1.5rem;">40</div>
+                    <div class="col-3 d-flex align-items-center">
+                        <div style="min-width:64px;height:64px;border-radius:32px;border:solid 2px" class="border-secondary d-flex align-items-center justify-content-center">
+                            <div style="font-size:1.5rem;">40</div>
+                        </div>
+                        <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
                     </div>
-                    <span class="ml-3">Lorem ipsum dolor sit amet consectetur</span>
                 </div>
             </div>
-        </div>
         </div>
 
         <div class="bg-white my-5">
             <div class="container">
                 <p class="large text-center mb-5">Новости компании</p>
                 <div class="row">
-                    <div class="col-4">
-                        <a href="#">Aliquam euismod lacinia arcu viverra rutrum</a>
-                        <div>Mauris sit amet turpis non urna facilisis commodo sit amet id quam. Sed dignissim elit vel mattis feugiat. </div>
-                    </div>
-                    <div class="col-4">
-                        <a href="#">Aliquam euismod lacinia arcu viverra rutrum. Fusce in efficitur est</a>
-                        <div>Mauris sit amet turpis non urna facilisis commodo sit amet id quam. Sed dignissim elit vel mattis feugiat. </div>
-                    </div>
-                    <div class="col-4">
-                        <a href="#">Aliquam euismod lacinia arcu viverra rutrum</a>
-                        <div>Mauris sit amet turpis non urna facilisis commodo sit amet id quam. Sed dignissim elit vel mattis feugiat. </div>
+                    {% set conditions = {
+                        "catalog": "news",
+                        "type": "E",
+                        "limit": 3,
+                        "order": "-activeFrom"
+                    } %}
+                    <div data-widget="api"
+                         data-url="{{ path('widget') }}"
+                         data-endpoint="/catalogs/elements"
+                         data-conditions="{{ conditions | json_encode }}"
+                         data-template="/site/_widgets/news.html.twig">
+                        {% for i in 1..3 %}
+                            {{ include('site/_widgets/news.placeholder.html.twig') }}
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <a href="" class="btn btn-outline-primary">Все новости</a>
+                    <a href="{{ path('pressroom:news') }}" class="btn btn-outline-primary">Все новости</a>
                 </div>
             </div>
         </div>
 
         <div class="bg-white my-4">
+            {% set conditions = {
+                "catalog": "events",
+                "type": "E",
+                "limit": 3,
+                "period": {
+                    "from": "now" | date("Y-m-d H:i:s"),
+                    "order": "sort,activeFrom"
+                }
+            } %}
+            <div data-widget="api"
+                 data-url="{{ path('widget') }}"
+                 data-endpoint="/catalogs/elements"
+                 data-conditions="{{ conditions | json_encode }}"
+                 data-template="/site/_widgets/events.html.twig">
+
+            </div>
+        </div>
+
+        <div class="bg-info text-white py-4 mt-5">
             <div class="container">
-                <p class="large text-center mb-5">События и мероприятия</p>
                 <div class="row">
-                    <div class="col-4">
-                        <div style="width:100%;height:150px;border:solid 2px" class="bg-light border-secondary mb-4"></div>
-                        <a href="#">Aliquam euismod lacinia arcu viverra rutrum</a>
-                        <div>Mauris sit amet turpis non urna facilisis commodo sit amet id quam. Sed dignissim elit vel mattis feugiat. </div>
+                    <div class="col-3">
+                        <div class="d-flex align-items-center">
+                            <a href="{{ path('support') }}" class="large text-white">Техническая<br />поддержка</a>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <div style="width:100%;height:150px;border:solid 2px" class="bg-light border-secondary mb-4"></div>
-                        <a href="#">Aliquam euismod lacinia arcu viverra rutrum. Fusce in efficitur est</a>
-                        <div>Mauris sit amet turpis non urna facilisis commodo sit amet id quam. Sed dignissim elit vel mattis feugiat. </div>
+                    <div class="col-3">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-64 bg-white" style="border-radius:32px;"></div>
+                            <a href="{{ path('support:downloads') }}" class="ml-3 text-white">Центр загрузки</a>
+                        </div>
                     </div>
-                    <div class="col-4">
-                        <div style="width:100%;height:150px;border:solid 2px" class="bg-light border-secondary mb-4"></div>
-                        <a href="#">Aliquam euismod lacinia arcu viverra rutrum</a>
-                        <div>Mauris sit amet turpis non urna facilisis commodo sit amet id quam. Sed dignissim elit vel mattis feugiat. </div>
+                    <div class="col-3">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-64 bg-white" style="border-radius:32px;"></div>
+                            <a href="{{ path('support:page', {'page': 'sdk'}) }}" class="ml-3 text-white">Разработчикам</a>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center mt-4">
-                    <a href="" class="btn btn-outline-primary">Все мероприятия</a>
+                    <div class="col-3">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-64 bg-white" style="border-radius:32px;"></div>
+                            <a href="https://kbp.aladdin-rd.ru" class="ml-3 text-white">База знаний</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-light mt-5 py-5 border-secondary" style="border-bottom:solid 2px">
+        <div class="bg-light py-5 border-secondary" style="border-bottom:solid 2px">
             <div class="container text-center">
                 <p class="large mb-5">Нам доверяют</p>
                 <img src="{{ asset('images/catalog/jc-webclient/top-clients.jpg') }}" class="img-fluid" />

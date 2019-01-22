@@ -1,0 +1,6 @@
+{% for item in response %}
+    <div class="col-4">
+        <a href="{{ path('pressroom:news:view', {'code': item.code}) }}" class="d-block">{{ item.title }}</a><br class="d-none" />
+        <div class="d-block">{{ item.description | raw }}</div>
+    </div>
+{% endfor %}

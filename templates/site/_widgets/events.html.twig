@@ -1,0 +1,17 @@
+{% if response|length > 0 %}
+    <div class="container">
+        <p class="large text-center mb-5">События и мероприятия</p>
+        <div class="row">
+        {% for item in response %}
+            <div class="col-4">
+                <div style="width:100%;height:150px;border:solid 2px" class="bg-light border-secondary mb-4"></div>
+                <a href="{{ path('pressroom:events:view', {'code': item.code}) }}" class="d-block">{{ item.title }}</a><br class="d-none" />
+                <div class="d-block">{{ item.description | raw }}</div>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ path('pressroom:events') }}" class="btn btn-outline-primary">Все мероприятия</a>
+        </div>
+    </div>
+{% endif %}
