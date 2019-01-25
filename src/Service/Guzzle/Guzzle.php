@@ -31,20 +31,37 @@ class Guzzle
     private $request;
 
     /**
+     * @var array
+     */
+    private $params;
+
+    /**
      * Guzzle constructor.
      *
      * @param RequestStack $requestStack
+     * @param ContainerInterface $container
      */
     public function __construct(RequestStack $requestStack, ContainerInterface $container)
     {
         // Storing current request in a variable
         $this->request = $requestStack->getCurrentRequest();
 
-        // Preparing client
-        $this->client = new Client($this->getConfig());
-
         // Container interface
         $this->container = $container;
+
+        // Set service params from config file
+        $this->params = $this->container->getParameter('guzzle');
+
+        // Preparing client
+        $this->client = new Client($this->getConfig());
+    }
+
+    /**
+     * @return string
+     */
+    protected function getAccessToken(): string
+    {
+        return $this->request->getSession()->get('Access-Token', $this->params['guest_token']);
     }
 
     /**
@@ -53,10 +70,10 @@ class Guzzle
     public function getConfig(): array
     {
         return [
-            'base_uri' => "http://api-symfony.web.host",
+            'base_uri' => $this->params['base_uri'],
             'auth' => [
-                'a354f75b-0352-42d0-b1a5-168f2cb04a7f',
-                'client_secret'
+                $this->params['client_id'],
+                $this->params['client_secret']
             ],
             'timeout' => 30,
             'headers' => [
@@ -129,14 +146,7 @@ class Guzzle
      */
     public function request(string $method, string $uri, array $options = [])
     {
-        $accessToken = $this->request->getSession()->get('Access-Token');
-        if ($accessToken) {
-            $options['headers']['Access-Token'] = $accessToken;
-        }
-        else {
-            // for DEV only
-            $options['headers']['Access-Token'] = '05faa7751d1b34f1e350a7bffa93e6f134233930';
-        }
+        $options['headers']['Access-Token'] = $this->getAccessToken();
 
         try {
             /* @var \GuzzleHttp\Psr7\Response $response */

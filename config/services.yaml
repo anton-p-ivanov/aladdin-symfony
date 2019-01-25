@@ -11,6 +11,11 @@ parameters:
         login: 'soap_user'
         password: 'okwyIPfJr6I75rwuMkmM'
     locale: 'ru'
+    guzzle:
+        client_id: '8082b855-7405-4fa8-b3fe-640b932249ea'
+        client_secret: 'client_secret'
+        base_uri: "http://api-symfony.web.host"
+        guest_token: '05faa7751d1b34f1e350a7bffa93e6f134233930'
 
 services:
     # default configuration for services in *this* file
