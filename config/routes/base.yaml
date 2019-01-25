@@ -15,7 +15,5 @@ partners:
 buy:
     path: /buy
     defaults: { template: 'buy/index.html.twig' }
-logout:
-    path: /account/logout
 contacts:
     path: /company/contacts

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\Profile as Form;
 use App\Security\User\WebServiceUser;
+use App\Service\Guzzle\Guzzle;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -166,27 +167,41 @@ class AccountController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-//
-//    /**
-//     * @Route("/profile", name="account_profile")
-//     *
-//     * @param Request $request
-//     *
-//     * @return Response
-//     */
-//    public function profile(Request $request): Response
-//    {
-//        $form = $this->createForm(Form\ProfileType::class);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//
-//        }
-//
-//        return $this->render("account/profile.html.twig", [
-//            'form' => $form->createView()
-//        ]);
-//    }
+
+    /**
+     * @Route("/account", name="account")
+     *
+     * @param Http\Request $request
+     * @param Form\ProfileHandler $handler
+     * @param Guzzle $guzzle
+     *
+     * @return Http\Response
+     */
+    public function account(Http\Request $request, Form\ProfileHandler $handler, Guzzle $guzzle): Http\Response
+    {
+        $data = [];
+        /* @var $user WebServiceUser */
+        if ($user = $this->getUser()) {
+            $response = $guzzle->get('/users/getByUsername', ['username' => $user->getUsername()]);
+            if ($response->getStatusCode() === Http\Response::HTTP_OK) {
+                $data = $response->getJson();
+            }
+        }
+
+        $form = $this->createForm(Form\ProfileType::class, $data);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if ($handler->update($form)) {
+                $this->addFlash('account.updated', true);
+                return $this->redirectToRoute('account');
+            }
+        }
+
+        return $this->render("account/account.html.twig", [
+            'form' => $form->createView()
+        ]);
+    }
 
     /**
      * @param WebServiceUser $user

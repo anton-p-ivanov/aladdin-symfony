@@ -1,0 +1,91 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Мой профиль{% endblock %}
+
+{% block content %}
+
+    {% for message in app.flashes('account.updated') %}
+        <div class="alert alert-success alert-lg">
+            Данные обновлены.
+        </div>
+    {% endfor %}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.email, 'E-Mail') }}
+        {{ form_widget(form.email, {'attr': {'placeholder': 'sergey.ivanov@example.com'}}) }}
+        {{ form_errors(form.email) }}
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                {{ form_label(form.fname, 'Имя') }}
+                {{ form_widget(form.fname, {'attr': {'placeholder': 'Сергей'}}) }}
+                {{ form_errors(form.fname) }}
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                {{ form_label(form.lname, 'Фамилия') }}
+                {{ form_widget(form.lname, {'attr': {'placeholder': 'Иванов'}}) }}
+                {{ form_errors(form.lname) }}
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                {{ form_label(form.sname, 'Отчество (не обязательно)') }}
+                {{ form_widget(form.sname) }}
+                {{ form_errors(form.sname) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                {{ form_label(form.phone, 'Телефон (не обязательно)') }}
+                {{ form_widget(form.phone, {'attr': {'placeholder': '+7 (495) 2230001'}}) }}
+                {{ form_errors(form.phone) }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                {{ form_label(form.skype, 'Skype (не обязательно)') }}
+                {{ form_widget(form.skype, {'attr': {'placeholder': 'sergey.ivanov'}}) }}
+                {{ form_errors(form.skype) }}
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="form-group">
+        {{ form_label(form.password.first, 'Новый пароль') }}
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_widget(form.password.first, {'attr': {'placeholder': 'Введите пароль'}}) }}
+                {{ form_errors(form.password.first) }}
+            </div>
+            <div class="col-sm-6">
+                {{ form_widget(form.password.second, {'attr': {'placeholder': 'Подтвердите пароль'}}) }}
+                {{ form_errors(form.password.second) }}
+            </div>
+            <div class="col">{{ form_errors(form.password) }}</div>
+        </div>
+    </div>
+
+    <div class="form-group mt-5">
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('account/sidebar.html.twig') }}
+{% endblock %}
