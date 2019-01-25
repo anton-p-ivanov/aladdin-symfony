@@ -4,6 +4,9 @@ home:
 logout:
     path: /account/logout
 
+account:
+    path: /account/account
+
 redirects:
     resource: 'routes/redirects.yaml'
     controller: App\Controller\RedirectController::urlRedirectAction

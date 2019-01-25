@@ -1,0 +1,58 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Активация учётной записи{% endblock %}
+
+{% block content %}
+
+    {% for message in app.flashes('register.success') %}
+        <div class="alert alert-success alert-lg">
+            <h3 class="alert-heading">Требуется активация учётной записи</h3>
+            <p>Вы успешно зарегистрировали свою учётную запись на партнёрском сайте компании "Аладдин Р.Д.".</p>
+            <p>Для начала работы с учётной записью мы просим вас активировать её. Для этого мы отправили вам
+                письмо с инструкцией о том, как это сделать. Пожалуйста, проверьте ваш почтовый ящик.</p>
+        </div>
+    {% endfor %}
+
+    <p>Заполните поля формы для активации вашей учётной записи:</p>
+
+    <div class="mt-5">
+
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'autocomplete': 'off'}}) }}
+
+        <div class="form-group row">
+            {{ form_label(form.code, 'Контрольная строка', {'label_attr': {'class': 'col-sm-3 col-form-label text-right'}}) }}
+            <div class="col-sm-6">
+                {{ form_widget(form.code, {'attr': {'placeholder': 'Код активации', 'autofocus': true}}) }}
+                {{ form_errors(form.code) }}
+                <small class="form-text text-secondary">
+                    Была отправлена Вам на E-Mail, указанный при регистрации.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            {{ form_label(form.password, 'Ваш пароль', {'label_attr': {'class': 'col-sm-3 col-form-label text-right'}}) }}
+            <div class="col-sm-6">
+                {{ form_widget(form.password, {'attr': {'placeholder': 'Введите пароль', 'autocomplete': 'new-password'}}) }}
+                {{ form_errors(form.password) }}
+                <small class="form-text text-secondary">
+                    Введите пароль, выбранный Вами при регистрации.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+                <button type="submit" class="btn btn-primary">Активировать</button>
+            </div>
+        </div>
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('account/sidebar.html.twig') }}
+{% endblock %}

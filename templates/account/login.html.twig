@@ -1,0 +1,77 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Добро пожаловать{% endblock %}
+
+{% block content %}
+
+    <div class="row my-5">
+        <div class="col-6">
+            <form action="{{ path('login') }}" method="post" id="form-account-login">
+
+                {% for message in app.session.flashBag.get('success') %}
+                    <div class="alert alert-success">
+                        {{ message | trans }}
+                    </div>
+                {% endfor %}
+
+                {% set errors = {
+                    100: {
+                        'message': 'Ваша учётная запись заблокирована.<br><a href="%url%">Обратитесь</a> к администратору сайта за дополнительной информацией.',
+                        'params': {'%url%': url('feedback')}
+                    },
+                    101: {
+                        'message': 'Ваша учётная запись не была подтверждена.<br><a href="%url%">Подтвердите</a> учётную запись.',
+                        'params': {'%url%': url('account_confirm')}
+                    },
+                    102: {
+                        'message': 'Срок действия вашего пароля истёк.<br><a href="%url%">Смените</a> пароль на новый.',
+                        'params': {'%url%': url('account_reset')}
+                    },
+                    0: {
+                        'message': error ? error.message : '',
+                    }
+                } %}
+
+                {% for code, e in errors %}
+                    <div class="alert alert-{{ e.type is defined ? e.type : 'danger' }}{% if not error or error.code != code %} d-none{% endif %}" data-error="{{ code }}">
+                        {{ e.message | replace(e.params is defined ? e.params : {}) | raw }}
+                    </div>
+                {% endfor %}
+
+                <div class="form-group">
+                    <label for="username" class="d-none">E-Mail</label>
+                    <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" placeholder="E-Mail" autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="d-none">Пароль</label>
+                    <input type="password" id="password" name="_password" class="form-control" placeholder="Пароль" />
+                </div>
+
+                <div class="form-group form-check">
+                    <input type="hidden" name="_remember_me" value="0" />
+                    <input type="checkbox" class="form-check-input" id="remember_me" name="_remember_me" value="1" />
+                    <label for="remember_me" class="form-check-label">Запомнить меня на этом компьютере</label>
+                </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                    </div>
+                    <div class="col-8 small">
+                        <a href="{{ path('account_register') }}">Регистрация пользователя</a><br>
+                        <a href="{{ path('account_reset') }}">Восстановление пароля</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('account/sidebar.html.twig') }}
+{% endblock %}

@@ -67,3 +67,8 @@ sdlpe:
     path: /catalog/secret_disk/lpe
     defaults:
         path: /catalog/secret_disk_lpe
+
+account_password_change:
+    path: /account/password-change
+    defaults:
+        path: /account/password

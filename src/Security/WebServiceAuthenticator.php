@@ -288,6 +288,12 @@ class WebServiceAuthenticator extends AbstractFormLoginAuthenticator
             ]);
         }
 
+        $request->getSession()->set(Security::AUTHENTICATION_ERROR, [
+            'success' => false,
+            'message' => $exception->getMessage(),
+            'code' => $exception->getCode()
+        ]);
+
         return new RedirectResponse($this->router->generate('login'));
     }
 }

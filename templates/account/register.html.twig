@@ -1,0 +1,100 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+
+    <div class="row mb-4">
+        <div class="offset-3 col-9">Пожалуйста, заполните поля формы для регистрации на сайте. Поля, выделенные <span class="font-weight-bold">жирным</span>, обязательны для заполнения.</div>
+    </div>
+
+    {% form_theme form _self %}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group row">
+        {{ form_label(form.email, 'E-Mail', {'label_attr': {'class': 'col-sm-3 col-form-label text-right'}}) }}
+        <div class="col-sm-8">
+            {{ form_widget(form.email, {'attr': {'placeholder': 'sergey.ivanov@example.com'}}) }}
+            {{ form_errors(form.email) }}
+            <small class="form-text text-secondary">
+                Необходим для аутентификации на сайте и обратной связи с вами.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        {{ form_label(form.fname, 'Имя и фамилия', {'label_attr': {'class': 'col-sm-3 col-form-label text-right'}}) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.fname, {'attr': {'placeholder': 'Сергей'}}) }}
+            {{ form_errors(form.fname) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_widget(form.lname, {'attr': {'placeholder': 'Иванов'}}) }}
+            {{ form_errors(form.lname) }}
+        </div>
+    </div>
+
+    <div class="form-group row mt-5">
+        {{ form_label(form.password.first, 'Пароль', {'label_attr': {'class': 'col-sm-3 col-form-label text-right'}}) }}
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ form_widget(form.password.first, {'attr': {'placeholder': 'Введите пароль'}}) }}
+                    {{ form_errors(form.password.first) }}
+                </div>
+                <div class="col-sm-6">
+                    {{ form_widget(form.password.second, {'attr': {'placeholder': 'Подтвердите пароль'}}) }}
+                    {{ form_errors(form.password.second) }}
+                </div>
+            </div>
+            <small class="form-text text-secondary">
+                Если пароль не указан, он будет сгенерирован автоматически.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-8">
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-8">
+            {{ form_widget(form.agreement) }}
+            {{ form_errors(form.agreement) }}
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-8">
+            <button type="submit" class="btn btn-primary">Регистрация</button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block _register_agreement_label %}
+    <input type="checkbox" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="form-check-input" value="{{ form.vars.value }}" {% if form.vars.checked %} checked="checked"{% endif %}>
+    <label class="form-check-label required" for="{{ form.vars.id }}">
+        Регистрируясь на этом сайте я принимаю
+        <a href="{{ path('terms') }}">Условия использования</a>,
+        подтверждаю достоверность предоставленных мной в регистрационной анкете данных и даю согласие
+        на обработку моих персональных данных.
+    </label>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ include('captcha.html.twig', {
+        'action': 'profile/register',
+        'id': 'register_captcha'
+    }) }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('account/sidebar.html.twig') }}
+{% endblock %}
