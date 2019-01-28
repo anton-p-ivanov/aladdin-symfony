@@ -55,6 +55,7 @@
                 </div>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_target_path" value="{{ app.request.headers.get('referer') }}" />
 
                 <div class="row">
                     <div class="col-4">

@@ -254,7 +254,7 @@ class WebServiceAuthenticator extends AbstractFormLoginAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey): Response
     {
-        $route = $this->router->generate('site_index');
+        $route = $request->get('_target_path', $this->router->generate('site_index'));
         $response = new RedirectResponse($route);
 
         if ($request->isXmlHttpRequest()) {
