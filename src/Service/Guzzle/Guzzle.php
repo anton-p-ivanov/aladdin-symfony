@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -159,8 +160,13 @@ class Guzzle
             switch ($response->getStatusCode()) {
                 case 401:
                     if ($responseData['error'] === 'invalid_access_token') {
-                        if ($this->refreshAccessToken()) {
-                            return $this->request($method, $uri, $options);
+                        if ($refreshToken = $this->refreshAccessToken()) {
+                            $refreshToken = base64_encode($refreshToken . getenv('APP_SECRET'));
+
+                            $response = $this->request($method, $uri, $options);
+                            $response->headers->setCookie(new Cookie('REFRESH_TOKEN', $refreshToken, (new \DateTime())->modify('+30 days')));
+
+                            return $response;
                         }
 
                         return $this->logout();
@@ -203,28 +209,34 @@ class Guzzle
     }
 
     /**
-     * @return bool
+     * @return string|null
      */
-    private function refreshAccessToken(): bool
+    private function refreshAccessToken(): ?string
     {
         $refreshToken = $this->request->cookies->get('REFRESH_TOKEN');
 
         if ($refreshToken) {
             $refreshToken = substr(base64_decode($refreshToken), 0, -strlen(getenv('APP_SECRET')));
 
-            $response = $this->auth([
-                'grant_type' => 'refresh_token',
-                'refresh_token' => $refreshToken,
+            $response = $this->client->request('POST', '/oauth/token', [
+                'json' => [
+                    'grant_type' => 'refresh_token',
+                    'refresh_token' => $refreshToken,
+                ]
             ]);
 
-            $responseData = $response->getJson();
+            try {
+                $responseData = json_decode($response->getBody()->getContents(), true);
 
-            if ($response->getStatusCode() === Response::HTTP_CREATED) {
-                $this->request->getSession()->set('Access-Token', $responseData['access_token']);
-                return true;
+                if ($response->getStatusCode() === Response::HTTP_CREATED) {
+                    $this->request->getSession()->set('Access-Token', $responseData['access_token']);
+
+                    return $responseData['refresh_token'];
+                }
             }
+            catch (\Exception $exception) {}
         }
 
-        return false;
+        return null;
     }
 }
