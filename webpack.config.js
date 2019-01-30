@@ -21,6 +21,8 @@ Encore
     // these modules will *not* be included in page1.js or page2.js anymore
     .addEntry('js/app', './assets/js/app.js')
     .addEntry('js/partners/search', './assets/js/partners/search.js')
+    .addEntry('js/tickets/create', './assets/js/tickets/create.js')
+    .addEntry('js/site/index', './assets/js/site/index.js')
 
     .addStyleEntry('css/app', './assets/scss/app.scss')
     .addStyleEntry('css/catalog', './assets/scss/catalog/catalog.scss')
@@ -28,6 +30,7 @@ Encore
     .addStyleEntry('css/catalog-jacarta-index', './assets/scss/catalog/jacarta/index.scss')
     .addStyleEntry('css/catalog-jacarta-faq', './assets/scss/catalog/jacarta/faq.scss')
     .addStyleEntry('css/catalog-jms-index', './assets/scss/catalog/jms/index.scss')
+    .addStyleEntry('css/site/index', './assets/scss/site/index.scss')
 
     .copyFiles({from: './assets/images'})
 

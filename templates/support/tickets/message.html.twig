@@ -1,0 +1,38 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Мои обращения{% endblock %}
+
+{% block content %}
+
+    <h3>Сообщение №{{ article.ArticleID }} к обращению №{{ ticket.TicketNumber }}</h3>
+
+    <div class="p-2 bg-light">
+    {% if article.SenderType == 'customer' %}
+        Вы пишите {{ article.Created | date("d.m.Y H:i") }}
+    {% else %}
+        Техподдержка пишет Вам {{ article.Created | date("d.m.Y H:i") }}
+    {% endif %}
+    </div>
+
+    <div class="mt-4">
+        {{ message | raw }}
+    </div>
+
+    <hr/>
+
+    <div class="row">
+        <div class="col-6 text-left">
+            {% if article.SenderType != 'customer' %}
+                <a href="{{ url('support:tickets:reply', {'tid': ticket.TicketID}) }}" class="btn btn-outline-primary">Ответить</a>
+            {% endif %}
+        </div>
+        <div class="col-6 text-right">
+            <a href="{{ url('support:tickets:view', {'ticketID': ticket.TicketID}) }}" class="btn btn-outline-primary">Все сообщения</a>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}

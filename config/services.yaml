@@ -10,6 +10,7 @@ parameters:
         path: '/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnector/'
         login: 'soap_user'
         password: 'okwyIPfJr6I75rwuMkmM'
+        test: true
     locale: 'ru'
     guzzle:
         client_id: '8082b855-7405-4fa8-b3fe-640b932249ea'
