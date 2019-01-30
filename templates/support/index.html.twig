@@ -11,6 +11,13 @@
 {% block content %}
 
     <div class="container">
+
+        {% for message in app.flashes('ticket.created') %}
+            <div class="alert alert-success alert-lg">
+                Ваша заявка в техническую поддержку успешно зарегистрирована.
+            </div>
+        {% endfor %}
+
         <div class="alert alert-warning">
             <h3>Важная информация!</h3>
             <p>Компания "Аладдин Р.Д." извещает о планах прекращения продажи, поддержки и сопровождения USB-токенов и смарт-карт семейства <b class="text-nowrap">eToken PRO (Java)</b>, <b>eToken</b> и <b class="text-nowrap">СКЗИ "Криптотокен"</b> в составе изделий <b class="text-nowrap">eToken ГОСТ</b>.</p>
@@ -60,7 +67,13 @@
             <div class="col-6">
                 <h2>Мои обращения</h2>
                 {% if app.user %}
-                    <div id="tickets" class="small" data-url="{{ path('support:tickets') }}"></div><br>
+                    <div id="tickets" class="small">
+                        <div data-widget="api"
+                             data-url="{{ path('support:tickets') }}"
+                             data-conditions="{{ {"limit": 3} | json_encode }}"
+                             data-template="/support/_widgets/tickets.html.twig">
+                        </div>
+                    </div><br>
                 {% else %}
                     <div class="alert alert-info">
                         Для просмотра списка Ваших обращений,<br />

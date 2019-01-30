@@ -3,22 +3,100 @@
 {% block title %}Мои обращения{% endblock %}
 
 {% block content %}
-    <h4>Обращение № {{ ticket.TicketNumber }} от {{ ticket.Created | date('d.m.Y') }}</h4>
-    <div>
-        <div>Тема: {{ ticket.Title }}</div>
-        <div>Статус: {{ ticket.State }}</div>
-        <div>Обновлено: {{ ticket.Changed | date }}</div>
-    </div>
 
-    {% for article in articles %}
-        {% set isCustomer = article.SenderType == 'customer' %}
-        <div class="card w-75 my-4 float-{{ isCustomer ? 'right' : 'left' }}">
-            <div class="card-header">
-                {% if isCustomer %} Вы {% else %} Техподдержка {% endif %} @ {{ article.Created | date }}
-            </div>
-            <div class="card-body">{{ article.Body | otrsArticle | raw }}</div>
+    {% for message in app.flashes('ticket.updated') %}
+        <div class="alert alert-success alert-lg">
+            Ваша сообщение было успешно отправлено.
         </div>
     {% endfor %}
+
+    <table class="table">
+        <colgroup>
+            <col width="250">
+            <col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>Номер обращения</th>
+            <td>{{ ticket.TicketNumber }}</td>
+        </tr>
+        <tr>
+            <th>Тема обращения</th>
+            <td>{{ ticket.Title }}</td>
+        </tr>
+        <tr>
+            <th>Дата открытия</th>
+            <td>{{ ticket.Created | date('d.m.Y') }}</td>
+        </tr>
+        {% if ticket.isClosed %}
+            <tr>
+                <th>Дата закрытия</th>
+                <td>{{ ticket.Closed | date('d.m.Y') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <th>Дата обновления</th>
+                <td>{{ ticket.Changed | date('d.m.Y') }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <th>Статус обращения</th>
+            <td>{{ ticket.State }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-6">
+            {% if not ticket.isClosed %}
+                <a href="{{ path('support:tickets:reply', {'tid': ticket.TicketID}) }}" class="btn btn-outline-primary">Написать сообщение</a>
+            {% endif %}
+        </div>
+        <div class="col-6 text-right">
+            <a href="{{ path('support:tickets') }}" class="btn btn-outline-primary">Все обращения</a>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Сообщения ({{ articles | length }})</h3>
+    <table class="table">
+        <colgroup>
+            <col width="55">
+            <col width="230">
+            <col>
+            <col width="200">
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Отправитель</th>
+            <th>Сообщение</th>
+            <th>Дата</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            {% set isCustomer = article.SenderType == 'customer' %}
+            {% set detailsUrl = path('support:tickets:message', {'tid': ticket.TicketID, 'aid': article.ArticleID}) %}
+            <tr>
+                <td>
+                    <ion-icon name="arrow-round-{% if isCustomer %}back{% else %}forward{% endif %}" class="text-{% if isCustomer %}warning{% else %}success{% endif %}"></ion-icon>
+                </td>
+                <td>
+                    {% if isCustomer %}
+                        Вы
+                    {% else %}
+                        Тех.поддержка
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ detailsUrl }}">{{ article.Body[:200] }}</a>
+                </td>
+                <td>
+                    {{ article.Created | date('d.m.Y, H:i') }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
 
 {% block sidebar %}

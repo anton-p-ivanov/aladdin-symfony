@@ -1,0 +1,36 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Техническая поддержка{% endblock %}
+
+{% block content %}
+
+    <h3>Новое сообщение к обращению №{{ ticket.TicketNumber }}</h3>
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.subject, 'Тема сообщения') }}
+        {{ form_widget(form.subject, {'attr': {'class': 'custom-select'}}) }}
+        {{ form_errors(form.subject) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.text, 'Сообщение') }}
+        {{ form_widget(form.text, {'attr': {'rows': 10}}) }}
+        {{ form_errors(form.text) }}
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Отправить</button>
+        <a href="{{ path('support:tickets:view', {'ticketID': ticket.TicketID}) }}" class="btn btn-outline-primary">Все сообщения</a>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}

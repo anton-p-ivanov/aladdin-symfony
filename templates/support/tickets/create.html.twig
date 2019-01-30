@@ -1,0 +1,204 @@
+{% extends 'main.html.twig' %}
+{% form_theme form _self %}
+
+{% block title %}Техническая поддержка{% endblock %}
+
+{% block content %}
+
+    <h3>Создание нового обращения</h3>
+
+    <p>Перед обращением в техническую поддержку компании "Аладдин Р.Д." рекомендуем Вам воспользоваться <a href="https://kbp.aladdin-rd.ru/" target="_blank">Базой знаний</a>. На этом сайте мы собрали ответы на самые актуальные вопросы наших клиентов, среди которых может оказаться ответ и на Ваш вопрос.</p>
+
+    <div class="alert alert-warning">
+        Форма заявки для продукта JaCarta SF/ГОСТ расположена по <a href="{{ path('support:tickets:jacarta_sf') }}">адресу</a>.
+    </div>
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.fname, 'Имя') }}
+                {{ form_widget(form.fname, {'attr': {'autofocus': true, 'placeholder': 'Сергей'}}) }}
+                {{ form_errors(form.fname) }}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.lname, 'Фамилия') }}
+                {{ form_widget(form.lname, {'attr': {'placeholder': 'Иванов'}}) }}
+                {{ form_errors(form.lname) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.email, 'E-Mail') }}
+                {{ form_widget(form.email, {'attr': {'placeholder': 'sergey.ivanov@email.com'}}) }}
+                {{ form_errors(form.email) }}
+                <small class="text-secondary form-text">
+                    Обязательно проверьте правильность ввода вашего E-Mail, чтобы мы могли связаться с вами.
+                </small>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                {{ form_label(form.phone, 'Контактный телефон (не обязательно)') }}
+                {{ form_widget(form.phone, {'attr': {'placeholder': '+7 (495) 2230001'}}) }}
+                {{ form_errors(form.phone) }}
+                <small class="text-secondary form-text">
+                    Это поле не обязательно для заполнения, но нам будет проще с вами связаться как по телефону, так и
+                    с помощью популярных мессенджеров.
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.company, 'Название компании (не обязательно)') }}
+        {{ form_widget(form.company, {'attr': {'placeholder': 'Например, ЗАО "Аладдин Р.Д."'}}) }}
+        {{ form_errors(form.company) }}
+        <small class="text-secondary form-text">
+            Укажите название организации, представителем которой Вы являетесь. Это может помочь установить точные
+            параметры продуктов, приобретённых у нас.
+        </small>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                {{ form_label(form.product, 'Продукт') }}
+                {{ form_widget(form.product, {'attr': {'class': 'custom-select'}}) }}
+                {{ form_errors(form.product) }}
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                {{ form_label(form.driver, 'Используемое ПО') }}
+                {{ form_widget(form.driver, {'attr': {'class': 'custom-select'}}) }}
+                {{ form_errors(form.driver) }}
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                {{ form_label(form.version, 'Версия ПО') }}
+                {{ form_widget(form.version) }}
+                {{ form_errors(form.version) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.partner, 'Партнёр / поставщик') }}
+        {{ form_widget(form.partner, {'attr': {'placeholder': 'Например, ЗАО "Аладдин Р.Д."'}}) }}
+        {{ form_errors(form.partner) }}
+        <small class="text-secondary form-text">
+            Название организации, у которой был приобретён продукт.
+        </small>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                {{ form_label(form.os, 'Операционная система') }}
+                {{ form_widget(form.os) }}
+                {{ form_errors(form.os) }}
+            </div>
+        </div>
+        <div class="col-8 small" id="os_instructions">
+            <div data-os="Microsoft Windows" class="d-block">
+                <p>Для быстрого и точного ответа сотруднику службы технической поддержки требуются данные о конфигурации
+                    вашей системы, которые можно получить, следуя инструкции:</p>
+                <ol>
+                    <li>Меню "Пуск" → "Выполнить" (или нажмите сочетание клавиш <code class="text-nowrap">Win + R</code>)</li>
+                    <li>Введите комманду <code class="text-nowrap">msinfo32 /nfo %USERPROFILE%\Desktop\msinfo.nfo</code></li>
+                    <li>Загрузите файл <code>msinfo.nfo</code>, расположенный на вашем рабочем столе, на любой облачный
+                        сервис хранения файлов (например, <a href="https://disk.yandex.ru/" target="_blank">Яндекс.Диск</a> или <a href="https://www.google.com/intl/ru_ru/drive/" target="_blank">Google Drive</a>)
+                        и добавьте ссылку на него к тексту данного сообщения</li>
+                </ol>
+            </div>
+            <div data-os="Linux" class="d-none">
+                <p>Для быстрого и точного ответа сотруднику службы технической поддержки требуются данные о конфигурации
+                    вашей системы:</p>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            {{ form_label(form.linux_distributive, 'Название и версия дистрибутива') }}
+                            {{ form_widget(form.linux_distributive, {'attr': {'disabled': 'disabled'}}) }}
+                            {{ form_errors(form.linux_distributive) }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            {{ form_label(form.linux_kernel, 'Версия ядра Linux') }}
+                            {{ form_widget(form.linux_kernel, {'attr': {'disabled': 'disabled'}}) }}
+                            {{ form_errors(form.linux_kernel) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-os="Mac OS" class="d-none">
+                <p>Для быстрого и точного ответа сотруднику службы технической поддержки требуются данные о конфигурации
+                    вашей системы, которые можно получить, следуя инструкции:</p>
+                <ol>
+                    <li>Запустите "Терминал" из категории "Служебные программы"</li>
+                    <li>Введите комманду<br><code>system_profiler -xml -detailLevel basic &gt; /Users/myaccount/Desktop/report.xml</code><br>(вместо
+                        <code>myaccount</code> подставьте ваше имя пользователя)
+                    </li>
+                    <li>Загрузите файл <code>report.xml</code>, расположенный на вашем рабочем столе, на любой облачный
+                        сервис хранения файлов (например, <a href="https://disk.yandex.ru/" target="_blank">Яндекс.Диск</a> или <a href="https://www.google.com/intl/ru_ru/drive/" target="_blank">Google Drive</a>)
+                        и добавьте ссылку на него к тексту данного сообщения</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.subject, 'Тема обращения') }}
+        {{ form_widget(form.subject) }}
+        {{ form_errors(form.subject) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.content, 'Пожалуйста, опишите подробно проблему') }}
+        {{ form_widget(form.content, {'attr': {'rows': 10}}) }}
+        {{ form_errors(form.content) }}
+    </div>
+
+    <div class="form-group my-4">
+        {{ form_widget(form.agreement) }}
+        {{ form_errors(form.agreement) }}
+    </div>
+
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary">Создать обращение</button>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block _ticket_agreement_label %}
+    <input type="checkbox" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="form-check-input"
+           value="{{ form.vars.value }}" {% if form.vars.checked %} checked="checked"{% endif %}>
+    <label class="form-check-label required" for="{{ form.vars.id }}">
+        Регистрируя новое обращение на этом сайте я подтверждаю, что ознакомлен с "<a href="{{ path('support:page', {'page': 'rules'}) }}">Правилами оказания услуг</a>" компании "Аладдин Р.Д.".
+    </label>
+{% endblock %}
+
+{% block sidebar %}
+    {{ include('support/_sidebar.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/tickets/create') }}
+    {{ include('captcha.html.twig', {
+        'action': 'tickets/create',
+        'id': 'ticket_captcha'
+    }) }}
+{% endblock %}

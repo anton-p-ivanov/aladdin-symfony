@@ -1,26 +1,12 @@
-{% extends 'main.html.twig' %}
-
-{% block title %}Мои обращения{% endblock %}
-
-{% block content %}
-
-    {% for message in app.flashes('ticket.created') %}
-        <div class="alert alert-success alert-lg">
-            Ваша заявка в техническую поддержку успешно зарегистрирована.
-        </div>
-    {% endfor %}
-
     {% if (tickets | length) > 0 %}
         <table class="table">
             <colgroup>
-                <col width="170" />
                 <col>
-                <col width="150" />
+                <col width="100" />
                 <col width="150" />
             </colgroup>
             <thead>
             <tr>
-                <th>Номер</th>
                 <th>Тема</th>
                 <th>Статус</th>
                 <th>Обновлено</th>
@@ -29,7 +15,6 @@
             <tbody>
             {% for ticket in tickets %}
                 <tr>
-                    <td>{{ ticket.TicketNumber }}</td>
                     <td>
                         <a href="{{ path("support:tickets:view", {'ticketID': ticket.ticketID}) }}">
                             {{ ticket.title | raw }}
@@ -47,28 +32,12 @@
             {% endfor %}
             </tbody>
         </table>
+        <div class="text-center">
+            <a href="{{ path('support:tickets') }}" class="btn btn-outline-primary">Все обращения</a>
+        </div>
     {% else %}
         <p>
             Открытых обращений в техническую поддержку компании "Аладдин Р.Д." не найдено.<br>
             Чтобы создать новое обращение, нажмите на кнопку "Создать обращение" ниже.
         </p>
     {% endif %}
-
-    <div class="d-flex justify-content-between mt-4">
-        <a href="{{ path("support:tickets:create") }}" class="btn btn-outline-primary">Создать обращение</a>
-        <div class="d-block">
-            {% if (tickets | length) > 0 %}
-                <small class="text-muted mr-4">
-                    Обновлено {{ cacheDate | date }}
-                </small>
-                <a href="{{ path('support:tickets', {'refresh': true}) }}" class="btn btn-outline-dark">
-                    Обновить
-                </a>
-            {% endif %}
-        </div>
-    </div>
-{% endblock %}
-
-{% block sidebar %}
-    {{ include('support/_sidebar.html.twig') }}
-{% endblock %}

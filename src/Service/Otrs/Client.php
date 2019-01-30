@@ -21,6 +21,11 @@ class Client
     protected $client;
 
     /**
+     * @var bool
+     */
+    private $isTesting = true;
+
+    /**
      * Client constructor.
      *
      * @param ContainerInterface $container
@@ -45,6 +50,16 @@ class Client
             'Password' => $params['password'],
             'Extended' => 1,
         ]);
+
+        $this->isTesting = $params['test'] ?? true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTesting(): bool
+    {
+        return $this->isTesting === true;
     }
 
     /**
@@ -70,10 +85,18 @@ class Client
     }
 
     /**
+     * @return array
+     */
+    public function getParams(): array
+    {
+        return $this->params;
+    }
+
+    /**
      * @param $name
      * @param $value
      */
-    protected function addParam($name, $value)
+    public function addParam($name, $value)
     {
         $this->params[$name] = $value;
     }
@@ -81,7 +104,7 @@ class Client
     /**
      * @return array
      */
-    protected function prepareParams(): array
+    public function prepareParams(): array
     {
         $params = [];
         foreach ($this->params as $p => $v) {
@@ -196,5 +219,13 @@ class Client
         }
 
         return $ticket;
+    }
+
+    /**
+     * @return \SoapClient
+     */
+    public function getClient(): \SoapClient
+    {
+        return $this->client;
     }
 }

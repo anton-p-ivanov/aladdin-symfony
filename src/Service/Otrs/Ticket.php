@@ -79,6 +79,11 @@ class Ticket
     private $TicketID;
 
     /**
+     * @var string
+     */
+    private $QueueID;
+
+    /**
      * @var array
      */
     private $Article;
@@ -120,6 +125,22 @@ class Ticket
     public function setStateID(string $StateID): void
     {
         $this->StateID = $StateID;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQueueID(): string
+    {
+        return $this->QueueID;
+    }
+
+    /**
+     * @param string $QueueID
+     */
+    public function setQueueID(string $QueueID): void
+    {
+        $this->QueueID = $QueueID;
     }
 
     /**
@@ -203,9 +224,9 @@ class Ticket
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getArticle(): array
+    public function getArticle()
     {
         return $this->Article;
     }
@@ -213,7 +234,7 @@ class Ticket
     /**
      * @param array $Article
      */
-    public function setArticle(array $Article): void
+    public function setArticle($Article): void
     {
         $this->Article = $Article;
     }
